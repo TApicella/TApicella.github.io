@@ -1,4 +1,4 @@
-//$(document).ready(function(){
-//  alert("Hello World!");
-//});
-alert("Test!");
+$(document).ready(function(){
+  alert("Hello World!");
+});
+
