@@ -1,6 +1,6 @@
 {
   "name": "TApicella.github.io",
-  "main": "index.js",
+  "main": "index.js", "test.js"
   "version": "0.0.0",
   "homepage": "http://tapicella.github.io",
   "authors": [
