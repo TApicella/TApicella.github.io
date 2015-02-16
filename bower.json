@@ -1,6 +1,6 @@
 {
   "name": "TApicella.github.io",
-  "main": "index.js", "test.js"
+  "main": "index.js",
   "version": "0.0.0",
   "homepage": "http://tapicella.github.io",
   "authors": [
@@ -16,6 +16,9 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.5.4"
+    "polymer": "Polymer/polymer#~0.5.4",
+    "jquery": "~2.1.9",
+    "index": "./index.js",
+    "test": "./test.js"
   }
 }
