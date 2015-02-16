@@ -1,0 +1,21 @@
+{
+  "name": "TApicella.github.io",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "http://tapicella.github.io",
+  "authors": [
+    "Thomas Apicella <tapicella.ms@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.4"
+  }
+}
