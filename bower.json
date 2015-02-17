@@ -19,6 +19,7 @@
     "polymer": "Polymer/polymer#~0.5.4",
     "jquery": "~1.11.2",
     "index": "./index.js",
-    "test": "./test.js"
+    "test": "./test.js",
+    "bootstrap": "~3.3.2"
   }
 }
