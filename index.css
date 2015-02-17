@@ -1,7 +1,32 @@
 /* Empty */
 
 body {
-    background-color: #b0c4de;
+    background-color: #a0b3ef;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
-    color: #D5D8E3;
+    
+}
+
+h1 {
+	font-size: 72px;
+	color: #FDFDFD;
+}
+h2 {
+	font-size: 40px;
+	color: #EEEEEE;
+}
+
+.headerbox {
+	margin-left: 20px;
+}
+
+.lightgreen {
+	color: #EEFFEE;
+}
+
+.lightblue {
+	color: #EEEEFF;
+}
+
+.lightred {
+	color: #FFEEEE;
 }
