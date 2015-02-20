@@ -13,7 +13,7 @@ $(document).ready(function() {
     //Callback
     window['wCallback'] = function(data) {
         var info = data.query.results.channel.item.condition;
-        alert(info.text);
+        alert(info);
     };
 
     //Ajax call
