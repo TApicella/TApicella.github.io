@@ -4,20 +4,35 @@ $(document).ready(function() {
 
     //Setup
     var zipcode = '19145';
+    var latitude = 39.9149;
+    var longitude =	75.1911;
     var units = 'f';
+    var date = new Date();
 
-    //Query
+    //Queries
     var query = "SELECT item.condition FROM weather.forecast WHERE location='" + zipcode + "' AND u='" + units + "'";
     var cacheBuster = Math.floor((new Date().getTime()) / 1200 / 1000);
     var url = 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent(query) + '&format=json&_nocache=' + cacheBuster;
+    var lights = SunCalc.getTimes(date, latitude, longitude);
+    var moon = SunCalc.getMoonIllumination(date);
 
     //Callback
     window['wCallback'] = function(data) {
         var info = data.query.results.channel.item.condition;
         var buildstring = "";
-        for (var key in info) {
-            if (info.hasOwnProperty(key)) {
-                buildstring = buildstring + key + " -> " + info[key] + "<br/>";
+        for (var ikey in info) {
+            if (info.hasOwnProperty(ikey)) {
+                buildstring = buildstring + ikey + " -> " + info[ikey] + "<br/>";
+            }
+        }
+        for (var lkey in lights) {
+            if (lights.hasOwnProperty(lkey)) {
+                buildstring = buildstring + lkey + " -> " + lights[lkey] + "<br/>";
+            }
+        }
+        for (var mkey in moon) {
+            if (moon.hasOwnProperty(mkey)) {
+                buildstring = buildstring + mkey + " -> " + moon[mkey] + "<br/>";
             }
         }
         $('#weatherInfo').html(buildstring);
