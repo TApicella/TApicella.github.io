@@ -21,7 +21,6 @@ $(document).ready(function() {
             }
         }
         $('#weatherInfo').html(buildstring);
-        alert(info);
     };
 
     //Ajax call
