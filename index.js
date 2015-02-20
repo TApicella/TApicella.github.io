@@ -1,5 +1,14 @@
 $(document).ready(function() {
-    //Weather capturing from http://www.onextrapixel.com/2011/08/22/adding-weather-to-your-site-with-jquery-and-yql/
+	//Fixing grid
+	var spacing_string = "";
+	for(var i = 0; i < 100; i++){
+		spacing_string+="A<br>";
+	}
+	$("[class$='b']").each(function(){
+		$(this).html(spacing_string);
+	});
+
+	//Weather capturing from http://www.onextrapixel.com/2011/08/22/adding-weather-to-your-site-with-jquery-and-yql/
     //Also using SunCalc: https://github.com/mourner/suncalc
 
     //Setup
