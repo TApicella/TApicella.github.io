@@ -1,5 +1,6 @@
 $(document).ready(function() {
     //Weather capturing from http://www.onextrapixel.com/2011/08/22/adding-weather-to-your-site-with-jquery-and-yql/
+    //Also using SunCalc: https://github.com/mourner/suncalc
 
     //Setup
     var zipcode = '19145';
@@ -13,6 +14,13 @@ $(document).ready(function() {
     //Callback
     window['wCallback'] = function(data) {
         var info = data.query.results.channel.item.condition;
+        var buildstring = "";
+        for (var key in info) {
+            if (info.hasOwnProperty(key)) {
+                buildstring = buildstring + key + " -> " + info[key] + "<br/>";
+            }
+        }
+        $('#weatherInfo').html(buildstring);
         alert(info);
     };
 
