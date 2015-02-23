@@ -1,33 +1,38 @@
 function makeitrain() {
-    var black = "#000000"; //Weight 66/150
-    var dBlue = "#060023"; //Weight 66/150
-    var medBlue = "#020069"; //Weight 8/150
-    var brightBlue = "#0318A2"; //Weight 8/150
-    var yellow = "#FAE212"; //Weight 1/150
+    var black = "#000000"; //Weight 180/400
+    var dBlue = "#060023"; //Weight 180/400
+    var medBlue = "#020069"; //Weight 19/400
+    var brightBlue = "#0318A2"; //Weight 19/400
+    var yellow = "#FAE212"; //Weight 2/400
 
     var stdWidth = 4;
     var rainWidth = 2;
     var totalWidth = 0;
+    var nostrikes = true;
 
     var resultcss = "linear-gradient(90deg";
     while (totalWidth < 150) {
-        var next = Math.floor((Math.random() * 150) + 1);
-        if (next > 0 && next <= 66) {
+        var next = Math.floor((Math.random() * 400) + 1);
+        if (next > 0 && next <= 180) {
             totalWidth += stdWidth;
             resultcss += ", " + black + " " + totalWidth + "px";
 
-        } else if (next > 66 && next <= 132) {
+        } else if (next > 180 && next <= 360) {
             totalWidth += stdWidth;
             resultcss += ", " + dBlue + " " + totalWidth + "px";
-        } else if (next > 132 && next <= 140) {
+        } else if (next > 360 && next <= 379) {
             totalWidth += rainWidth;
             resultcss += ", " + medBlue + " " + totalWidth + "px";
-        } else if (next > 140 && next <= 149) {
+        } else if (next > 379 && next <= 398) {
             totalWidth += rainWidth;
             resultcss += ", " + brightBlue + " " + totalWidth + "px";
-        } else {
+        } else if (nostrikes) {
             totalWidth += rainWidth;
             resultcss += ", " + yellow + " " + totalWidth + "px";
+            nostrikes = false;
+        } else {
+            totalWidth += stdWidth;
+            resultcss += ", " + black + " " + totalWidth + "px";
         }
     }
     resultcss += ")";
