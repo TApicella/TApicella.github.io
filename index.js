@@ -1,8 +1,8 @@
 function makeitrain() {
     var black = "#000000"; //Weight 180/400
-    var dBlue = "#060023"; //Weight 180/400
-    var medBlue = "#020069"; //Weight 19/400
-    var brightBlue = "#0318A2"; //Weight 19/400
+    var dBlue = "#030017"; //Weight 180/400
+    var medBlue = "#010049"; //Weight 19/400
+    var brightBlue = "#020069"; //Weight 19/400
     var yellow = "#FAE212"; //Weight 2/400
 
     var stdWidth = 4;
@@ -11,22 +11,27 @@ function makeitrain() {
     var nostrikes = true;
 
     var resultcss = "linear-gradient(90deg";
+    var prevcol = "";
     while (totalWidth < 150) {
         var next = Math.floor((Math.random() * 400) + 1);
+
         if (next > 0 && next <= 180) {
             totalWidth += stdWidth;
             resultcss += ", " + black + " " + totalWidth + "px";
 
-        } else if (next > 180 && next <= 360) {
+        } else if (next > 180 && next <= 360 && prevcol != dBlue) {
             totalWidth += stdWidth;
             resultcss += ", " + dBlue + " " + totalWidth + "px";
-        } else if (next > 360 && next <= 379) {
+            prevcol = dBlue;
+        } else if (next > 360 && next <= 379 && prevcol != medBlue) {
             totalWidth += rainWidth;
             resultcss += ", " + medBlue + " " + totalWidth + "px";
-        } else if (next > 379 && next <= 398) {
+            prevcol = medBlue;
+        } else if (next > 379 && next <= 398 && prevcol != brightBlue) {
             totalWidth += rainWidth;
             resultcss += ", " + brightBlue + " " + totalWidth + "px";
-        } else if (nostrikes) {
+            prevcol = brightBlue;
+        } else if (next > 398 && nostrikes) {
             totalWidth += rainWidth;
             resultcss += ", " + yellow + " " + totalWidth + "px";
             nostrikes = false;
