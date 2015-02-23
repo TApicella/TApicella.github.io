@@ -1,48 +1,49 @@
 /* Empty */
 
 body {
-    background-color: #a0b3ef;
+    background-color: #0A112D;
     font-family: "Consolas", "Trebuchet MS", Helvetica, sans-serif;
-    
+    color: #FEFEFE;
 }
-
 h1 {
-	font-size: 80px;
-	color: #FDFDFD;
+    font-size: 80px;
+    color: #FDFDFD;
 }
-
 h2 {
-	font-size: 40px;
-	color: #EEEEEE;
+    font-size: 40px;
+    color: #EEEEEE;
+}
+.main-content {
+    height: 800px; /*Default value*/
+    overflow: auto;
+}
+.header-box {
+    margin-left: 20px;
 }
 
-.header-box {
-	margin-left: 20px;
+.thunder-h1{
+	color: #FAE212;
+}
+
+.thunder-h2{
+	color: #0318A2;
 }
 
 .light-green {
-	color: #EEFFEE;
+    color: #EEFFEE;
 }
-
 .light-blue {
-	color: #EEEEFF;
+    color: #EEEEFF;
 }
-
 .light-red {
-	color: #FFEEEE;
+    color: #FFEEEE;
 }
-
 .lgb {
-	color: #EEFFEE;
-	background-color: #EEFFEE;
+    background-color: #EEFFEE;
 }
-
 .lbb {
-	color: #EEEEFF;
-	background-color: #EEEEFF;
+    background-color: #EEEEFF;
 }
-
 .lrb {
-	color: #FFEEEE;
-	background-color: #FFEEEE;
+    background-color: #FFEEEE;
 }
