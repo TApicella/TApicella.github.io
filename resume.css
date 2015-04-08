@@ -1,24 +1,51 @@
 html{
 	font-family: "Arial", sans-serif;
+	margin-left: 20px;
+}
+
+
+
+.contact_information{
+	width:495px;
 }
 .name{
 	text-align:justify;
 	font-size: 52px;
+
 }
 .contact-info{
 	font-size: 18px;
+	float: left;
+	width:33.33%;
 }
 .section-header{
-	font-size: 18px
+	font-size: 36px
 }
+
+.section-subheader{
+	font-size: 24px;
+	font-style: italic;
+}
+
+.field-box{
+	width: 800px;
+	clear: both;
+	margin-bottom: 18px;
+	display: inline-block;
+}
+
 .field-title{
-	font-size: 18px;
+	font-size: 14px;
 	font-weight: bold;
+	float:left;
+	width:25%;
 }
 .field-subtitle{
-	font-size: 18px;
+	font-size: 14px;
 	font-style: italic;
 }
 .field-content{
-	font-size: 18px;
+	font-size: 14px;
+	float:right;
+	width:75%;
 }
