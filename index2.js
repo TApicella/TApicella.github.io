@@ -1,15 +1,10 @@
-function setupColumns() {
-    $("[class*='weather-border']").height($(window).height());
-    $("[class*='main-content']").height($(window).height());
-    $("[class*='weather-border']").each(function() {
-        $(this).css({
-            "background-image": WEATHER.makeitrain()
-        });
-    });
+function setupPage() {
+    var winheight = $(window).height();
+    var winwidth = $(window).width();
 }
 
 $(document).ready(function() {
-	//Fixing columns
+    //Fixing columns
     setupColumns();
     $(window).resize(function() {
         setupColumns();
