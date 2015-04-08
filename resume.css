@@ -71,3 +71,16 @@ html{
 	float: left;
 	width: 100%;
 }
+
+.interest-content{
+	font-size: 14px;
+}
+
+.glyphicon-new-window{
+	color: #337ab7;
+	vertical-align: -10%;
+}
+.glyphicon-eye-open{
+	color: #337ab7;
+	vertical-align: -12%;
+}
