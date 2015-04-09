@@ -34,7 +34,6 @@ html{
 	display: inline-block;
 }
 
-
 .skill-title{
 	font-size: 14px;
 	font-weight: bold;
@@ -48,25 +47,25 @@ html{
 }
 
 
-.exp-title{
+.exp-title,.edu-title{
 	font-size: 14px;
 	font-weight: bold;
 	float:left;
 	width:75%;
 }
-.exp-subtitle{
+.exp-subtitle,.edu-subtitle{
 	font-size: 14px;
 	font-style: italic;
 	float:left;
 	width:75%;
 }
-.exp-date{
+.exp-date,.edu-date{
 	font-size: 14px;
 	float: right;
 	width: 25%;
 	text-align: right;
 }
-.exp-content{
+.exp-content,.edu-content{
 	font-size: 14px;
 	float: left;
 	width: 100%;
@@ -82,5 +81,84 @@ html{
 }
 .glyphicon-eye-open{
 	color: #337ab7;
+	cursor:pointer;
 	vertical-align: -12%;
 }
+.glyphicon-remove{
+	color: #337ab7;
+	cursor:pointer;
+	vertical-align: -14%;
+}
+
+.glyphicon-fullscreen{
+	color: #337ab7;
+	cursor:pointer;
+	vertical-align: -14%;
+}
+
+.glyphicon-fullscreen{
+	color: #337ab7;
+	cursor:pointer;
+	vertical-align: -14%;
+}
+
+.img-wrapper-TM{
+	float: left;
+	width: 400px;
+	height: 300px;
+	display: none;
+}
+
+.img-controls-TM{
+	width: 397px;
+	height: 75px;
+	margin: 1px;
+	position: relative;
+	top: 0;
+}
+
+.img-ctrlbar-TM{
+	width: 397px;
+	height: 30px;
+	background-color: #D6D6D6;
+	background-color: rgba(237,229,231,0.501960784314);
+	display: none;
+	position: relative;
+	top: 0;
+}
+
+.img-wrapper-MD{
+	float: left;
+	width: 800px;
+	height: 600px;
+	display: none;
+}
+
+.img-controls-MD{
+	width: 798px;
+	height: 75px;
+	margin: 1px;
+	position: relative;
+	top: 0;
+}
+
+.img-ctrlbar-MD{
+	width: 798px;
+	height: 30px;
+	background-color: #D6D6D6;
+	background-color: rgba(237,229,231,0.501960784314);
+	display: none;
+	position: relative;
+}	
+
+.img-bordered{
+	border: 1px solid;
+	border-color: #D6D6D6;
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left:-1px;
+}
+
+
+
