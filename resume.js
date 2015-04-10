@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 	$("#skills-seeMetridoc").click(function(){
 		if($(this).hasClass("glyphicon-remove")){
 			$("#skills-ridAdminForm-TM").slideUp("slow");
@@ -27,6 +26,8 @@ $(document).ready(function(){
 		else{
 			$("#skills-ridAdminForm-MD").slideDown("slow");
 			$("#skills-manageControllers-MD").slideUp("slow");
+			$("#skills-ridAdminForm-TM").slideUp("slow");
+			$("#skills-manageControllers-TM").slideUp("slow");
 		}
 		$("#skills-manageControllers-expand").toggleClass("glyphicon-remove", false).toggleClass("glyphicon-fullscreen", true);
 		$(this).toggleClass("glyphicon-remove").toggleClass("glyphicon-fullscreen");
@@ -40,6 +41,8 @@ $(document).ready(function(){
 		else{
 			$("#skills-ridAdminForm-MD").slideUp("slow");
 			$("#skills-manageControllers-MD").slideDown("slow");
+			$("#skills-ridAdminForm-TM").slideUp("slow");
+			$("#skills-manageControllers-TM").slideUp("slow");
 		}
 		$("#skills-ridAdminForm-expand").toggleClass("glyphicon-remove", false).toggleClass("glyphicon-fullscreen", true);
 		$(this).toggleClass("glyphicon-remove").toggleClass("glyphicon-fullscreen");
@@ -48,10 +51,14 @@ $(document).ready(function(){
 	$("#skills-manageControllers-close").click(function(){
 		$(this).closest(".img-wrapper-MD").slideUp("slow");
 		refresh_X();
+		$("#skills-ridAdminForm-TM").slideDown("slow");
+		$("#skills-manageControllers-TM").slideDown("slow");
 	});
 	$("#skills-ridAdminForm-close").click(function(){
 		$(this).closest(".img-wrapper-MD").slideUp("slow");
 		refresh_X();
+		$("#skills-ridAdminForm-TM").slideDown("slow");
+		$("#skills-manageControllers-TM").slideDown("slow");
 	});
 
 	function refresh_X(){
