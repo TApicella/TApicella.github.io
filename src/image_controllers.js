@@ -22,13 +22,12 @@ var ImgControls = React.createClass({
     					  verticalAlign: '-14%', 
     					  fontSize: '20px'};
         var img_glyph = this.state.showing ? <Glyphicon glyph="eye-open" onClick={this.onClicked} style={glyphstyle}/>: <Glyphicon glyph="remove" onClick={this.onClicked} style={glyphstyle}/> ;
-        var link_glyph = <Glyphicon glyph="new-window" style={glyphstyle}/>;
+
         
         return (
-            <div>
+            <span>
             	{img_glyph}&nbsp;
-            	<a href="https://github.com/metridoc/metridoc-grails" target="_blank">{link_glyph}</a>
-            </div>
+            </span>
         );
     }
 

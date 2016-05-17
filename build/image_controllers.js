@@ -24,18 +24,12 @@ var ImgControls = React.createClass({
             verticalAlign: '-14%',
             fontSize: '20px' };
         var img_glyph = this.state.showing ? React.createElement(Glyphicon, { glyph: 'eye-open', onClick: this.onClicked, style: glyphstyle }) : React.createElement(Glyphicon, { glyph: 'remove', onClick: this.onClicked, style: glyphstyle });
-        var link_glyph = React.createElement(Glyphicon, { glyph: 'new-window', style: glyphstyle });
 
         return React.createElement(
-            'div',
+            'span',
             null,
             img_glyph,
-            ' ',
-            React.createElement(
-                'a',
-                { href: 'https://github.com/metridoc/metridoc-grails', target: '_blank' },
-                link_glyph
-            )
+            ' '
         );
     }
 

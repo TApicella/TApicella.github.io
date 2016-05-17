@@ -43,7 +43,7 @@ var Container = React.createClass({
         var thumbnail = this.state.thumbnail ? <Image name="thumb" imgURL={thumbImgURL} key="myImageTM" /> : '';
         var fullimg = this.state.fullimg ? <Image name="full" imgURL={fullImgURL} key="myImageLG" /> : '';
         return (
-            <div id="container">
+            <span id="container">
                 <ImgControls onButtonClicked={this.onClicked} refID={btnRefID}/>
                 <ReactTransitionGroup transitionName="thumbnailTransition">
                     {thumbnail}
@@ -51,7 +51,7 @@ var Container = React.createClass({
                  <ReactTransitionGroup transitionName="fullimgTransition">
                     {fullimg}
                 </ReactTransitionGroup>
-            </div>
+            </span>
         );
     }
 });

@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Container = require('./image_bar.js');
+var ContactInfo = require('./contact_info.js');
+var ProgrammingSkills = require('./programming_skills_wrapper.js')
 
 var Resume = React.createClass({
 
@@ -24,8 +25,8 @@ var Resume = React.createClass({
         resumeStyle["background-color"]="#00f88b";
         return(
         	<div>
-        		<Container imgName="manage_controllers"/>
-        		<Container imgName="rid_admin_form"/>
+        		<ContactInfo/>
+        		<ProgrammingSkills/>
         	</div>
         );
 

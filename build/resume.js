@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Container = require('./image_bar.js');
+var ContactInfo = require('./contact_info.js');
+var ProgrammingSkills = require('./programming_skills_wrapper.js');
 
 var Resume = React.createClass({
     displayName: 'Resume',
@@ -25,8 +26,8 @@ var Resume = React.createClass({
         return React.createElement(
             'div',
             null,
-            React.createElement(Container, { imgName: 'manage_controllers' }),
-            React.createElement(Container, { imgName: 'rid_admin_form' })
+            React.createElement(ContactInfo, null),
+            React.createElement(ProgrammingSkills, null)
         );
     }
 });
