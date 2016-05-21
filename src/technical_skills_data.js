@@ -30,67 +30,52 @@ var rid_admin_form = {
 
 var skills = [
 				{
-				  	title: "Python",
+				  	title: "Database interaction",
 					subskills: [
 					{
-						text: "Preferred programming language for all scripting and personal projects"
-					},
-					{
-						text: "Experienced with web I/O and browser libraries for scripting, accessing data via APIs, and scraping web pages"
-					},
-					{
-						text: "Familiar with using Python to read and write to Excel files",
-				 	},
-				 	{
-				 		text: "Used TKinter to create personal file management application "
-				 	}]
+						text: "MySQL Workstation, SquirrelSQL, some Oracle and MSSQL experience"
+					}]
 				},
 				{
-					title: "Web Development",
+					title: "Code deployment",
 					subskills: [
 					{
-						text: "Helped develop a web-based report submission application with a focus on administrative interfaces",
-				 		images:[manage_controllers, rid_admin_form],
-				 		link:"https://github.com/metridoc/metridoc-grails"
-					},
-					{
-						text: "Proficient with basic MVC web application development in Grails and associated skillsets, including HTML, CSS, and JS"
-				 	},
-				 	{
-				 		text: "Basic experience with database management in MySQL"
+				 		text: "Jenkins, Git/Subversion, some use of Divshot, Codeship, Firebase"
 				 	}]
 				}, 
 				{
-				  	title: "Javascript",
+				  	title: "Visual design",
 					subskills: [
 					{
-						text: "Designed an improved interactive resume using React.js"
-					},
-					{
-						text: "Previously made a partial interactive resume using JQuery"
-					},
-					{
-						text: "Used Javascript and JQuery to generate user friendly customizable data tables and statistical details from database queries"
-				 	},
-				 	{
-				 		text: "Currently building a small personal application in Node.js using Express, Handlebars, React, and Mongoose "
+				 		text: "Adobe Photoshop, primarily used for photo editing and touchups"
 				 	}]
 				 },
 				 {
-				  	title: "Java",
+				  	title: "Software development",
 					subskills: [
 					{
-						text: "Moderate skill with creating software using Swing-based GUI"
-					},
-					{
-						text: "Experienced in using Apache POI to work with Excel files"
+						text: "Sublime, Eclipse, IntelliJ, basic familiarity with Vim"
 					}]
 				 },
 				 {
-				  	title: "Bash",
+				  	title: "Office tools",
 					subskills: [
 					{
-						text: "Comfortable using basic UNIX commands to view, sort, move, append, and perform simple I/O on files, and writing simple scripts"
+						text: "MS Word, Powerpoint, Google collaboration suite"
+					}]
+				 },
+				 {
+				  	title: "Data analysis",
+					subskills: [
+					{
+						text: "Origin, Mathematica, Excel"
+					}]
+				 },
+				 {
+				  	title: "Operating systems",
+					subskills: [
+					{
+						text: "Windows, OSX, Ubuntu and Mint Linux"
 					}]
 				 }];
 

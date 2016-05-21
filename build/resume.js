@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ContactInfo = require('./contact_info.js');
-var ProgrammingSkills = require('./programming_skills_wrapper.js');
+var Skills = require('./skills_wrapper.js');
 
 var WindowDimensions = React.createClass({
     displayName: 'WindowDimensions',
@@ -63,14 +63,16 @@ var Resume = React.createClass({
             null,
             React.createElement(WindowDimensions, null),
             React.createElement(ContactInfo, null),
-            React.createElement(ProgrammingSkills, null),
+            React.createElement(Skills, { header: 'Programming and Software Development', category: 'programming' }),
             React.createElement(
                 'div',
                 null,
                 'Very comfortable working within the imperative and object-oriented paradigms',
                 React.createElement('br', null),
                 'Enjoys working in both independent and teamwork driven work environments'
-            )
+            ),
+            React.createElement('hr', null),
+            React.createElement(Skills, { header: 'Technical Skills', category: 'technical' })
         );
     }
 });
