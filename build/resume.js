@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var ContactInfo = require('./contact_info.js');
 var Skills = require('./skills_wrapper.js');
+var Experiences = require('./experiences_wrapper.js');
 
 var WindowDimensions = React.createClass({
     displayName: 'WindowDimensions',
@@ -63,7 +64,7 @@ var Resume = React.createClass({
             null,
             React.createElement(WindowDimensions, null),
             React.createElement(ContactInfo, null),
-            React.createElement(Skills, { header: 'Programming and Software Development', category: 'programming' }),
+            React.createElement(Skills, { header: 'Programming and Software Development', category: 'programming', sectionbreak: 'true' }),
             React.createElement(
                 'div',
                 null,
@@ -72,7 +73,22 @@ var Resume = React.createClass({
                 'Enjoys working in both independent and teamwork driven work environments'
             ),
             React.createElement('hr', null),
-            React.createElement(Skills, { header: 'Technical Skills', category: 'technical' })
+            React.createElement(Skills, { header: 'Technical Skills', category: 'technical' }),
+            React.createElement('hr', null),
+            React.createElement(Experiences, { header: 'Work Experience', category: 'work' }),
+            React.createElement('hr', null),
+            React.createElement(Experiences, { header: 'Other Experience', category: 'other' }),
+            React.createElement(Experiences, { header: 'Education', category: 'education' }),
+            React.createElement(
+                'div',
+                { className: 'section-header' },
+                'Other Interests'
+            ),
+            React.createElement(
+                'div',
+                null,
+                'Game design (digital and tabletop), computer science education, cooking, photography'
+            )
         );
     }
 });

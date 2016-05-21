@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var ContactInfo = require('./contact_info.js');
 var Skills = require('./skills_wrapper.js')
+var Experiences = require('./experiences_wrapper.js')
 
 
 var WindowDimensions = React.createClass({
@@ -55,13 +56,21 @@ var Resume = React.createClass({
         	<div>
         		<WindowDimensions/>
         		<ContactInfo/>
-        		<Skills header="Programming and Software Development" category="programming"/>
+        		<Skills header="Programming and Software Development" category="programming" sectionbreak="true"/>
         		<div>
         			Very comfortable working within the imperative and object-oriented paradigms<br/>
 					Enjoys working in both independent and teamwork driven work environments
 				</div>
 				<hr/>
 				<Skills header="Technical Skills" category="technical"/> 
+				<hr/>
+				<Experiences header="Work Experience" category="work"/>
+				<hr/>
+				<Experiences header="Other Experience" category="other"/>
+				<Experiences header="Education" category="education"/>
+				<div className="section-header">Other Interests</div>
+				<div>Game design (digital and tabletop), computer science education, cooking, photography</div> 
+
         	</div>
         );
 

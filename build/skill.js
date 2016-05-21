@@ -1,6 +1,10 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var SubSkill = require('./subskill.js');
+var ReactBootstrap = require('react-bootstrap');
+var Grid = ReactBootstrap.Grid;
+var Row = ReactBootstrap.Row;
+var Col = ReactBootstrap.Col;
 
 var Skill = React.createClass({
 	displayName: 'Skill',
@@ -10,21 +14,48 @@ var Skill = React.createClass({
 		var header = this.props.skillHeader;
 		var subskills = this.props.subskills;
 		var subskill_components = [];
+		var first_subskill;
+		var sectionbreak = this.props.sectionbreak ? React.createElement('br', null) : "";
 
 		for (var i = 0; i < subskills.length; i++) {
-			subskill_components.push(React.createElement(SubSkill, { content: subskills[i].text, imgs: subskills[i].images, link: subskills[i].link }));
+			if (i === 0) {
+				first_subskill = React.createElement(SubSkill, { content: subskills[i].text, imgs: subskills[i].images, link: subskills[i].link });
+			} else {
+				subskill_components.push(React.createElement(
+					Row,
+					{ className: 'show-grid' },
+					React.createElement(Col, { md: 3 }),
+					React.createElement(
+						Col,
+						{ md: 9 },
+						React.createElement(SubSkill, { content: subskills[i].text, imgs: subskills[i].images, link: subskills[i].link })
+					)
+				));
+			}
 		}
 		return React.createElement(
-			'div',
+			Grid,
 			null,
 			React.createElement(
-				'span',
-				{ className: 'skill-title' },
-				header
+				Row,
+				{ className: 'show-grid' },
+				React.createElement(
+					Col,
+					{ md: 3 },
+					React.createElement(
+						'span',
+						{ className: 'skill-title' },
+						header
+					)
+				),
+				React.createElement(
+					Col,
+					{ md: 9 },
+					first_subskill
+				)
 			),
 			subskill_components,
-			React.createElement('br', null),
-			React.createElement('br', null)
+			sectionbreak
 		);
 	}
 
