@@ -372,15 +372,15 @@ var rid_admin_form = {
 };
 
 var skills = [{
-	title: "Web Development",
+	title: "Python",
 	subskills: [{
-		text: "Helped develop a web-based report submission application with a focus on administrative interfaces",
-		images: [manage_controllers, rid_admin_form],
-		link: "https://github.com/metridoc/metridoc-grails"
+		text: "Preferred programming language for all scripting and personal projects"
 	}, {
-		text: "Helped develop a web-based report submission application with a focus on administrative interfaces",
-		images: [manage_controllers, rid_admin_form],
-		link: "https://github.com/metridoc/metridoc-grails"
+		text: "Experienced with web I/O and browser libraries for scripting, accessing data via APIs, and scraping web pages"
+	}, {
+		text: "Familiar with using Python to read and write to Excel files"
+	}, {
+		text: "Used TKinter to create personal file management application "
 	}]
 }, {
 	title: "Web Development",
@@ -388,6 +388,33 @@ var skills = [{
 		text: "Helped develop a web-based report submission application with a focus on administrative interfaces",
 		images: [manage_controllers, rid_admin_form],
 		link: "https://github.com/metridoc/metridoc-grails"
+	}, {
+		text: "Proficient with basic MVC web application development in Grails and associated skillsets, including HTML, CSS, and JS"
+	}, {
+		text: "Basic experience with database management in MySQL"
+	}]
+}, {
+	title: "Javascript",
+	subskills: [{
+		text: "Designed an improved interactive resume using React.js"
+	}, {
+		text: "Previously made a partial interactive resume using JQuery"
+	}, {
+		text: "Used Javascript and JQuery to generate user friendly customizable data tables and statistical details from database queries"
+	}, {
+		text: "Currently building a small personal application in Node.js using Express, Handlebars, React, and Mongoose "
+	}]
+}, {
+	title: "Java",
+	subskills: [{
+		text: "Moderate skill with creating software using Swing-based GUI"
+	}, {
+		text: "Experienced in using Apache POI to work with Excel files"
+	}]
+}, {
+	title: "Bash",
+	subskills: [{
+		text: "Comfortable using basic UNIX commands to view, sort, move, append, and perform simple I/O on files, and writing simple scripts"
 	}]
 }];
 
@@ -583,6 +610,41 @@ var ReactDOM = require('react-dom');
 var ContactInfo = require('./contact_info.js');
 var ProgrammingSkills = require('./programming_skills_wrapper.js');
 
+var WindowDimensions = React.createClass({
+    displayName: 'WindowDimensions',
+
+    render: function () {
+        return React.createElement(
+            'span',
+            null,
+            this.state.width,
+            ' x ',
+            this.state.height
+        );
+    },
+    updateDimensions: function () {
+
+        var w = window,
+            d = document,
+            documentElement = d.documentElement,
+            body = d.getElementsByTagName('body')[0],
+            width = w.innerWidth || documentElement.clientWidth || body.clientWidth,
+            height = w.innerHeight || documentElement.clientHeight || body.clientHeight;
+
+        this.setState({ width: width, height: height });
+        // if you are using ES2015 I'm pretty sure you can do this: this.setState({width, height});
+    },
+    componentWillMount: function () {
+        this.updateDimensions();
+    },
+    componentDidMount: function () {
+        window.addEventListener("resize", this.updateDimensions);
+    },
+    componentWillUnmount: function () {
+        window.removeEventListener("resize", this.updateDimensions);
+    }
+});
+
 var Resume = React.createClass({
     displayName: 'Resume',
 
@@ -606,8 +668,16 @@ var Resume = React.createClass({
         return React.createElement(
             'div',
             null,
+            React.createElement(WindowDimensions, null),
             React.createElement(ContactInfo, null),
-            React.createElement(ProgrammingSkills, null)
+            React.createElement(ProgrammingSkills, null),
+            React.createElement(
+                'div',
+                null,
+                'Very comfortable working within the imperative and object-oriented paradigms',
+                React.createElement('br', null),
+                'Enjoys working in both independent and teamwork driven work environments'
+            )
         );
     }
 });
