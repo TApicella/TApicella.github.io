@@ -38,7 +38,6 @@ render: function(){
 	
 	return(
 		<div>
-			<div className="skill-spacer">&nbsp;</div>
 			<nobr><span className="skill-content">{content}
 				&nbsp;&nbsp;{link_component}
         	</span></nobr>

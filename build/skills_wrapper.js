@@ -15,7 +15,7 @@ var Skills = React.createClass({
 
 		var skill_components = [];
 		for (var i = 0; i < skills.length; i++) {
-			skill_components.push(React.createElement(Skill, { skillHeader: skills[i].title, subskills: skills[i].subskills }));
+			skill_components.push(React.createElement(Skill, { skillHeader: skills[i].title, subskills: skills[i].subskills, sectionbreak: this.props.sectionbreak }));
 		}
 		return React.createElement(
 			'div',

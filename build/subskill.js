@@ -44,11 +44,6 @@ var SubSkill = React.createClass({
 			'div',
 			null,
 			React.createElement(
-				'div',
-				{ className: 'skill-spacer' },
-				' '
-			),
-			React.createElement(
 				'nobr',
 				null,
 				React.createElement(

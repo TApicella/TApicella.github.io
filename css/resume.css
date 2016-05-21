@@ -41,16 +41,16 @@ html{
 	font-weight: bold;
 }
 
-.skill-spacer{
-	float:left;
-	width:25%;
-}
-
 .skill-content{
 	font-size: 14px;
 	width: 75%;
 }
 
+/* Modification of bootstrap default. Also, screw you bootstrap for the generic name */
+.container{
+	margin-left: 0px;
+	padding-left: 0px;
+} 
 .img-container{
 	position: relative;
 }
@@ -133,4 +133,23 @@ html{
 
 .full-img-height {
   transition: height .8s ease-in-out;
+}
+
+.exp-title{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.exp-location{
+	font-size: 14px;
+	font-style: italic;
+}
+
+.exp-dates{
+	font-size: 14px;
+	text-align: right;
+}
+
+.exp-content{
+	font-size: 14px;
 }

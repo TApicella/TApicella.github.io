@@ -13,7 +13,7 @@ render: function(){
 	
 	var skill_components = [];
 	for (var i = 0; i < skills.length; i++) {
-   		skill_components.push(<Skill skillHeader={skills[i].title} subskills={skills[i].subskills}/>);
+   		skill_components.push(<Skill skillHeader={skills[i].title} subskills={skills[i].subskills} sectionbreak={this.props.sectionbreak}/>);
 	}
 	return(
 
@@ -28,3 +28,4 @@ render: function(){
 
 });
 module.exports = Skills
+
