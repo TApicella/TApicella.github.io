@@ -43,28 +43,44 @@ var Resume = React.createClass({
     displayName: 'Resume',
 
 
-    /*
-    Personal reminders on how to use these functions
-      getInitialState: function() {
-        return {
-            value: 'foo'
-        }
+    updateDimensions: function () {
+        var w = window,
+            d = document,
+            documentElement = d.documentElement,
+            body = d.getElementsByTagName('body')[0],
+            width = w.innerWidth || documentElement.clientWidth || body.clientWidth,
+            height = w.innerHeight || documentElement.clientHeight || body.clientHeight;
+
+        this.setState({ width: width, height: height });
+        // if you are using ES2015 I'm pretty sure you can do this: this.setState({width, height});
     },
-      changeHandler: function(value) {
-        this.setState({
-            value: value
-        });
-    },*/
+    componentWillMount: function () {
+        this.updateDimensions();
+    },
+    componentDidMount: function () {
+        window.addEventListener("resize", this.updateDimensions);
+    },
+    componentWillUnmount: function () {
+        window.removeEventListener("resize", this.updateDimensions);
+    },
 
     render: function () {
+        var width = this.state.width;
+        var height = this.state.height;
         var resumeStyle = {};
         resumeStyle["background-color"] = "#00f88b";
         return React.createElement(
             'div',
             null,
-            React.createElement(WindowDimensions, null),
+            React.createElement(
+                'span',
+                null,
+                width,
+                ' x ',
+                height
+            ),
             React.createElement(ContactInfo, null),
-            React.createElement(Skills, { header: 'Programming and Software Development', category: 'programming', sectionbreak: 'true' }),
+            React.createElement(Skills, { header: 'Programming and Software Development', category: 'programming', sectionbreak: 'true', width: width, height: height }),
             React.createElement(
                 'div',
                 null,
@@ -73,12 +89,12 @@ var Resume = React.createClass({
                 'Enjoys working in both independent and teamwork driven work environments'
             ),
             React.createElement('hr', null),
-            React.createElement(Skills, { header: 'Technical Skills', category: 'technical' }),
+            React.createElement(Skills, { header: 'Technical Skills', category: 'technical', width: width, height: height }),
             React.createElement('hr', null),
-            React.createElement(Experiences, { header: 'Work Experience', category: 'work' }),
+            React.createElement(Experiences, { header: 'Work Experience', category: 'work', width: width, height: height }),
             React.createElement('hr', null),
-            React.createElement(Experiences, { header: 'Other Experience', category: 'other' }),
-            React.createElement(Experiences, { header: 'Education', category: 'education' }),
+            React.createElement(Experiences, { header: 'Other Experience', category: 'other', width: width, height: height }),
+            React.createElement(Experiences, { header: 'Education', category: 'education', width: width, height: height }),
             React.createElement(
                 'div',
                 { className: 'section-header' },

@@ -38,10 +38,7 @@ render: function(){
 	
 	return(
 		<div>
-			<nobr><span className="skill-content">{content}
-				&nbsp;&nbsp;{link_component}
-        	</span></nobr>
-        	&nbsp;&nbsp;{image_components}
+			{content} &nbsp;&nbsp; {link_component} &nbsp;&nbsp; {image_components}
         </div>
 	);
 }

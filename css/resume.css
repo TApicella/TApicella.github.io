@@ -5,19 +5,23 @@ html{
 	margin-left: 20px;
 }
 
-
 .contact_information{
 	width:495px;
 }
+
 .name{
 	text-align:justify;
 	font-size: 52px;
-
 }
+
 .contact-info{
 	font-size: 18px;
 	float: left;
 	width:33.33%;
+}
+
+.section{
+	position: relative;
 }
 
 .section-header{
@@ -43,7 +47,7 @@ html{
 
 .skill-content{
 	font-size: 14px;
-	width: 75%;
+	/*width: 75%;*/
 }
 
 /* Modification of bootstrap default. Also, screw you bootstrap for the generic name */
@@ -51,6 +55,13 @@ html{
 	margin-left: 0px;
 	padding-left: 0px;
 } 
+
+/* Width number comes from bootstrap's default */
+@media only screen and (min-width: 1200px) {
+	.container{
+		width: 1170px;
+	}
+}
 .img-container{
 	position: relative;
 }
@@ -69,6 +80,7 @@ html{
 	border: 1px solid;
 	border-color: #D6D6D6;
 	padding-top: 25px;
+	max-width: 800px;
 }
 
 .control-bar-thumbnail{
@@ -97,7 +109,7 @@ html{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 	z-index: 2;
 	position: absolute;
-	width: 1000px;
+	width: 800px;
 	height: 75px;
 	text-align: right;
 }
@@ -105,7 +117,7 @@ html{
 .control-detector-full{
 	z-index: 1;
 	position: absolute;
-	width: 1000px;
+	width: 800px;
 	height: 75px;
 }
 

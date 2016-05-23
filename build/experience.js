@@ -22,7 +22,7 @@ var Exp = React.createClass({
 				{ className: 'show-grid' },
 				React.createElement(
 					Col,
-					{ md: 12 },
+					{ md: 9 },
 					React.createElement(
 						'span',
 						{ className: 'exp-title' },
@@ -35,7 +35,7 @@ var Exp = React.createClass({
 				{ className: 'show-grid' },
 				React.createElement(
 					Col,
-					{ md: 9 },
+					{ md: 9, lg: 6 },
 					React.createElement(
 						'span',
 						{ className: 'exp-location' },
@@ -44,7 +44,7 @@ var Exp = React.createClass({
 				),
 				React.createElement(
 					Col,
-					{ md: 3, className: 'exp-dates' },
+					{ md: 3, lg: 3, className: 'exp-dates' },
 					React.createElement(
 						'span',
 						null,
@@ -57,7 +57,7 @@ var Exp = React.createClass({
 				{ className: 'show-grid' },
 				React.createElement(
 					Col,
-					{ md: 12 },
+					{ md: 12, lg: 9 },
 					React.createElement(
 						'span',
 						{ className: 'exp-content' },
