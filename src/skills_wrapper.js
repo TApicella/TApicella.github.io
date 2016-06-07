@@ -19,7 +19,7 @@ render: function(){
 		backgroundColor: 'blue'
 	};
 	sidebar_style.width = sidebar_width;
-	var sidebar = this.props.width > 1200 ? <span style={sidebar_style}></span> : "";
+	var sidebar = this.props.width > 1200 ? <span style={sidebar_style}></span> : ""; //Sidebar part of a future idea for display source code next to content
 
 	var skill_components = [];
 	for (var i = 0; i < skills.length; i++) {
@@ -28,8 +28,7 @@ render: function(){
 	return(
 
 		<div className="section">
-        	{sidebar}
-			<div className="section-header">{header}</div>
+        	<div className="section-header">{header}</div>
 			{skill_components}
 			<br/><br/>
 

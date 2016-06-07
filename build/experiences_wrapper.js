@@ -22,7 +22,7 @@ var Experiences = React.createClass({
 			backgroundColor: 'blue'
 		};
 		sidebar_style.width = sidebar_width;
-		var sidebar = this.props.width > 1200 ? React.createElement('span', { style: sidebar_style }) : "";
+		var sidebar = this.props.width > 1200 ? React.createElement('span', { style: sidebar_style }) : ""; //Sidebar part of a future idea for display source code next to content
 
 		var exp_components = [];
 		for (var i = 0; i < exp.length; i++) {
@@ -31,7 +31,6 @@ var Experiences = React.createClass({
 		return React.createElement(
 			'div',
 			{ className: 'section' },
-			sidebar,
 			React.createElement(
 				'div',
 				{ className: 'section-header' },

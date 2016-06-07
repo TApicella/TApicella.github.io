@@ -62,7 +62,7 @@ var Resume = React.createClass({
         resumeStyle["background-color"]="#00f88b";
         return(
         	<div>
-        		<span>{width} x {height}</span>
+        		<span className="dimensions">{width} x {height}</span>
         		<ContactInfo/>
         		<Skills header="Programming and Software Development" category="programming" sectionbreak="true" width={width} height={height}/>
         		<div>

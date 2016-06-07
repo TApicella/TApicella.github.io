@@ -5,6 +5,9 @@ html{
 	margin-left: 20px;
 }
 
+.dimensions{
+	display: none;
+}
 .contact_information{
 	width:495px;
 }

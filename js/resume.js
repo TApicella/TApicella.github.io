@@ -244,7 +244,7 @@ var Experiences = React.createClass({
 			backgroundColor: 'blue'
 		};
 		sidebar_style.width = sidebar_width;
-		var sidebar = this.props.width > 1200 ? React.createElement('span', { style: sidebar_style }) : "";
+		var sidebar = this.props.width > 1200 ? React.createElement('span', { style: sidebar_style }) : ""; //Sidebar part of a future idea for display source code next to content
 
 		var exp_components = [];
 		for (var i = 0; i < exp.length; i++) {
@@ -253,7 +253,6 @@ var Experiences = React.createClass({
 		return React.createElement(
 			'div',
 			{ className: 'section' },
-			sidebar,
 			React.createElement(
 				'div',
 				{ className: 'section-header' },
@@ -510,7 +509,7 @@ var Resume = React.createClass({
             null,
             React.createElement(
                 'span',
-                null,
+                { className: 'dimensions' },
                 width,
                 ' x ',
                 height
@@ -633,7 +632,7 @@ var Skills = React.createClass({
 			backgroundColor: 'blue'
 		};
 		sidebar_style.width = sidebar_width;
-		var sidebar = this.props.width > 1200 ? React.createElement('span', { style: sidebar_style }) : "";
+		var sidebar = this.props.width > 1200 ? React.createElement('span', { style: sidebar_style }) : ""; //Sidebar part of a future idea for display source code next to content
 
 		var skill_components = [];
 		for (var i = 0; i < skills.length; i++) {
@@ -642,7 +641,6 @@ var Skills = React.createClass({
 		return React.createElement(
 			'div',
 			{ className: 'section' },
-			sidebar,
 			React.createElement(
 				'div',
 				{ className: 'section-header' },

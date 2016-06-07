@@ -74,7 +74,7 @@ var Resume = React.createClass({
             null,
             React.createElement(
                 'span',
-                null,
+                { className: 'dimensions' },
                 width,
                 ' x ',
                 height

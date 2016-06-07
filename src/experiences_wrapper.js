@@ -20,7 +20,7 @@ render: function(){
 		backgroundColor: 'blue'
 	};
 	sidebar_style.width = sidebar_width;
-	var sidebar = this.props.width > 1200 ? <span style={sidebar_style}></span> : "";
+	var sidebar = this.props.width > 1200 ? <span style={sidebar_style}></span> : ""; //Sidebar part of a future idea for display source code next to content
 
 	var exp_components = [];
 	for (var i = 0; i < exp.length; i++) {
@@ -29,7 +29,6 @@ render: function(){
 	return(
 
 		<div className="section">
-			{sidebar}
 			<div className="section-header">{header}</div>
 			{exp_components}
 			<br/><br/>
