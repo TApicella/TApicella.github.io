@@ -5,9 +5,7 @@ Setup:
 
 sudo npm --global install browserify
 
-sudo npm install react react-dom react-addons-css-transitions 
-react-addons-transition-group react-bootstrap babelify 
-babel-preset-react react-resizable radium 
+sudo npm install react react-dom react-addons-css-transitions react-addons-transition-group react-bootstrap babelify babel-preset-react react-motion radium 
 
 
 
