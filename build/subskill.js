@@ -43,18 +43,10 @@ var SubSkill = React.createClass({
 		return React.createElement(
 			'div',
 			null,
-			React.createElement(
-				'nobr',
-				null,
-				React.createElement(
-					'span',
-					{ className: 'skill-content' },
-					content,
-					'  ',
-					link_component
-				)
-			),
-			'  ',
+			content,
+			'    ',
+			link_component,
+			'    ',
 			image_components
 		);
 	}

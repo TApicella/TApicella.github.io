@@ -24,10 +24,10 @@ var Skill = React.createClass({
 				subskill_components.push(React.createElement(
 					Row,
 					{ className: 'show-grid' },
-					React.createElement(Col, { md: 3 }),
+					React.createElement(Col, { md: 3, lg: 3 }),
 					React.createElement(
 						Col,
-						{ md: 9 },
+						{ md: 9, lg: 6 },
 						React.createElement(SubSkill, { content: subskills[i].text, imgs: subskills[i].images, link: subskills[i].link })
 					)
 				));
@@ -41,7 +41,7 @@ var Skill = React.createClass({
 				{ className: 'show-grid' },
 				React.createElement(
 					Col,
-					{ md: 3 },
+					{ md: 3, lg: 3 },
 					React.createElement(
 						'span',
 						{ className: 'skill-title' },
@@ -50,7 +50,7 @@ var Skill = React.createClass({
 				),
 				React.createElement(
 					Col,
-					{ md: 9 },
+					{ md: 9, lg: 6 },
 					first_subskill
 				)
 			),

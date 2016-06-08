@@ -146,21 +146,6 @@ var ContactInfo = React.createClass({
 });
 module.exports = ContactInfo;
 },{"react":450,"react-dom":283}],3:[function(require,module,exports){
-
-var education = [{
-	title: "University of Pennsylvania",
-	location: "Masters of Computer and Information Technology, on hold",
-	dates: "Fall 2012-Fall 2013",
-	content: "Relevant courses: Programming Languages and Techniques I, Mathematical Foundations of Computer Science, Introduction to Computer Architecture"
-}, {
-	title: "Haverford College",
-	location: "Bachelor of Science, Chemistry",
-	dates: "Fall 2008-Spring 2012",
-	content: "Relevant courses: Introduction to Computer Science, Introduction to Data Structures, Compiler Design, Calculus II and III, Social Networks, Linear Algebra"
-}];
-
-module.exports = education;
-},{}],4:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactBootstrap = require('react-bootstrap');
@@ -185,7 +170,7 @@ var Exp = React.createClass({
 				{ className: 'show-grid' },
 				React.createElement(
 					Col,
-					{ md: 12 },
+					{ md: 9 },
 					React.createElement(
 						'span',
 						{ className: 'exp-title' },
@@ -198,7 +183,7 @@ var Exp = React.createClass({
 				{ className: 'show-grid' },
 				React.createElement(
 					Col,
-					{ md: 9 },
+					{ md: 9, lg: 6 },
 					React.createElement(
 						'span',
 						{ className: 'exp-location' },
@@ -207,7 +192,7 @@ var Exp = React.createClass({
 				),
 				React.createElement(
 					Col,
-					{ md: 3, className: 'exp-dates' },
+					{ md: 3, lg: 3, className: 'exp-dates' },
 					React.createElement(
 						'span',
 						null,
@@ -220,7 +205,7 @@ var Exp = React.createClass({
 				{ className: 'show-grid' },
 				React.createElement(
 					Col,
-					{ md: 12 },
+					{ md: 12, lg: 9 },
 					React.createElement(
 						'span',
 						{ className: 'exp-content' },
@@ -234,13 +219,13 @@ var Exp = React.createClass({
 
 });
 module.exports = Exp;
-},{"react":450,"react-bootstrap":109,"react-dom":283}],5:[function(require,module,exports){
+},{"react":450,"react-bootstrap":109,"react-dom":283}],4:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Experience = require('./experience.js');
-var workExperience = require('./work_experience_data.js');
-var otherExperience = require('./other_experience_data.js');
-var education = require('./education_data.js');
+var workExperience = require('../data/work_experience_data.js');
+var otherExperience = require('../data/other_experience_data.js');
+var education = require('../data/education_data.js');
 
 var Experiences = React.createClass({
 	displayName: 'Experiences',
@@ -250,6 +235,16 @@ var Experiences = React.createClass({
 		var exp_map = { "work": workExperience, "other": otherExperience, "education": education };
 		var exp = exp_map[this.props.category];
 		var header = this.props.header;
+		var sidebar_width = this.props.width - 1170 * 0.80; //The 0.80 comes from the fact that my bootstrap col total is 9/12 of the container width
+		var sidebar_style = {
+			position: 'absolute',
+			top: '0px',
+			right: '0px',
+			height: '100%',
+			backgroundColor: 'blue'
+		};
+		sidebar_style.width = sidebar_width;
+		var sidebar = this.props.width > 1200 ? React.createElement('span', { style: sidebar_style }) : ""; //Sidebar part of a future idea for display source code next to content
 
 		var exp_components = [];
 		for (var i = 0; i < exp.length; i++) {
@@ -257,7 +252,7 @@ var Experiences = React.createClass({
 		}
 		return React.createElement(
 			'div',
-			null,
+			{ className: 'section' },
 			React.createElement(
 				'div',
 				{ className: 'section-header' },
@@ -271,7 +266,7 @@ var Experiences = React.createClass({
 
 });
 module.exports = Experiences;
-},{"./education_data.js":3,"./experience.js":4,"./other_experience_data.js":8,"./work_experience_data.js":16,"react":450,"react-dom":283}],6:[function(require,module,exports){
+},{"../data/education_data.js":12,"../data/other_experience_data.js":13,"../data/work_experience_data.js":16,"./experience.js":3,"react":450,"react-dom":283}],5:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactTransitionGroup = require('react-addons-transition-group');
@@ -398,7 +393,7 @@ var Controls = React.createClass({
 //ReactDOM.render(<Container />, document.body);
 
 module.exports = ControlBar;
-},{"react":450,"react-addons-transition-group":17,"react-bootstrap":109,"react-dom":283}],7:[function(require,module,exports){
+},{"react":450,"react-addons-transition-group":17,"react-bootstrap":109,"react-dom":283}],6:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactTransitionGroup = require('react-addons-transition-group');
@@ -437,97 +432,7 @@ var ImgControls = React.createClass({
 });
 
 module.exports = ImgControls;
-},{"react":450,"react-addons-transition-group":17,"react-bootstrap":109,"react-dom":283}],8:[function(require,module,exports){
-
-var experiences = [{
-	title: "Student Researcher",
-	location: "Chemistry Department, Haverford College",
-	dates: "Summer 2011",
-	content: "Studied organically-templated frameworks with Professor Alexander Norquist, synthesized several novel compounds, and presented findings at research symposium"
-}, {
-	title: "Student Researcher",
-	location: "Chemistry Department, Haverford College",
-	dates: "Summer 2009",
-	content: "Studied synthetic routes to a betanin analogue with Professor Terry Newirth and presented findings at research symposium"
-}];
-
-module.exports = experiences;
-},{}],9:[function(require,module,exports){
-var manage_controllers = {
-	name: "manage_controllers",
-	controls: [{
-		text: "HTML/GSP: ",
-		type: "link",
-		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-core/grails-app/views/manageReport/_manageReportIndex.gsp"
-	}, {
-		text: "Javascript: ",
-		type: "link",
-		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-core/web-app/manageReport/js/manageReport.js"
-	}]
-};
-
-var rid_admin_form = {
-	name: "rid_admin_form",
-	controls: [{
-		text: "Groovy: ",
-		type: "link",
-		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-rid/grails-app/controllers/metridoc/rid/RidAdminBaseController.groovy"
-	}, {
-		text: "HTML/GSP: ",
-		type: "link",
-		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-rid/grails-app/views/ridAdminBase/_baseListWithLibUnit.gsp"
-	}]
-};
-
-var skills = [{
-	title: "Python",
-	subskills: [{
-		text: "Preferred programming language for all scripting and personal projects"
-	}, {
-		text: "Experienced with web I/O and browser libraries for scripting, accessing data via APIs, and scraping web pages"
-	}, {
-		text: "Familiar with using Python to read and write to Excel files"
-	}, {
-		text: "Used TKinter to create personal file management application "
-	}]
-}, {
-	title: "Web Development",
-	subskills: [{
-		text: "Helped develop a web-based report submission application with a focus on administrative interfaces",
-		images: [manage_controllers, rid_admin_form],
-		link: "https://github.com/metridoc/metridoc-grails"
-	}, {
-		text: "Proficient with basic MVC web application development in Grails and associated skillsets, including HTML, CSS, and JS"
-	}, {
-		text: "Basic experience with database management in MySQL"
-	}]
-}, {
-	title: "Javascript",
-	subskills: [{
-		text: "Designed an improved interactive resume using React.js"
-	}, {
-		text: "Previously made a partial interactive resume using JQuery"
-	}, {
-		text: "Used Javascript and JQuery to generate user friendly customizable data tables and statistical details from database queries"
-	}, {
-		text: "Currently building a small personal application in Node.js using Express, Handlebars, React, and Mongoose "
-	}]
-}, {
-	title: "Java",
-	subskills: [{
-		text: "Moderate skill with creating software using Swing-based GUI"
-	}, {
-		text: "Experienced in using Apache POI to work with Excel files"
-	}]
-}, {
-	title: "Bash",
-	subskills: [{
-		text: "Comfortable using basic UNIX commands to view, sort, move, append, and perform simple I/O on files, and writing simple scripts"
-	}]
-}];
-
-module.exports = skills;
-},{}],10:[function(require,module,exports){
+},{"react":450,"react-addons-transition-group":17,"react-bootstrap":109,"react-dom":283}],7:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ContactInfo = require('./contact_info.js');
@@ -573,28 +478,44 @@ var Resume = React.createClass({
     displayName: 'Resume',
 
 
-    /*
-    Personal reminders on how to use these functions
-      getInitialState: function() {
-        return {
-            value: 'foo'
-        }
+    updateDimensions: function () {
+        var w = window,
+            d = document,
+            documentElement = d.documentElement,
+            body = d.getElementsByTagName('body')[0],
+            width = w.innerWidth || documentElement.clientWidth || body.clientWidth,
+            height = w.innerHeight || documentElement.clientHeight || body.clientHeight;
+
+        this.setState({ width: width, height: height });
+        // if you are using ES2015 I'm pretty sure you can do this: this.setState({width, height});
     },
-      changeHandler: function(value) {
-        this.setState({
-            value: value
-        });
-    },*/
+    componentWillMount: function () {
+        this.updateDimensions();
+    },
+    componentDidMount: function () {
+        window.addEventListener("resize", this.updateDimensions);
+    },
+    componentWillUnmount: function () {
+        window.removeEventListener("resize", this.updateDimensions);
+    },
 
     render: function () {
+        var width = this.state.width;
+        var height = this.state.height;
         var resumeStyle = {};
         resumeStyle["background-color"] = "#00f88b";
         return React.createElement(
             'div',
             null,
-            React.createElement(WindowDimensions, null),
+            React.createElement(
+                'span',
+                { className: 'dimensions' },
+                width,
+                ' x ',
+                height
+            ),
             React.createElement(ContactInfo, null),
-            React.createElement(Skills, { header: 'Programming and Software Development', category: 'programming', sectionbreak: 'true' }),
+            React.createElement(Skills, { header: 'Programming and Software Development', category: 'programming', sectionbreak: 'true', width: width, height: height }),
             React.createElement(
                 'div',
                 null,
@@ -603,12 +524,12 @@ var Resume = React.createClass({
                 'Enjoys working in both independent and teamwork driven work environments'
             ),
             React.createElement('hr', null),
-            React.createElement(Skills, { header: 'Technical Skills', category: 'technical' }),
+            React.createElement(Skills, { header: 'Technical Skills', category: 'technical', width: width, height: height }),
             React.createElement('hr', null),
-            React.createElement(Experiences, { header: 'Work Experience', category: 'work' }),
+            React.createElement(Experiences, { header: 'Work Experience', category: 'work', width: width, height: height }),
             React.createElement('hr', null),
-            React.createElement(Experiences, { header: 'Other Experience', category: 'other' }),
-            React.createElement(Experiences, { header: 'Education', category: 'education' }),
+            React.createElement(Experiences, { header: 'Other Experience', category: 'other', width: width, height: height }),
+            React.createElement(Experiences, { header: 'Education', category: 'education', width: width, height: height }),
             React.createElement(
                 'div',
                 { className: 'section-header' },
@@ -623,7 +544,7 @@ var Resume = React.createClass({
     }
 });
 ReactDOM.render(React.createElement(Resume, null), document.getElementById('resume'));
-},{"./contact_info.js":2,"./experiences_wrapper.js":5,"./skills_wrapper.js":12,"react":450,"react-dom":283}],11:[function(require,module,exports){
+},{"./contact_info.js":2,"./experiences_wrapper.js":4,"./skills_wrapper.js":9,"react":450,"react-dom":283}],8:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var SubSkill = require('./subskill.js');
@@ -650,10 +571,10 @@ var Skill = React.createClass({
 				subskill_components.push(React.createElement(
 					Row,
 					{ className: 'show-grid' },
-					React.createElement(Col, { md: 3 }),
+					React.createElement(Col, { md: 3, lg: 3 }),
 					React.createElement(
 						Col,
-						{ md: 9 },
+						{ md: 9, lg: 6 },
 						React.createElement(SubSkill, { content: subskills[i].text, imgs: subskills[i].images, link: subskills[i].link })
 					)
 				));
@@ -667,7 +588,7 @@ var Skill = React.createClass({
 				{ className: 'show-grid' },
 				React.createElement(
 					Col,
-					{ md: 3 },
+					{ md: 3, lg: 3 },
 					React.createElement(
 						'span',
 						{ className: 'skill-title' },
@@ -676,7 +597,7 @@ var Skill = React.createClass({
 				),
 				React.createElement(
 					Col,
-					{ md: 9 },
+					{ md: 9, lg: 6 },
 					first_subskill
 				)
 			),
@@ -687,12 +608,12 @@ var Skill = React.createClass({
 
 });
 module.exports = Skill;
-},{"./subskill.js":13,"react":450,"react-bootstrap":109,"react-dom":283}],12:[function(require,module,exports){
+},{"./subskill.js":10,"react":450,"react-bootstrap":109,"react-dom":283}],9:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Skill = require('./skill.js');
-var programmingSkills = require('./programming_skills_data.js');
-var technicalSkills = require('./technical_skills_data.js');
+var programmingSkills = require('../data/programming_skills_data.js');
+var technicalSkills = require('../data/technical_skills_data.js');
 
 var Skills = React.createClass({
 	displayName: 'Skills',
@@ -702,6 +623,16 @@ var Skills = React.createClass({
 		var skills_map = { "programming": programmingSkills, "technical": technicalSkills };
 		var skills = skills_map[this.props.category];
 		var header = this.props.header;
+		var sidebar_width = this.props.width - 1170 * 0.80; //The 0.80 comes from the fact that my bootstrap col total is 9/12 of the container width
+		var sidebar_style = {
+			position: 'absolute',
+			top: '0px',
+			right: '0px',
+			height: '100%',
+			backgroundColor: 'blue'
+		};
+		sidebar_style.width = sidebar_width;
+		var sidebar = this.props.width > 1200 ? React.createElement('span', { style: sidebar_style }) : ""; //Sidebar part of a future idea for display source code next to content
 
 		var skill_components = [];
 		for (var i = 0; i < skills.length; i++) {
@@ -709,7 +640,7 @@ var Skills = React.createClass({
 		}
 		return React.createElement(
 			'div',
-			null,
+			{ className: 'section' },
 			React.createElement(
 				'div',
 				{ className: 'section-header' },
@@ -723,7 +654,7 @@ var Skills = React.createClass({
 
 });
 module.exports = Skills;
-},{"./programming_skills_data.js":9,"./skill.js":11,"./technical_skills_data.js":14,"react":450,"react-dom":283}],13:[function(require,module,exports){
+},{"../data/programming_skills_data.js":14,"../data/technical_skills_data.js":15,"./skill.js":8,"react":450,"react-dom":283}],10:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Gallery = require('./thumbnail_gallery.js');
@@ -769,90 +700,17 @@ var SubSkill = React.createClass({
 		return React.createElement(
 			'div',
 			null,
-			React.createElement(
-				'nobr',
-				null,
-				React.createElement(
-					'span',
-					{ className: 'skill-content' },
-					content,
-					'  ',
-					link_component
-				)
-			),
-			'  ',
+			content,
+			'    ',
+			link_component,
+			'    ',
 			image_components
 		);
 	}
 
 });
 module.exports = SubSkill;
-},{"./thumbnail_gallery.js":15,"react":450,"react-bootstrap":109,"react-dom":283}],14:[function(require,module,exports){
-var manage_controllers = {
-	name: "manage_controllers",
-	controls: [{
-		text: "HTML/GSP: ",
-		type: "link",
-		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-core/grails-app/views/manageReport/_manageReportIndex.gsp"
-	}, {
-		text: "Javascript: ",
-		type: "link",
-		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-core/web-app/manageReport/js/manageReport.js"
-	}]
-};
-
-var rid_admin_form = {
-	name: "rid_admin_form",
-	controls: [{
-		text: "Groovy: ",
-		type: "link",
-		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-rid/grails-app/controllers/metridoc/rid/RidAdminBaseController.groovy"
-	}, {
-		text: "HTML/GSP: ",
-		type: "link",
-		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-rid/grails-app/views/ridAdminBase/_baseListWithLibUnit.gsp"
-	}]
-};
-
-var skills = [{
-	title: "Database interaction",
-	subskills: [{
-		text: "MySQL Workstation, SquirrelSQL, some Oracle and MSSQL experience"
-	}]
-}, {
-	title: "Code deployment",
-	subskills: [{
-		text: "Jenkins, Git/Subversion, some use of Divshot, Codeship, Firebase"
-	}]
-}, {
-	title: "Visual design",
-	subskills: [{
-		text: "Adobe Photoshop, primarily used for photo editing and touchups"
-	}]
-}, {
-	title: "Software development",
-	subskills: [{
-		text: "Sublime, Eclipse, IntelliJ, basic familiarity with Vim"
-	}]
-}, {
-	title: "Office tools",
-	subskills: [{
-		text: "MS Word, Powerpoint, Google collaboration suite"
-	}]
-}, {
-	title: "Data analysis",
-	subskills: [{
-		text: "Origin, Mathematica, Excel"
-	}]
-}, {
-	title: "Operating systems",
-	subskills: [{
-		text: "Windows, OSX, Ubuntu and Mint Linux"
-	}]
-}];
-
-module.exports = skills;
-},{}],15:[function(require,module,exports){
+},{"./thumbnail_gallery.js":11,"react":450,"react-bootstrap":109,"react-dom":283}],11:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 //var ReactTransitionGroup = React.addons.TransitionGroup;
@@ -1019,36 +877,264 @@ var Image = React.createClass({
 //ReactDOM.render(<Container />, document.body);
 
 module.exports = Container;
-},{"./image_controlbar.js":6,"./image_controllers.js":7,"react":450,"react-addons-transition-group":17,"react-dom":283}],16:[function(require,module,exports){
+},{"./image_controlbar.js":5,"./image_controllers.js":6,"react":450,"react-addons-transition-group":17,"react-dom":283}],12:[function(require,module,exports){
 
-var experiences = [{
-	title: "Research Programmer",
-	location: "WWBP, Positive Psychology Center, University of Pennsylvania",
-	dates: "Fall 2016 - Summer 2016",
-	content: "Research programmer for the World Well Being Project (WWBP) at the Positive Psychology Center as well working on collaborations with the Social Media Lab at the School of Medicine. Added features to our machine learning infrastructure, generated prediction models, designed asynchronous validation tools in Javascript for online surveys, and wrote web pullers and scrapers for Twitter and Yelp data. Also deployed and maintained an instance of Jenkins for running recurring scripts and automated data collection pipelines. World Well Being Project information: http://www.wwbp.org/about.html"
-}, {
-	title: "Digital Library Applications Programmer",
-	location: "ITaDD,  Van Pelt Library, University of Pennsylvania",
-	dates: "Fall 2013 - Fall 2015",
-	content: "Full-time expansion of previous work as an intern. Primary programmer on the open source Metridoc suite of applications. Implemented new features, maintained code deployment and bugfixing, structured future directions, collaborated with coworkers on additional projects, participated in department-wide organizational and transparency initiatives, addressed user issues, performed rudimentary data analysis, and continued work initiated during internship. https://github.com/metridoc/metridoc-job  https://github.com/metridoc/metridoc-grails/"
-}, {
-	title: "Programming Intern",
-	location: "ITaDD,  Van Pelt Library, University of Pennsylvania",
-	dates: "Summer 2013",
-	content: "Worked on a library services transaction database using Grails web framework. Improved user interfaces, designed new features, responded to user feedback, maintained software versions, wrote documentation and unit tests, and wrote custom Javascript and CSS. Worked both independently and with pair-programming. Paid part-time internship."
-}, {
-	title: "Programmer",
-	location: "Digital Scholarship Department, Haverford College",
-	dates: "Spring 2012",
-	content: "Designed and began development of a Python-based text parser for transcribing bibliographies into analysis-friendly formats using regular expressions. Wrote basic tutorials on using OSX Automator features to process batch file conversion and editing tasks."
-}, {
-	title: "Teaching Assistant",
-	location: "Chemistry Department, Haverford College",
-	dates: "Fall 2010- Spring 2011",
-	content: "Assisted General Chemistry and Organic Chemistry students with laboratory procedure, instructed students in proper use of analytical equipment, instructed students in analysis of data."
-}];
+var education = [
+				{
+				  	title: "University of Pennsylvania",
+					location: "Masters of Computer and Information Technology, on hold",
+					dates: "Fall 2012-Fall 2013",
+					content: "Relevant courses: Programming Languages and Techniques I, Mathematical Foundations of Computer Science, Introduction to Computer Architecture"
+				},
+				{
+					title: "Haverford College",
+					location: "Bachelor of Science, Chemistry",
+					dates: "Fall 2008-Spring 2012",
+					content: "Relevant courses: Introduction to Computer Science, Introduction to Data Structures, Compiler Design, Calculus II and III, Social Networks, Linear Algebra" 
+				}];
 
-module.exports = experiences;
+module.exports = education
+
+
+
+},{}],13:[function(require,module,exports){
+
+var experiences = [
+				{
+				  	title: "Student Researcher",
+					location: "Chemistry Department, Haverford College",
+					dates: "Summer 2011",
+					content: "Studied organically-templated frameworks with Professor Alexander Norquist, synthesized several novel compounds, and presented findings at research symposium"
+				},
+				{
+					title: "Student Researcher",
+					location: "Chemistry Department, Haverford College",
+					dates: "Summer 2009",
+					content: "Studied synthetic routes to a betanin analogue with Professor Terry Newirth and presented findings at research symposium" 
+				}];
+
+module.exports = experiences
+
+
+
+},{}],14:[function(require,module,exports){
+var manage_controllers = {  
+							name: "manage_controllers", 
+				   		 	controls:[
+				   		 	{
+				   		 		text:"HTML/GSP: ",
+				   		 	  	type:"link",
+				   		 		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-core/grails-app/views/manageReport/_manageReportIndex.gsp"
+				   		 	},
+				   		 	{
+				   		 		text:"Javascript: ",
+				   		 		type:"link",
+				   		 		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-core/web-app/manageReport/js/manageReport.js"
+				   		 	}]
+				   		};
+
+var rid_admin_form = {
+		   		 			name: "rid_admin_form", 
+		   		 			controls:[
+		   		 			{
+		   		 				text:"Groovy: ",
+		   		 	     		type:"link",
+		   		 	     		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-rid/grails-app/controllers/metridoc/rid/RidAdminBaseController.groovy"
+		   		 			},
+		   		 			{
+		   		 		 		text:"HTML/GSP: ",
+		   		 	     		type:"link",
+		   		 	     		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-rid/grails-app/views/ridAdminBase/_baseListWithLibUnit.gsp"
+		   		 	 		}]
+		   		 		};
+
+var skills = [
+				{
+				  	title: "Python",
+					subskills: [
+					{
+						text: "Preferred programming language for all scripting and personal projects"
+					},
+					{
+						text: "Experienced with web I/O and browser libraries for scripting, accessing data via APIs, and scraping web pages"
+					},
+					{
+						text: "Familiar with using Python to read and write to Excel files",
+				 	},
+				 	{
+				 		text: "Used TKinter to create personal file management application "
+				 	}]
+				},
+				{
+					title: "Web Development",
+					subskills: [
+					{
+						text: "Helped develop a web-based report submission application with a focus on administrative interfaces",
+				 		images:[manage_controllers, rid_admin_form],
+				 		link:"https://github.com/metridoc/metridoc-grails"
+					},
+					{
+						text: "Proficient with basic MVC web application development in Grails and associated skillsets, including HTML, CSS, and JS"
+				 	},
+				 	{
+				 		text: "Basic experience with database management in MySQL"
+				 	}]
+				}, 
+				{
+				  	title: "Javascript",
+					subskills: [
+					{
+						text: "Designed an improved interactive resume using React.js"
+					},
+					{
+						text: "Previously made a partial interactive resume using JQuery"
+					},
+					{
+						text: "Used Javascript and JQuery to generate user friendly customizable data tables and statistical details from database queries"
+				 	},
+				 	{
+				 		text: "Currently building a small personal application in Node.js using Express, Handlebars, React, and Mongoose "
+				 	}]
+				 },
+				 {
+				  	title: "Java",
+					subskills: [
+					{
+						text: "Moderate skill with creating software using Swing-based GUI"
+					},
+					{
+						text: "Experienced in using Apache POI to work with Excel files"
+					}]
+				 },
+				 {
+				  	title: "Bash",
+					subskills: [
+					{
+						text: "Comfortable using basic UNIX commands to view, sort, move, append, and perform simple I/O on files, and writing simple scripts"
+					}]
+				 }];
+
+module.exports = skills
+},{}],15:[function(require,module,exports){
+var manage_controllers = {  
+							name: "manage_controllers", 
+				   		 	controls:[
+				   		 	{
+				   		 		text:"HTML/GSP: ",
+				   		 	  	type:"link",
+				   		 		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-core/grails-app/views/manageReport/_manageReportIndex.gsp"
+				   		 	},
+				   		 	{
+				   		 		text:"Javascript: ",
+				   		 		type:"link",
+				   		 		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-core/web-app/manageReport/js/manageReport.js"
+				   		 	}]
+				   		};
+
+var rid_admin_form = {
+		   		 			name: "rid_admin_form", 
+		   		 			controls:[
+		   		 			{
+		   		 				text:"Groovy: ",
+		   		 	     		type:"link",
+		   		 	     		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-rid/grails-app/controllers/metridoc/rid/RidAdminBaseController.groovy"
+		   		 			},
+		   		 			{
+		   		 		 		text:"HTML/GSP: ",
+		   		 	     		type:"link",
+		   		 	     		url: "https://github.com/metridoc/metridoc-grails/blob/master/metridoc-grails-rid/grails-app/views/ridAdminBase/_baseListWithLibUnit.gsp"
+		   		 	 		}]
+		   		 		};
+
+var skills = [
+				{
+				  	title: "Database interaction",
+					subskills: [
+					{
+						text: "MySQL Workstation, SquirrelSQL, some Oracle and MSSQL experience"
+					}]
+				},
+				{
+					title: "Code deployment",
+					subskills: [
+					{
+				 		text: "Jenkins, Git/Subversion, some use of Divshot, Codeship, Firebase"
+				 	}]
+				}, 
+				{
+				  	title: "Visual design",
+					subskills: [
+					{
+				 		text: "Adobe Photoshop, primarily used for photo editing and touchups"
+				 	}]
+				 },
+				 {
+				  	title: "Software development",
+					subskills: [
+					{
+						text: "Sublime, Eclipse, IntelliJ, basic familiarity with Vim"
+					}]
+				 },
+				 {
+				  	title: "Office tools",
+					subskills: [
+					{
+						text: "MS Word, Powerpoint, Google collaboration suite"
+					}]
+				 },
+				 {
+				  	title: "Data analysis",
+					subskills: [
+					{
+						text: "Origin, Mathematica, Excel"
+					}]
+				 },
+				 {
+				  	title: "Operating systems",
+					subskills: [
+					{
+						text: "Windows, OSX, Ubuntu and Mint Linux"
+					}]
+				 }];
+
+module.exports = skills
+},{}],16:[function(require,module,exports){
+
+var experiences = [
+				{
+				  	title: "Research Programmer",
+					location: "WWBP, Positive Psychology Center, University of Pennsylvania",
+					dates: "Fall 2016 - Summer 2016",
+					content: "Research programmer for the World Well Being Project (WWBP) at the Positive Psychology Center as well working on collaborations with the Social Media Lab at the School of Medicine. Added features to our machine learning infrastructure, generated prediction models, designed asynchronous validation tools in Javascript for online surveys, and wrote web pullers and scrapers for Twitter and Yelp data. Also deployed and maintained an instance of Jenkins for running recurring scripts and automated data collection pipelines. World Well Being Project information: http://www.wwbp.org/about.html"
+				},
+				{
+					title: "Digital Library Applications Programmer",
+					location: "ITaDD,  Van Pelt Library, University of Pennsylvania",
+					dates: "Fall 2013 - Fall 2015",
+					content: "Full-time expansion of previous work as an intern. Primary programmer on the open source Metridoc suite of applications. Implemented new features, maintained code deployment and bugfixing, structured future directions, collaborated with coworkers on additional projects, participated in department-wide organizational and transparency initiatives, addressed user issues, performed rudimentary data analysis, and continued work initiated during internship. https://github.com/metridoc/metridoc-job  https://github.com/metridoc/metridoc-grails/" 
+				},
+				{
+					title: "Programming Intern",
+					location: "ITaDD,  Van Pelt Library, University of Pennsylvania",
+					dates: "Summer 2013",
+					content: "Worked on a library services transaction database using Grails web framework. Improved user interfaces, designed new features, responded to user feedback, maintained software versions, wrote documentation and unit tests, and wrote custom Javascript and CSS. Worked both independently and with pair-programming. Paid part-time internship.",
+				},
+				{
+					title: "Programmer",                             
+					location: "Digital Scholarship Department, Haverford College",
+					dates: "Spring 2012",
+					content: "Designed and began development of a Python-based text parser for transcribing bibliographies into analysis-friendly formats using regular expressions. Wrote basic tutorials on using OSX Automator features to process batch file conversion and editing tasks."
+				},
+				{
+					title: "Teaching Assistant",
+					location: "Chemistry Department, Haverford College",
+					dates: "Fall 2010- Spring 2011",
+					content: "Assisted General Chemistry and Organic Chemistry students with laboratory procedure, instructed students in proper use of analytical equipment, instructed students in analysis of data."
+				}];
+
+module.exports = experiences
+
+
 },{}],17:[function(require,module,exports){
 module.exports = require('react/lib/ReactTransitionGroup');
 },{"react/lib/ReactTransitionGroup":372}],18:[function(require,module,exports){
@@ -38823,4 +38909,4 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":309}]},{},[10]);
+},{"./lib/React":309}]},{},[7]);

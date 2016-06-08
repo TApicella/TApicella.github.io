@@ -15,14 +15,14 @@ render: function(){
 	return(
 		<Grid>
 			<Row className="show-grid">
-				<Col md={12}><span className="exp-title">{title}</span></Col>
+				<Col md={9}><span className="exp-title">{title}</span></Col>
 			</Row>
 			<Row className="show-grid">
-				<Col md={9}><span className="exp-location">{location}</span></Col>
-				<Col md={3} className="exp-dates"><span>{dates}</span></Col>
+				<Col md={9} lg={6}><span className="exp-location">{location}</span></Col>
+				<Col md={3} lg={3} className="exp-dates"><span>{dates}</span></Col>
 			</Row>
 			<Row className="show-grid">
-				<Col md={12}><span className="exp-content">{content}</span></Col>
+				<Col md={12} lg={9}><span className="exp-content">{content}</span></Col>
 			</Row>
 			<br/>
 		</Grid>
