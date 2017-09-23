@@ -43,5 +43,8 @@
 		list2: ['a','have','reward','end','sentence','proving','words','the','not',
          'sorry','clever','sorted','the','that','you','are','this','lists',
          'correctly','but','be','the','more','hard','was','should']
+	},
+	exercise_5: {
+		default: "ABCD"
 	}
 }

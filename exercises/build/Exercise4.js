@@ -48,8 +48,7 @@ var Exercise4 = React.createClass({
       "width": "50%",
       "font-size": "24px",
       "text-align": "left",
-      "margin": "20px",
-      "border": "3px"
+      "margin": "20px"
     };
 
     var zippedList = _.zip(this.props.list1, this.props.list2);
