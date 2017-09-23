@@ -1,51 +1,75 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var _ = require('lodash');
 
 var Exercise1 = React.createClass({
 
-	getInitialState: function(){
-        return {
-            mystr: "",
-            revstr: ""
-        }
-    },
-    
-  componentDidMount(){
-        this.handleChange(this.props.default);
-    },
+  propTypes: {
+    default: React.PropTypes.string
+  },
 
-	handleChange(value) {
-		var ins_index = 0;
-		var result=[];
+	getInitialState: function(){
+    return {
+      mystr: "",
+      revstr: ""
+    }
+  },
+    
+  componentDidMount: function(){
+    this.handleChange(this.props.default);
+  },
+
+	handleChange: function(value) {
+    var result=[]; //Array to store the reversed letters
+		var ins_index = 0; //Initially, insert new letters at the beginning of the array
+		
 		for(var i=0; i<value.length; i++){
 			var c = value[i];
-			if(c===" "){
-		  		ins_index = i+1;
+			if(c === " "){
+          //When you have a space, start inserting new letters just after the space 
+		  		ins_index = i+1; 
 			}
 			result.splice(ins_index, 0, c);
 		}
-		var revstr = result.join("");
+		
+    var revstr = result.join("");
+    this.setState({
+      mystr: value,
+      revstr: revstr
+    });
+  },
+    /* This above algorithm is fun because it only goes through the original string once.
+       Another algorithm using reduce:
+          var reverseWord = function(word){
+            var result = "";
+            for(var i=0; i<word.length; i++){
+              result = word.charAt(i)+result;
+            }
+            return result
+          }
 
-        this.setState({
-            mystr: value,
-            revstr: revstr
-        });
-    },
+        var reverseWords2 = function(mystring){
+          var strarray = mystring.split(" ")
+          //Flip the first word since it won't get hit as curr
+          strarray[0] = reverseWord(strarray[0])  
+          return strarray.reduce(function(acc, curr) {
+            return acc +" "+ reverseWord(curr);
+          });
+        } */
 
 	render: function() {
 
-    var textstyle ={
-      "font-size":"36px",
+    var defaultstyle ={
+      "fontSize":"36px",
       "width": "75%",
       "margin": "0 auto",
-      "text-align": "center"
+      "textAlign": "center"
     };
+
     return (
-      <div style={textstyle}>
+      <div style={defaultstyle}>
         <h2>Given a string, reverse each word in the string</h2>
         <br/>
-        <textarea style={textstyle} value={this.state.mystr} onChange={(event) =>this.handleChange(event.target.value)} />
+        <textarea style={defaultstyle} value={this.state.mystr} onChange={(event) =>this.handleChange(event.target.value)} />
         <br/>
         <div>{this.state.revstr}</div>
       </div>
@@ -53,4 +77,4 @@ var Exercise1 = React.createClass({
   }
 });
 
-module.exports = Exercise1
+module.exports = Exercise1;

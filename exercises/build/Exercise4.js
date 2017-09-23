@@ -6,13 +6,17 @@ var Exercise4 = React.createClass({
   displayName: 'Exercise4',
 
 
+  propTypes: {
+    list1: React.PropTypes.array,
+    list2: React.PropTypes.array
+  },
+
+  //Stubs
   getInitialState: function () {
     return {};
   },
 
   componentDidMount() {},
-
-  handleChange(value) {},
 
   sortByFirst(zipped) {
     return zipped.sort(function (a, b) {
@@ -31,33 +35,45 @@ var Exercise4 = React.createClass({
   render: function () {
 
     var textstyle = {
-      "font-size": "36px",
+      "fontSize": "36px",
       "width": "75%",
       "margin": "0 auto",
-      "text-align": "center"
+      "textAlign": "center"
     };
 
     var wrapperstyle = {
       "width": "100%",
       "margin": "0 auto",
       "display": "flex",
-      "justify-content": "center"
+      "justifyContent": "center"
+    };
+
+    var headerstyle = {
+      "width": "50%",
+      "fontSize": "24px",
+      "fontWeight": "bold",
+      "textAlign": "center",
+      "margin": "20px"
     };
 
     var resultstyle = {
-      "width": "50%",
-      "font-size": "24px",
-      "text-align": "left",
+      "width": "100%",
+      "fontSize": "24px",
+      "fontWeight": "normal",
+      "textAlign": "left",
       "margin": "20px"
     };
 
     var zippedList = _.zip(this.props.list1, this.props.list2);
     var sortedList = this.sortByFirst(zippedList);
     var unZippedList = _.unzip(sortedList);
+
+    //Modify to display more cleanly
     var strlist1 = "[" + this.props.list1.join(", ") + "]";
     var strlist2 = "[" + this.props.list2.join(", ") + "]";
     var sentence1 = "\"" + unZippedList[0].join(" ") + "\"";
     var sentence2 = "\"" + unZippedList[1].join(" ") + "\"";
+
     return React.createElement(
       'div',
       { style: textstyle },
@@ -72,15 +88,23 @@ var Exercise4 = React.createClass({
         { style: wrapperstyle },
         React.createElement(
           'div',
-          { style: resultstyle },
-          'List 1: ',
-          strlist1
+          { style: headerstyle },
+          'List 1',
+          React.createElement(
+            'div',
+            { style: resultstyle },
+            strlist1
+          )
         ),
         React.createElement(
           'div',
-          { style: resultstyle },
-          'List 2: ',
-          strlist2
+          { style: headerstyle },
+          'List 2',
+          React.createElement(
+            'div',
+            { style: resultstyle },
+            strlist2
+          )
         )
       ),
       React.createElement(
@@ -88,15 +112,23 @@ var Exercise4 = React.createClass({
         { style: wrapperstyle },
         React.createElement(
           'div',
-          { style: resultstyle },
-          'Sorted sentence 1: ',
-          sentence1
+          { style: headerstyle },
+          'Sentence 1',
+          React.createElement(
+            'div',
+            { style: resultstyle },
+            sentence1
+          )
         ),
         React.createElement(
           'div',
-          { style: resultstyle },
-          'Sorted sentence 2: ',
-          sentence2
+          { style: headerstyle },
+          'Sentence 2',
+          React.createElement(
+            'div',
+            { style: resultstyle },
+            sentence2
+          )
         )
       )
     );

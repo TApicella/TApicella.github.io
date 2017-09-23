@@ -187,78 +187,106 @@ process.umask = function() { return 0; };
 },{}],2:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
-var _ = require('lodash');
 
 var Exercise1 = React.createClass({
-    displayName: 'Exercise1',
+  displayName: 'Exercise1',
 
 
-    getInitialState: function () {
-        return {
-            mystr: "",
-            revstr: ""
-        };
-    },
+  propTypes: {
+    default: React.PropTypes.string
+  },
 
-    componentDidMount() {
-        this.handleChange(this.props.default);
-    },
+  getInitialState: function () {
+    return {
+      mystr: "",
+      revstr: ""
+    };
+  },
 
-    handleChange(value) {
-        var ins_index = 0;
-        var result = [];
-        for (var i = 0; i < value.length; i++) {
-            var c = value[i];
-            if (c === " ") {
-                ins_index = i + 1;
-            }
-            result.splice(ins_index, 0, c);
-        }
-        var revstr = result.join("");
+  componentDidMount: function () {
+    this.handleChange(this.props.default);
+  },
 
-        this.setState({
-            mystr: value,
-            revstr: revstr
-        });
-    },
+  handleChange: function (value) {
+    var result = []; //Array to store the reversed letters
+    var ins_index = 0; //Initially, insert new letters at the beginning of the array
 
-    render: function () {
-
-        var textstyle = {
-            "font-size": "36px",
-            "width": "75%",
-            "margin": "0 auto",
-            "text-align": "center"
-        };
-        return React.createElement(
-            'div',
-            { style: textstyle },
-            React.createElement(
-                'h2',
-                null,
-                'Given a string, reverse each word in the string'
-            ),
-            React.createElement('br', null),
-            React.createElement('textarea', { style: textstyle, value: this.state.mystr, onChange: event => this.handleChange(event.target.value) }),
-            React.createElement('br', null),
-            React.createElement(
-                'div',
-                null,
-                this.state.revstr
-            )
-        );
+    for (var i = 0; i < value.length; i++) {
+      var c = value[i];
+      if (c === " ") {
+        //When you have a space, start inserting new letters just after the space 
+        ins_index = i + 1;
+      }
+      result.splice(ins_index, 0, c);
     }
+
+    var revstr = result.join("");
+    this.setState({
+      mystr: value,
+      revstr: revstr
+    });
+  },
+  /* This above algorithm is fun because it only goes through the original string once.
+     Another algorithm using reduce:
+        var reverseWord = function(word){
+          var result = "";
+          for(var i=0; i<word.length; i++){
+            result = word.charAt(i)+result;
+          }
+          return result
+        }
+        var reverseWords2 = function(mystring){
+        var strarray = mystring.split(" ")
+        //Flip the first word since it won't get hit as curr
+        strarray[0] = reverseWord(strarray[0])  
+        return strarray.reduce(function(acc, curr) {
+          return acc +" "+ reverseWord(curr);
+        });
+      } */
+
+  render: function () {
+
+    var defaultstyle = {
+      "fontSize": "36px",
+      "width": "75%",
+      "margin": "0 auto",
+      "textAlign": "center"
+    };
+
+    return React.createElement(
+      'div',
+      { style: defaultstyle },
+      React.createElement(
+        'h2',
+        null,
+        'Given a string, reverse each word in the string'
+      ),
+      React.createElement('br', null),
+      React.createElement('textarea', { style: defaultstyle, value: this.state.mystr, onChange: event => this.handleChange(event.target.value) }),
+      React.createElement('br', null),
+      React.createElement(
+        'div',
+        null,
+        this.state.revstr
+      )
+    );
+  }
 });
 
 module.exports = Exercise1;
-},{"lodash":166,"react":447,"react-dom":278}],3:[function(require,module,exports){
+},{"react":447,"react-dom":278}],3:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
-var _ = require('lodash');
 
 var Exercise2 = React.createClass({
   displayName: 'Exercise2',
 
+
+  propTypes: {
+    first_hash: React.PropTypes.object,
+    second_hash: React.PropTypes.object,
+    prettyJSON: React.PropTypes.func
+  },
 
   getInitialState: function () {
     return {
@@ -266,7 +294,7 @@ var Exercise2 = React.createClass({
     };
   },
 
-  componentDidMount() {
+  componentDidMount: function () {
     this.setMergedHash(this.props.first_hash, this.props.second_hash);
   },
 
@@ -300,6 +328,7 @@ var Exercise2 = React.createClass({
 
     return newhash;
   },
+
   setMergedHash: function (a, b) {
     var newhash = this.mergeHashes(a, b);
     merged_str = this.props.prettyJSON(newhash, 300);
@@ -312,36 +341,37 @@ var Exercise2 = React.createClass({
       "width": "100%",
       "margin": "0 auto",
       "display": "flex",
-      "justify-content": "center"
+      "justifyContent": "center"
     };
 
     var jsonstyle = {
       "width": "30%",
-      "text-align": "left",
+      "textAlign": "left",
       "margin": "30px"
     };
 
     var btnstyle = {
       "width": "30%",
-      "text-align": "left",
-      "margin-left": "30px"
+      "textAlign": "left",
+      "marginLeft": "30px"
     };
 
-    var textstyle = {
-      "font-size": "36px",
+    var defaultstyle = {
+      "fontSize": "36px",
       "width": "75%",
       "margin": "0 auto",
-      "text-align": "center"
+      "textAlign": "center"
     };
+
     var first_str = this.props.prettyJSON(this.props.first_hash, 300);
     var second_str = this.props.prettyJSON(this.props.second_hash, 300);
 
     return React.createElement(
       'div',
-      null,
+      { style: defaultstyle },
       React.createElement(
         'h2',
-        { style: textstyle },
+        null,
         'Write a function that takes two hashes, merges them together, and returns the result.'
       ),
       React.createElement(
@@ -372,14 +402,17 @@ var Exercise2 = React.createClass({
 });
 
 module.exports = Exercise2;
-},{"lodash":166,"react":447,"react-dom":278}],4:[function(require,module,exports){
+},{"react":447,"react-dom":278}],4:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
-var _ = require('lodash');
 
 var Exercise3 = React.createClass({
   displayName: 'Exercise3',
 
+
+  propTypes: {
+    numbers: React.PropTypes.string
+  },
 
   getInitialState: function () {
     return {
@@ -408,6 +441,9 @@ var Exercise3 = React.createClass({
   getDupes: function (num_array) {
     var dupes = new Set();
     var nums = {};
+    //Each time you find a number:
+    //If it isn't in nums, add it to nums
+    //If it is in nums, add it to dupes
     for (var i = 0; i < num_array.length; i++) {
       n = parseInt(num_array[i]);
       if (n in nums) {
@@ -425,23 +461,24 @@ var Exercise3 = React.createClass({
 
   render: function () {
 
-    var textstyle = {
-      "font-size": "36px",
+    var defaultstyle = {
+      "fontSize": "36px",
       "width": "75%",
       "margin": "0 auto",
-      "text-align": "center"
+      "textAlign": "center"
     };
 
     var numstyle = {
-      "font-size": "16px",
+      "fontSize": "16px",
       "width": "75%",
       "margin": "0 auto",
-      "text-align": "left",
+      "textAlign": "left",
       "border": "1px"
     };
+
     return React.createElement(
       'div',
-      { style: textstyle },
+      { style: defaultstyle },
       React.createElement(
         'h2',
         null,
@@ -471,7 +508,7 @@ var Exercise3 = React.createClass({
 });
 
 module.exports = Exercise3;
-},{"lodash":166,"react":447,"react-dom":278}],5:[function(require,module,exports){
+},{"react":447,"react-dom":278}],5:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('lodash');
@@ -480,13 +517,17 @@ var Exercise4 = React.createClass({
   displayName: 'Exercise4',
 
 
+  propTypes: {
+    list1: React.PropTypes.array,
+    list2: React.PropTypes.array
+  },
+
+  //Stubs
   getInitialState: function () {
     return {};
   },
 
   componentDidMount() {},
-
-  handleChange(value) {},
 
   sortByFirst(zipped) {
     return zipped.sort(function (a, b) {
@@ -505,33 +546,45 @@ var Exercise4 = React.createClass({
   render: function () {
 
     var textstyle = {
-      "font-size": "36px",
+      "fontSize": "36px",
       "width": "75%",
       "margin": "0 auto",
-      "text-align": "center"
+      "textAlign": "center"
     };
 
     var wrapperstyle = {
       "width": "100%",
       "margin": "0 auto",
       "display": "flex",
-      "justify-content": "center"
+      "justifyContent": "center"
+    };
+
+    var headerstyle = {
+      "width": "50%",
+      "fontSize": "24px",
+      "fontWeight": "bold",
+      "textAlign": "center",
+      "margin": "20px"
     };
 
     var resultstyle = {
-      "width": "50%",
-      "font-size": "24px",
-      "text-align": "left",
+      "width": "100%",
+      "fontSize": "24px",
+      "fontWeight": "normal",
+      "textAlign": "left",
       "margin": "20px"
     };
 
     var zippedList = _.zip(this.props.list1, this.props.list2);
     var sortedList = this.sortByFirst(zippedList);
     var unZippedList = _.unzip(sortedList);
+
+    //Modify to display more cleanly
     var strlist1 = "[" + this.props.list1.join(", ") + "]";
     var strlist2 = "[" + this.props.list2.join(", ") + "]";
     var sentence1 = "\"" + unZippedList[0].join(" ") + "\"";
     var sentence2 = "\"" + unZippedList[1].join(" ") + "\"";
+
     return React.createElement(
       'div',
       { style: textstyle },
@@ -546,15 +599,23 @@ var Exercise4 = React.createClass({
         { style: wrapperstyle },
         React.createElement(
           'div',
-          { style: resultstyle },
-          'List 1: ',
-          strlist1
+          { style: headerstyle },
+          'List 1',
+          React.createElement(
+            'div',
+            { style: resultstyle },
+            strlist1
+          )
         ),
         React.createElement(
           'div',
-          { style: resultstyle },
-          'List 2: ',
-          strlist2
+          { style: headerstyle },
+          'List 2',
+          React.createElement(
+            'div',
+            { style: resultstyle },
+            strlist2
+          )
         )
       ),
       React.createElement(
@@ -562,15 +623,23 @@ var Exercise4 = React.createClass({
         { style: wrapperstyle },
         React.createElement(
           'div',
-          { style: resultstyle },
-          'Sorted sentence 1: ',
-          sentence1
+          { style: headerstyle },
+          'Sentence 1',
+          React.createElement(
+            'div',
+            { style: resultstyle },
+            sentence1
+          )
         ),
         React.createElement(
           'div',
-          { style: resultstyle },
-          'Sorted sentence 2: ',
-          sentence2
+          { style: headerstyle },
+          'Sentence 2',
+          React.createElement(
+            'div',
+            { style: resultstyle },
+            sentence2
+          )
         )
       )
     );
@@ -586,9 +655,13 @@ var _ = require('lodash');
 var Exercise5 = React.createClass({
   displayName: 'Exercise5',
 
-  //Implementation of Heap's algorithm: https://en.wikipedia.org/wiki/Heap%27s_algorithm
+
+  propTypes: {
+    default: React.PropTypes.string
+  },
 
   newperms: [], //Temporary tracker of permutations
+
   getInitialState: function () {
     return {
       mystr: "",
@@ -618,6 +691,7 @@ var Exercise5 = React.createClass({
     return myarray;
   },
 
+  //Implementation of Heap's algorithm: https://en.wikipedia.org/wiki/Heap%27s_algorithm
   getPermutations(myarray, size) {
     if (size == 1) {
       this.newperms.push(myarray.join(""));
@@ -636,17 +710,17 @@ var Exercise5 = React.createClass({
   render: function () {
 
     var textstyle = {
-      "font-size": "36px",
+      "fontSize": "36px",
       "width": "75%",
       "margin": "0 auto",
-      "text-align": "center"
+      "textAlign": "center"
     };
 
     var permstyle = {
-      "font-size": "24px",
+      "fontSize": "24px",
       "width": "100%",
       "margin": "0 auto",
-      "text-align": "center",
+      "textAlign": "center",
       "height": "500px",
       "overflow": "auto"
     };
@@ -655,6 +729,7 @@ var Exercise5 = React.createClass({
     for (var i = 0; i < this.state.permutations.length; i++) {
       permstring += this.state.permutations[i] + " ";
     }
+
     return React.createElement(
       'div',
       { style: textstyle },
@@ -691,7 +766,6 @@ module.exports = Exercise5;
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Glyphicon = require('react-bootstrap').Glyphicon;
-var _ = require('lodash');
 
 var Exercise1 = require('./Exercise1.js');
 var Exercise2 = require('./Exercise2.js');
@@ -702,38 +776,52 @@ var Exercise5 = require('./Exercise5.js');
 var ExerciseCarousel = React.createClass({
   displayName: 'ExerciseCarousel',
 
+
+  propTypes: {
+    ex: React.PropTypes.number,
+    ex_header: React.PropTypes.string,
+    data: React.PropTypes.object,
+    prettyJSON: React.PropTypes.func
+  },
+
   render: function () {
     var e3_numbers = this.props.data.exercise_3.numbers.join(" ");
     var exercises = {
-      0: React.createElement(Exercise1, { 'default': this.props.data.exercise_1.mystring }),
-      1: React.createElement(Exercise2, { first_hash: this.props.data.exercise_2.first_hash,
+      1: React.createElement(Exercise1, { 'default': this.props.data.exercise_1.mystring }),
+      2: React.createElement(Exercise2, { first_hash: this.props.data.exercise_2.first_hash,
         second_hash: this.props.data.exercise_2.second_hash,
         prettyJSON: this.props.prettyJSON }),
-      2: React.createElement(Exercise3, { numbers: e3_numbers }),
-      3: React.createElement(Exercise4, { list1: this.props.data.exercise_4.list1, list2: this.props.data.exercise_4.list2 }),
-      4: React.createElement(Exercise5, { 'default': this.props.data.exercise_5.default })
+      3: React.createElement(Exercise3, { numbers: e3_numbers }),
+      4: React.createElement(Exercise4, { list1: this.props.data.exercise_4.list1, list2: this.props.data.exercise_4.list2 }),
+      5: React.createElement(Exercise5, { 'default': this.props.data.exercise_5.default })
     };
+    var url = "https://github.com/TApicella/TApicella.github.io/blob/master/exercises/src/Exercise" + this.props.ex + ".jsx";
 
-    var textstyle = {
-      "font-size": "36px",
+    var defaultstyle = {
+      "fontSize": "36px",
       "width": "400px",
       "margin": "0 auto",
-      "text-align": "center"
+      "textAlign": "center"
     };
     var headerstyle = {
       "width": "300px"
     };
+
     return React.createElement(
       'div',
       null,
       React.createElement(
         'div',
-        { style: textstyle },
+        { style: defaultstyle },
         React.createElement(Glyphicon, { glyph: 'chevron-left', onClick: this.props.prev }),
         React.createElement(
           'span',
           { style: headerstyle },
-          this.props.ex_header
+          React.createElement(
+            'a',
+            { href: url, target: '_blank' },
+            this.props.ex_header
+          )
         ),
         React.createElement(Glyphicon, { glyph: 'chevron-right', onClick: this.props.next })
       ),
@@ -743,10 +831,9 @@ var ExerciseCarousel = React.createClass({
 });
 
 module.exports = ExerciseCarousel;
-},{"./Exercise1.js":2,"./Exercise2.js":3,"./Exercise3.js":4,"./Exercise4.js":5,"./Exercise5.js":6,"lodash":166,"react":447,"react-bootstrap":267,"react-dom":278}],8:[function(require,module,exports){
+},{"./Exercise1.js":2,"./Exercise2.js":3,"./Exercise3.js":4,"./Exercise4.js":5,"./Exercise5.js":6,"react":447,"react-bootstrap":267,"react-dom":278}],8:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
-var _ = require('lodash');
 var ExerciseCarousel = require('./ExerciseCarousel.js');
 var data = require('../data/data.json');
 
@@ -757,34 +844,24 @@ var Exes = React.createClass({
   getInitialState: function () {
     return {
       data: data,
-      exercise: 0
+      exercise: 1
     };
   },
-  /*
-  	componentDidMount: function() {
-  		//Callback to actually set the state once the data is loaded
-  		var cb = function(data, caller){
-  			caller.setState({
-  				data: data
-  			});
-  		};
-  
-  		//Call to load the csv data
-  		this.getData = datasource.getData(cb, this);
-      },
-  
-      componentWillUnmount: function() {
-      	this.getData.abort();
-    	},*/
 
   next: function () {
-    this.setState({ exercise: (this.state.exercise + 1) % 5 });
+    var newex;
+    if (this.state.exercise === 5) {
+      newex = 1;
+    } else {
+      newex = this.state.exercise + 1;
+    }
+    this.setState({ exercise: newex });
   },
 
   prev: function () {
     var newex;
-    if (this.state.exercise === 0) {
-      newex = 4;
+    if (this.state.exercise === 1) {
+      newex = 5;
     } else {
       newex = this.state.exercise - 1;
     }
@@ -811,48 +888,46 @@ var Exes = React.createClass({
   },
 
   render: function () {
-    var exercise_str = "Exercise " + (this.state.exercise + 1);
+
+    var exercise_str = "Exercise " + this.state.exercise;
+
     var headerstyle = {
-      "font-size": "36px",
+      "fontSize": "36px",
       "width": "100%",
       "margin": "0 auto",
-      "text-align": "center"
+      "textAlign": "center"
     };
-    var datastyle = {
-      "width": "50%"
-    };
-    var data = this.prettyJSON(this.state.data, datastyle);
-    if (this.state.data) {
 
-      return React.createElement(
-        'div',
-        { className: 'exercises' },
-        React.createElement(
-          'div',
-          null,
-          React.createElement(
-            'h1',
-            { style: headerstyle },
-            'Tom Apicella\'s Code Challenge'
-          )
-        ),
-        React.createElement('br', null),
-        React.createElement(ExerciseCarousel, { ex: this.state.exercise, ex_header: exercise_str,
-          data: this.state.data, next: this.next, prev: this.prev,
-          prettyJSON: this.prettyJSON })
-      );
-    } else {
-      return React.createElement(
-        'div',
-        null,
-        'Loading...'
-      );
-    }
+    var subheaderstyle = {
+      "fontSize": "16px",
+      "width": "100%",
+      "margin": "0 auto",
+      "textAlign": "center"
+    };
+
+    return React.createElement(
+      'div',
+      { className: 'exercises' },
+      React.createElement(
+        'h1',
+        { style: headerstyle },
+        'Tom Apicella\'s Code Challenge'
+      ),
+      React.createElement(
+        'h3',
+        { style: subheaderstyle },
+        'Click the exercise header to go to the source code'
+      ),
+      React.createElement('br', null),
+      React.createElement(ExerciseCarousel, { ex: this.state.exercise, ex_header: exercise_str,
+        data: this.state.data, next: this.next, prev: this.prev,
+        prettyJSON: this.prettyJSON })
+    );
   }
 });
 
 ReactDOM.render(React.createElement(Exes, null), document.getElementById('exercises'));
-},{"../data/data.json":9,"./ExerciseCarousel.js":7,"lodash":166,"react":447,"react-dom":278}],9:[function(require,module,exports){
+},{"../data/data.json":9,"./ExerciseCarousel.js":7,"react":447,"react-dom":278}],9:[function(require,module,exports){
 module.exports={
 	exercise_1: {
 		mystring: "Linode is really cool"

@@ -5,9 +5,13 @@ var _ = require('lodash');
 var Exercise5 = React.createClass({
   displayName: 'Exercise5',
 
-  //Implementation of Heap's algorithm: https://en.wikipedia.org/wiki/Heap%27s_algorithm
+
+  propTypes: {
+    default: React.PropTypes.string
+  },
 
   newperms: [], //Temporary tracker of permutations
+
   getInitialState: function () {
     return {
       mystr: "",
@@ -37,6 +41,7 @@ var Exercise5 = React.createClass({
     return myarray;
   },
 
+  //Implementation of Heap's algorithm: https://en.wikipedia.org/wiki/Heap%27s_algorithm
   getPermutations(myarray, size) {
     if (size == 1) {
       this.newperms.push(myarray.join(""));
@@ -55,17 +60,17 @@ var Exercise5 = React.createClass({
   render: function () {
 
     var textstyle = {
-      "font-size": "36px",
+      "fontSize": "36px",
       "width": "75%",
       "margin": "0 auto",
-      "text-align": "center"
+      "textAlign": "center"
     };
 
     var permstyle = {
-      "font-size": "24px",
+      "fontSize": "24px",
       "width": "100%",
       "margin": "0 auto",
-      "text-align": "center",
+      "textAlign": "center",
       "height": "500px",
       "overflow": "auto"
     };
@@ -74,6 +79,7 @@ var Exercise5 = React.createClass({
     for (var i = 0; i < this.state.permutations.length; i++) {
       permstring += this.state.permutations[i] + " ";
     }
+
     return React.createElement(
       'div',
       { style: textstyle },

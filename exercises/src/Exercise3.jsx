@@ -1,14 +1,17 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var _ = require('lodash');
 
 var Exercise3 = React.createClass({
 
+  propTypes: { 
+    numbers: React.PropTypes.string
+  },
+
 	getInitialState: function(){
-        return {
-          numbers:"",
-          dupes:""
-        }
+    return {
+      numbers:"",
+      dupes:""
+    };
   },
 
 	componentDidMount(){
@@ -31,6 +34,9 @@ var Exercise3 = React.createClass({
   getDupes: function(num_array){
     var dupes = new Set();
     var nums = {};
+    //Each time you find a number:
+    //If it isn't in nums, add it to nums
+    //If it is in nums, add it to dupes
     for(var i=0; i<num_array.length; i++){
       n = parseInt(num_array[i]);
       if(n in nums){
@@ -47,22 +53,23 @@ var Exercise3 = React.createClass({
 
 	render: function() {
 
-    var textstyle ={
-      "font-size":"36px",
+    var defaultstyle ={
+      "fontSize":"36px",
       "width": "75%",
       "margin": "0 auto",
-      "text-align": "center"
+      "textAlign": "center"
     };
 
     var numstyle ={
-      "font-size":"16px",
+      "fontSize":"16px",
       "width": "75%",
       "margin": "0 auto",
-      "text-align": "left",
+      "textAlign": "left",
       "border":"1px"
     };
+
     return (
-      <div style={textstyle}>
+      <div style={defaultstyle}>
         <h2>Given a list of 100 numbers, many values are duplicates - find the duplicate values</h2>
         <br/>
         <div>Numbers</div>
@@ -76,4 +83,4 @@ var Exercise3 = React.createClass({
   }
 });
 
-module.exports = Exercise3
+module.exports = Exercise3;

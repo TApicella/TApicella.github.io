@@ -1,6 +1,5 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var _ = require('lodash');
 var ExerciseCarousel = require('./ExerciseCarousel.js');
 var data = require('../data/data.json');
 
@@ -11,34 +10,24 @@ var Exes = React.createClass({
   getInitialState: function () {
     return {
       data: data,
-      exercise: 0
+      exercise: 1
     };
   },
-  /*
-  	componentDidMount: function() {
-  		//Callback to actually set the state once the data is loaded
-  		var cb = function(data, caller){
-  			caller.setState({
-  				data: data
-  			});
-  		};
-  
-  		//Call to load the csv data
-  		this.getData = datasource.getData(cb, this);
-      },
-  
-      componentWillUnmount: function() {
-      	this.getData.abort();
-    	},*/
 
   next: function () {
-    this.setState({ exercise: (this.state.exercise + 1) % 5 });
+    var newex;
+    if (this.state.exercise === 5) {
+      newex = 1;
+    } else {
+      newex = this.state.exercise + 1;
+    }
+    this.setState({ exercise: newex });
   },
 
   prev: function () {
     var newex;
-    if (this.state.exercise === 0) {
-      newex = 4;
+    if (this.state.exercise === 1) {
+      newex = 5;
     } else {
       newex = this.state.exercise - 1;
     }
@@ -65,43 +54,41 @@ var Exes = React.createClass({
   },
 
   render: function () {
-    var exercise_str = "Exercise " + (this.state.exercise + 1);
+
+    var exercise_str = "Exercise " + this.state.exercise;
+
     var headerstyle = {
-      "font-size": "36px",
+      "fontSize": "36px",
       "width": "100%",
       "margin": "0 auto",
-      "text-align": "center"
+      "textAlign": "center"
     };
-    var datastyle = {
-      "width": "50%"
-    };
-    var data = this.prettyJSON(this.state.data, datastyle);
-    if (this.state.data) {
 
-      return React.createElement(
-        'div',
-        { className: 'exercises' },
-        React.createElement(
-          'div',
-          null,
-          React.createElement(
-            'h1',
-            { style: headerstyle },
-            'Tom Apicella\'s Code Challenge'
-          )
-        ),
-        React.createElement('br', null),
-        React.createElement(ExerciseCarousel, { ex: this.state.exercise, ex_header: exercise_str,
-          data: this.state.data, next: this.next, prev: this.prev,
-          prettyJSON: this.prettyJSON })
-      );
-    } else {
-      return React.createElement(
-        'div',
-        null,
-        'Loading...'
-      );
-    }
+    var subheaderstyle = {
+      "fontSize": "16px",
+      "width": "100%",
+      "margin": "0 auto",
+      "textAlign": "center"
+    };
+
+    return React.createElement(
+      'div',
+      { className: 'exercises' },
+      React.createElement(
+        'h1',
+        { style: headerstyle },
+        'Tom Apicella\'s Code Challenge'
+      ),
+      React.createElement(
+        'h3',
+        { style: subheaderstyle },
+        'Click the exercise header to go to the source code'
+      ),
+      React.createElement('br', null),
+      React.createElement(ExerciseCarousel, { ex: this.state.exercise, ex_header: exercise_str,
+        data: this.state.data, next: this.next, prev: this.prev,
+        prettyJSON: this.prettyJSON })
+    );
   }
 });
 

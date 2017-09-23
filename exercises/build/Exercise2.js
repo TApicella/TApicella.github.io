@@ -1,10 +1,15 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var _ = require('lodash');
 
 var Exercise2 = React.createClass({
   displayName: 'Exercise2',
 
+
+  propTypes: {
+    first_hash: React.PropTypes.object,
+    second_hash: React.PropTypes.object,
+    prettyJSON: React.PropTypes.func
+  },
 
   getInitialState: function () {
     return {
@@ -12,7 +17,7 @@ var Exercise2 = React.createClass({
     };
   },
 
-  componentDidMount() {
+  componentDidMount: function () {
     this.setMergedHash(this.props.first_hash, this.props.second_hash);
   },
 
@@ -46,6 +51,7 @@ var Exercise2 = React.createClass({
 
     return newhash;
   },
+
   setMergedHash: function (a, b) {
     var newhash = this.mergeHashes(a, b);
     merged_str = this.props.prettyJSON(newhash, 300);
@@ -58,36 +64,37 @@ var Exercise2 = React.createClass({
       "width": "100%",
       "margin": "0 auto",
       "display": "flex",
-      "justify-content": "center"
+      "justifyContent": "center"
     };
 
     var jsonstyle = {
       "width": "30%",
-      "text-align": "left",
+      "textAlign": "left",
       "margin": "30px"
     };
 
     var btnstyle = {
       "width": "30%",
-      "text-align": "left",
-      "margin-left": "30px"
+      "textAlign": "left",
+      "marginLeft": "30px"
     };
 
-    var textstyle = {
-      "font-size": "36px",
+    var defaultstyle = {
+      "fontSize": "36px",
       "width": "75%",
       "margin": "0 auto",
-      "text-align": "center"
+      "textAlign": "center"
     };
+
     var first_str = this.props.prettyJSON(this.props.first_hash, 300);
     var second_str = this.props.prettyJSON(this.props.second_hash, 300);
 
     return React.createElement(
       'div',
-      null,
+      { style: defaultstyle },
       React.createElement(
         'h2',
-        { style: textstyle },
+        null,
         'Write a function that takes two hashes, merges them together, and returns the result.'
       ),
       React.createElement(

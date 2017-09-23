@@ -3,10 +3,14 @@ var ReactDOM = require('react-dom');
 var _ = require('lodash');
 
 var Exercise5 = React.createClass({
-//Implementation of Heap's algorithm: https://en.wikipedia.org/wiki/Heap%27s_algorithm
+
+  propTypes: { 
+    default: React.PropTypes.string
+  },
 
   newperms: [], //Temporary tracker of permutations
-	getInitialState: function(){
+	
+  getInitialState: function(){
     return {
       mystr: "",
       permutations: []
@@ -34,7 +38,8 @@ var Exercise5 = React.createClass({
     myarray[y] = temp;
     return myarray;
   },
-
+   
+  //Implementation of Heap's algorithm: https://en.wikipedia.org/wiki/Heap%27s_algorithm
   getPermutations(myarray, size){
     if(size==1){
       this.newperms.push(myarray.join(""));
@@ -55,17 +60,17 @@ var Exercise5 = React.createClass({
 	render: function() {
 
     var textstyle ={
-      "font-size":"36px",
+      "fontSize":"36px",
       "width": "75%",
       "margin": "0 auto",
-      "text-align": "center"
+      "textAlign": "center"
     };
 
     var permstyle ={
-      "font-size":"24px",
+      "fontSize":"24px",
       "width": "100%",
       "margin": "0 auto",
-      "text-align": "center",
+      "textAlign": "center",
       "height": "500px",
       "overflow": "auto"
     };
@@ -74,6 +79,7 @@ var Exercise5 = React.createClass({
     for(var i=0; i<this.state.permutations.length; i++){
       permstring+=this.state.permutations[i]+" ";
     }
+
     return (
       <div style={textstyle}>
         <h2>Find all of the different permutations of a string, like "cats", without using any built-in permutation functions</h2>
@@ -88,4 +94,4 @@ var Exercise5 = React.createClass({
   }
 });
 
-module.exports = Exercise5
+module.exports = Exercise5;
