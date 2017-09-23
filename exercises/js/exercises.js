@@ -255,7 +255,6 @@ module.exports = Exercise1;
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('lodash');
-var Button = require('react-bootstrap').Button;
 
 var Exercise2 = React.createClass({
   displayName: 'Exercise2',
@@ -373,7 +372,7 @@ var Exercise2 = React.createClass({
 });
 
 module.exports = Exercise2;
-},{"lodash":166,"react":447,"react-bootstrap":267,"react-dom":278}],4:[function(require,module,exports){
+},{"lodash":166,"react":447,"react-dom":278}],4:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('lodash');
@@ -384,16 +383,45 @@ var Exercise3 = React.createClass({
 
   getInitialState: function () {
     return {
-      mystr: "",
-      revstr: ""
+      numbers: "",
+      dupes: ""
     };
   },
 
   componentDidMount() {
-    this.handleChange(this.props.default);
+    this.handleChange(this.props.numbers);
   },
 
-  handleChange(value) {},
+  handleChange(numbers) {
+    var notdigits = /[^\d ]/;
+    numbers = numbers.replace(/[,;]/, " ");
+    numbers = numbers.replace(/  +/, " ");
+    numbers = numbers.replace(notdigits, "");
+    var dupes = this.getDupes(numbers.trim().split(" "));
+    var dupestring = dupes.join(" ");
+    this.setState({
+      numbers: numbers,
+      dupes: dupestring
+    });
+  },
+
+  getDupes: function (num_array) {
+    var dupes = new Set();
+    var nums = {};
+    for (var i = 0; i < num_array.length; i++) {
+      n = parseInt(num_array[i]);
+      if (n in nums) {
+        dupes.add(n);
+      } else {
+        nums[n] = true;
+      }
+    }
+    var dupearray = Array.from(dupes);
+    dupearray.sort(function (a, b) {
+      return a - b;
+    });
+    return dupearray;
+  },
 
   render: function () {
 
@@ -403,15 +431,41 @@ var Exercise3 = React.createClass({
       "margin": "0 auto",
       "text-align": "center"
     };
+
+    var numstyle = {
+      "font-size": "16px",
+      "width": "75%",
+      "margin": "0 auto",
+      "text-align": "left",
+      "border": "1px"
+    };
     return React.createElement(
       'div',
       { style: textstyle },
       React.createElement(
         'h2',
         null,
-        'Given an array of 100 numbers, many values are duplicates - find the duplicate values'
+        'Given a list of 100 numbers, many values are duplicates - find the duplicate values'
       ),
-      React.createElement('br', null)
+      React.createElement('br', null),
+      React.createElement(
+        'div',
+        null,
+        'Numbers'
+      ),
+      React.createElement('textarea', { style: numstyle, value: this.state.numbers, onChange: event => this.handleChange(event.target.value) }),
+      React.createElement('br', null),
+      React.createElement('br', null),
+      React.createElement(
+        'div',
+        null,
+        'Duplicates'
+      ),
+      React.createElement(
+        'div',
+        { style: numstyle },
+        this.state.dupes
+      )
     );
   }
 });
@@ -521,13 +575,13 @@ var ExerciseCarousel = React.createClass({
   displayName: 'ExerciseCarousel',
 
   render: function () {
-
+    var e3_numbers = this.props.data.exercise_3.numbers.join(" ");
     var exercises = {
       0: React.createElement(Exercise1, { 'default': this.props.data.exercise_1.mystring }),
       1: React.createElement(Exercise2, { first_hash: this.props.data.exercise_2.first_hash,
         second_hash: this.props.data.exercise_2.second_hash,
         prettyJSON: this.props.prettyJSON }),
-      2: React.createElement(Exercise3, null),
+      2: React.createElement(Exercise3, { numbers: e3_numbers }),
       3: React.createElement(Exercise4, null),
       4: React.createElement(Exercise5, null)
     };
@@ -702,6 +756,13 @@ module.exports={
 		    foo: 0,
 		    bar: 19
 		}
+	},
+	exercise_3: {
+		numbers: [80,93,17,64,93,17,41,86,8,51,69,4,27,75,49,56,95,8,16,2,73,34,85,89,96,39,
+     99,64,13,94,93,25,76,11,26,91,85,28,11,55,9,36,68,96,23,53,66,90,68,79,17,
+     68,85,91,49,94,90,16,96,74,9,69,84,14,99,50,15,90,13,3,17,64,26,48,68,99,
+     99,50,91,91,89,93,36,22,67,43,90,49,76,34,16,80,29,18,53,27,33,71,37,62]
+
 	}
 }
 },{}],10:[function(require,module,exports){

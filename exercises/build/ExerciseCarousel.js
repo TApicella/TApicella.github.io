@@ -13,13 +13,13 @@ var ExerciseCarousel = React.createClass({
   displayName: 'ExerciseCarousel',
 
   render: function () {
-
+    var e3_numbers = this.props.data.exercise_3.numbers.join(" ");
     var exercises = {
       0: React.createElement(Exercise1, { 'default': this.props.data.exercise_1.mystring }),
       1: React.createElement(Exercise2, { first_hash: this.props.data.exercise_2.first_hash,
         second_hash: this.props.data.exercise_2.second_hash,
         prettyJSON: this.props.prettyJSON }),
-      2: React.createElement(Exercise3, null),
+      2: React.createElement(Exercise3, { numbers: e3_numbers }),
       3: React.createElement(Exercise4, null),
       4: React.createElement(Exercise5, null)
     };

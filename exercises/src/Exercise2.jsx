@@ -1,7 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('lodash');
-var Button = require('react-bootstrap').Button;
 
 var Exercise2 = React.createClass({
 
