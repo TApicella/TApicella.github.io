@@ -930,7 +930,7 @@ ReactDOM.render(React.createElement(Exes, null), document.getElementById('exerci
 },{"../data/data.json":9,"./ExerciseCarousel.js":7,"react":447,"react-dom":278}],9:[function(require,module,exports){
 module.exports={
 	exercise_1: {
-		mystring: "Linode is really cool"
+		mystring: "Coding is really cool"
 	},
 	exercise_2: {
 		first_hash: {
@@ -978,6 +978,7 @@ module.exports={
 		default: "ABCD"
 	}
 }
+
 },{}],10:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/array/from"), __esModule: true };
 },{"core-js/library/fn/array/from":25}],11:[function(require,module,exports){
