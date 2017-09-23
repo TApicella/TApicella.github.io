@@ -1,0 +1,33 @@
+{
+	exercise_1: {
+		mystring: "Linode is really cool"
+	},
+	exercise_2: {
+		first_hash: {
+		    data: {
+		        cpu: [1, 1, 42, 20],
+		        mem: [100, 100, 125, 90],
+		        disk: {
+		            read: [0, 40, 10, 4],
+		            write: [224, 98, 70, 200],
+		            swap: 0
+		        }
+		    },
+		    foo: 11
+		},
+
+		second_hash: {
+		    data: {
+		        cpu: [5, 6],
+		        disk: {
+		            read: [100],
+		            write: [100, 110, 120, 130, 140],
+		            swap: 1
+		        },
+		        net: [20, 30, 40]
+		    },
+		    foo: 0,
+		    bar: 19
+		}
+	}
+}

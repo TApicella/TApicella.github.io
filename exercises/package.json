@@ -1,0 +1,28 @@
+{
+  "name": "exercises",
+  "version": "1.0.0",
+  "description": "Visual display of coding exercises for Linode application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel --presets react src --out-dir build",
+    "browserify": "browserify build/exercises.js -o js/exercises.js",
+    "build": "npm run babel && npm run browserify"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Tom Apicella",
+  "license": "MIT",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^7.3.0",
+    "lodash": "^4.17.4",
+    "react": "^15.6.1",
+    "react-bootstrap": "^0.31.3",
+    "react-dom": "^15.6.1",
+    "react-responsive-carousel": "^3.1.26",
+    "react-transition-group": "^2.2.0"
+  }
+}
