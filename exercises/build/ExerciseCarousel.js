@@ -20,7 +20,7 @@ var ExerciseCarousel = React.createClass({
         second_hash: this.props.data.exercise_2.second_hash,
         prettyJSON: this.props.prettyJSON }),
       2: React.createElement(Exercise3, { numbers: e3_numbers }),
-      3: React.createElement(Exercise4, null),
+      3: React.createElement(Exercise4, { list1: this.props.data.exercise_4.list1, list2: this.props.data.exercise_4.list2 }),
       4: React.createElement(Exercise5, null)
     };
 

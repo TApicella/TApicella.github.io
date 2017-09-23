@@ -481,17 +481,26 @@ var Exercise4 = React.createClass({
 
 
   getInitialState: function () {
-    return {
-      mystr: "",
-      revstr: ""
-    };
+    return {};
   },
 
-  componentDidMount() {
-    this.handleChange(this.props.default);
-  },
+  componentDidMount() {},
 
   handleChange(value) {},
+
+  sortByFirst(zipped) {
+    return zipped.sort(function (a, b) {
+      var word1 = a[0].toUpperCase();
+      var word2 = b[0].toUpperCase();
+      if (word1 < word2) {
+        return -1;
+      } else if (word1 > word2) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  },
 
   render: function () {
 
@@ -501,15 +510,70 @@ var Exercise4 = React.createClass({
       "margin": "0 auto",
       "text-align": "center"
     };
+
+    var wrapperstyle = {
+      "width": "100%",
+      "margin": "0 auto",
+      "display": "flex",
+      "justify-content": "center"
+    };
+
+    var resultstyle = {
+      "width": "50%",
+      "font-size": "24px",
+      "text-align": "left",
+      "margin": "20px",
+      "border": "3px"
+    };
+
+    var zippedList = _.zip(this.props.list1, this.props.list2);
+    var sortedList = this.sortByFirst(zippedList);
+    var unZippedList = _.unzip(sortedList);
+    var strlist1 = "[" + this.props.list1.join(", ") + "]";
+    var strlist2 = "[" + this.props.list2.join(", ") + "]";
+    var sentence1 = "\"" + unZippedList[0].join(" ") + "\"";
+    var sentence2 = "\"" + unZippedList[1].join(" ") + "\"";
     return React.createElement(
       'div',
       { style: textstyle },
       React.createElement(
         'h2',
         null,
-        'Given two strings of comma-separated values, sort both lists by the first list alphabetically, and return the second list.'
+        'Given two lists of values, sort both lists by the first list alphabetically, and return the second list.'
       ),
-      React.createElement('br', null)
+      React.createElement('br', null),
+      React.createElement(
+        'div',
+        { style: wrapperstyle },
+        React.createElement(
+          'div',
+          { style: resultstyle },
+          'List 1: ',
+          strlist1
+        ),
+        React.createElement(
+          'div',
+          { style: resultstyle },
+          'List 2: ',
+          strlist2
+        )
+      ),
+      React.createElement(
+        'div',
+        { style: wrapperstyle },
+        React.createElement(
+          'div',
+          { style: resultstyle },
+          'Sorted sentence 1: ',
+          sentence1
+        ),
+        React.createElement(
+          'div',
+          { style: resultstyle },
+          'Sorted sentence 2: ',
+          sentence2
+        )
+      )
     );
   }
 });
@@ -582,7 +646,7 @@ var ExerciseCarousel = React.createClass({
         second_hash: this.props.data.exercise_2.second_hash,
         prettyJSON: this.props.prettyJSON }),
       2: React.createElement(Exercise3, { numbers: e3_numbers }),
-      3: React.createElement(Exercise4, null),
+      3: React.createElement(Exercise4, { list1: this.props.data.exercise_4.list1, list2: this.props.data.exercise_4.list2 }),
       4: React.createElement(Exercise5, null)
     };
 
@@ -762,7 +826,14 @@ module.exports={
      99,64,13,94,93,25,76,11,26,91,85,28,11,55,9,36,68,96,23,53,66,90,68,79,17,
      68,85,91,49,94,90,16,96,74,9,69,84,14,99,50,15,90,13,3,17,64,26,48,68,99,
      99,50,91,91,89,93,36,22,67,43,90,49,76,34,16,80,29,18,53,27,33,71,37,62]
-
+	},
+	exercise_4: {
+		list1: ['d','i','q','z','e','f','v','p','s','o','u','k','l','g','h','w','a',
+         'm','j','n','c','y','t','x','r','b'],
+		
+		list2: ['a','have','reward','end','sentence','proving','words','the','not',
+         'sorry','clever','sorted','the','that','you','are','this','lists',
+         'correctly','but','be','the','more','hard','was','should']
 	}
 }
 },{}],10:[function(require,module,exports){
