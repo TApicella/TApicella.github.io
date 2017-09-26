@@ -237,13 +237,12 @@ var Exercise1 = React.createClass({
         }
         var reverseWords2 = function(mystring){
         var strarray = mystring.split(" ")
-        //Flip the first word since it won't get hit as curr. 
-        //I could avoid this by using map instead of reduce and then join after
+        //Flip the first word since it won't get hit as curr
         strarray[0] = reverseWord(strarray[0])  
         return strarray.reduce(function(acc, curr) {
           return acc +" "+ reverseWord(curr);
         });
-          } */
+      } */
 
   render: function () {
 
