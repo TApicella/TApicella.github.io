@@ -1,0 +1,2 @@
+babel --presets react src --out-dir build
+browserify build/python_demos.js -o js/python_demos.js
