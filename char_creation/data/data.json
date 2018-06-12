@@ -1,0 +1,26 @@
+{
+	type: "carousel",
+	label: "Start",
+	data: [
+		{
+			type: "carousel",
+			label: "carousel1",
+			data: [{
+				type: "paragraph",
+				label: "paragraph1",
+				text: "foo"
+
+			}]
+		},
+		{
+			type: "carousel",
+			label: "carousel2",
+			data: [{
+				type: "paragraph",
+				label: "paragraph2",
+				text: "bar"
+
+			}]
+		}
+	]
+}
