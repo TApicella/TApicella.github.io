@@ -49,26 +49,39 @@ var Carousel = function (_Component) {
   }
 
   _createClass(Carousel, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var index = 0;
+      var depth = this.props.depth;
+      if (this.props.path.length > depth) {
+        index = this.props.path[depth];
+        this.props.updatePath(depth, index);
+      }
+      this.setState({ index: index });
+    }
+  }, {
     key: 'next',
     value: function next() {
-      var newindex;
-      if (this.state.index === this.props.data.length - 1) {
+      var newindex = void 0;
+      if (this.state.index === this.props.datalen - 1) {
         newindex = 0;
       } else {
         newindex = this.state.index + 1;
       }
       this.setState({ index: newindex });
+      this.props.updatePath(this.props.depth, newindex);
     }
   }, {
     key: 'prev',
     value: function prev() {
-      var newindex;
+      var newindex = void 0;
       if (this.state.index === 0) {
-        newindex = this.props.length - 1;
+        newindex = this.props.datalen - 1;
       } else {
         newindex = this.state.index - 1;
       }
       this.setState({ index: newindex });
+      this.props.updatePath(this.props.depth, newindex);
     }
   }, {
     key: 'render',
@@ -89,7 +102,11 @@ var Carousel = function (_Component) {
         "justifyContent": "center"
       };
 
-      var passdata = this.props.data[this.state.index];
+      var passdata = this.props.data;
+      //const datalength = this.props.data.length.toString();
+      var path = this.props.path;
+      var depth = this.props.depth + 1;
+      var mydata = JSON.stringify(this.props.data);
 
       return _react2.default.createElement(
         'div',
@@ -105,7 +122,7 @@ var Carousel = function (_Component) {
           ),
           _react2.default.createElement(_angleRight2.default, { onClick: this.next })
         ),
-        _react2.default.createElement(_DataDisplay2.default, { data: passdata })
+        _react2.default.createElement(_DataDisplay2.default, { data: passdata, path: path, updatePath: this.props.updatePath, depth: depth })
       );
     }
   }]);

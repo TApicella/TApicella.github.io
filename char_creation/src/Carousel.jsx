@@ -9,41 +9,30 @@ class Carousel extends Component{
   constructor(props) {
     super(props);
     this.state = {index: 0};
-    this.next = this.next.bind(this);
-    this.prev = this.prev.bind(this);
+  }
+
+  componentDidMount() {
+    let index = 0;
+    const depth = this.props.depth;
+    if(this.props.path.length>depth){
+      index = this.props.path[depth];
+      this.props.updatePath(depth, index);
+    }
+    this.setState({index: index}); 
+
   }
   
-  next(){
-    var newindex;
-    if(this.state.index===this.props.data.length-1){
-      newindex=0;
-    }
-    else{
-      newindex = this.state.index+1;
-    }
-    this.setState({index: newindex});
-  };
-
-  prev(){
-    var newindex;
-    if(this.state.index===0){
-      newindex=this.props.length-1;
-    }
-    else{
-      newindex = this.state.index-1;
-    }
-    this.setState({index: newindex});
-  };
+  
 
 	render(){
-    var defaultstyle = {
+    const defaultstyle = {
       "fontSize":"36px",
       "width": "400px",
       "margin": "0 auto",
       "textAlign": "center"
     };
     
-    var headerstyle = {
+    const headerstyle = {
       "fontSize":"36px",
       "width": "100%",
       "margin": "0 auto",
@@ -52,7 +41,11 @@ class Carousel extends Component{
       "justifyContent": "center"
     };
 
-    var passdata = this.props.data[this.state.index];
+    const passdata = this.props.data;
+    //const datalength = this.props.data.length.toString();
+    const path = this.props.path;
+    const depth = this.props.depth+1;
+    const mydata = JSON.stringify(this.props.data);
 
     return (
       <div>
@@ -61,7 +54,7 @@ class Carousel extends Component{
           <div>{this.props.label}</div>
           <FaAngleRight onClick={this.next}></FaAngleRight>
         </div>
-        <DataDisplay data={passdata} />
+        <DataDisplay data={passdata} path={path} updatePath={this.props.updatePath} depth={depth}/>
       </div>
     );
   }

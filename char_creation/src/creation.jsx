@@ -9,18 +9,60 @@ class MasterDisplay extends Component{
 
 	constructor(props) {
     super(props);
-    this.state = {data: data};
+    this.state = {
+      data: data,
+      path: []
+    };
+    this.updatePath = this.updatePath.bind(this);
+    this.prettyJSON = this.prettyJSON.bind(this);
+  }
+  componentDidMount() {
+    const getDepth = function (d) {
+      const dstring = JSON.stringify(d);
+      console.log(dstring);
+      let lbraces = 0;
+      let maxbraces = 0;
+      [...dstring].forEach(c => {
+        if(c == '{'){
+          lbraces++;
+          if(lbraces > maxbraces){
+            maxbraces = lbraces;
+          }         
+        }
+        else if(c == '}'){
+          lbraces--;
+        }
+      });
+      return maxbraces-1; //Don't count the outermost braces
+    }
+
+    const depth = getDepth(this.state.data);
+    
+    let newpath = this.state.path.slice();
+    while(newpath.length < depth){
+      newpath.push(0);
+    }
+    this.setState({path: newpath});
   }
 
+  updatePath(depth, index){
+    let newpath = this.state.path.slice();
+    while(newpath.length <= depth){
+      newpath.push(0);
+    }
+    newpath[depth] = index;
+    this.setState({path: newpath});
+  };
+
   prettyJSON(json, maxheight){
-    var data_str = JSON.stringify(json, function(k,v){
+    const data_str = JSON.stringify(json, function(k,v){
       if(v.constructor === Array){
         return JSON.stringify(v);
       }
     return v;
     }, "  ");
 
-    var jsonstyle = {
+    const jsonstyle = {
       "height": ""+maxheight+"px",
       "overflow":"auto"
     }  
@@ -29,28 +71,36 @@ class MasterDisplay extends Component{
   
   render(){
 
-    var headerstyle = {
+    const headerstyle = {
       "fontSize":"36px",
       "width": "100%",
       "margin": "0 auto",
       "textAlign": "center"
     };
 
-    var subheaderstyle = {
+    const subheaderstyle = {
       "fontSize":"16px",
       "width": "100%",
       "margin": "0 auto",
       "textAlign": "center"
     };
 
+    const startdepth = 0;
+
+    const displayPath = JSON.stringify(this.state.path);
+
+    const displayData = JSON.stringify(this.state.data, null, 2);
+
 		return(
     	<div>
         <h1 style={headerstyle}>
           Character info
         </h1>
+        <div>{displayPath}</div>
         <br/>
-        <DataDisplay data={this.state.data} />
-    	</div>
+        <pre>{displayData}</pre>
+        <DataDisplay dataobj={this.state.data} path={this.state.path} depth={startdepth}/>
+      </div>
   	);
   }
 };

@@ -39,6 +39,16 @@ var DataDisplay = function (_Component) {
   }
 
   _createClass(DataDisplay, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var index = 0;
+      var depth = this.props.depth;
+      if (this.props.path.length > depth) {
+        index = this.props.path[depth];
+        this.props.updatePath(depth, index);
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
 
@@ -56,8 +66,27 @@ var DataDisplay = function (_Component) {
         "textAlign": "center"
       };
 
+      var depth = this.props.depth;
       var sources = this.props.data;
-      var passdata = sources.data;
+      var path = this.props.path;
+
+      var index = void 0,
+          passdata = void 0,
+          datalen = void 0;
+      if (path.length > depth) {
+        index = path[depth];
+      } else {
+        index = 0;
+      }
+      if (sources.data) {
+        passdata = sources.data[index];
+        datalen = sources.data.length;
+      } else {
+        passdata = null;
+      }
+
+      var mydata = JSON.stringify(this.props.data);
+
       var label = sources.label;
       var text = sources.text;
 
@@ -65,13 +94,23 @@ var DataDisplay = function (_Component) {
         return _react2.default.createElement(
           'div',
           { className: 'display-carousel' },
+          _react2.default.createElement(
+            'div',
+            null,
+            mydata
+          ),
           _react2.default.createElement('br', null),
-          _react2.default.createElement(_Carousel2.default, { data: passdata, label: label })
+          _react2.default.createElement(_Carousel2.default, { data: passdata, datalen: datalen, label: label, depth: depth, path: path, updatePath: this.props.updatePath })
         );
       } else if (this.props.data.type == "paragraph") {
         return _react2.default.createElement(
           'div',
           { className: 'display-paragraph' },
+          _react2.default.createElement(
+            'div',
+            null,
+            mydata
+          ),
           _react2.default.createElement('br', null),
           _react2.default.createElement(
             'h2',

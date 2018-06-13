@@ -16,6 +16,8 @@ var _DataDisplay2 = _interopRequireDefault(_DataDisplay);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -33,11 +35,55 @@ var MasterDisplay = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (MasterDisplay.__proto__ || Object.getPrototypeOf(MasterDisplay)).call(this, props));
 
-    _this.state = { data: data };
+    _this.state = {
+      data: data,
+      path: []
+    };
+    _this.updatePath = _this.updatePath.bind(_this);
+    _this.prettyJSON = _this.prettyJSON.bind(_this);
     return _this;
   }
 
   _createClass(MasterDisplay, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var getDepth = function getDepth(d) {
+        var dstring = JSON.stringify(d);
+        console.log(dstring);
+        var lbraces = 0;
+        var maxbraces = 0;
+        [].concat(_toConsumableArray(dstring)).forEach(function (c) {
+          if (c == '{') {
+            lbraces++;
+            if (lbraces > maxbraces) {
+              maxbraces = lbraces;
+            }
+          } else if (c == '}') {
+            lbraces--;
+          }
+        });
+        return maxbraces - 1; //Don't count the outermost braces
+      };
+
+      var depth = getDepth(this.state.data);
+
+      var newpath = this.state.path.slice();
+      while (newpath.length < depth) {
+        newpath.push(0);
+      }
+      this.setState({ path: newpath });
+    }
+  }, {
+    key: 'updatePath',
+    value: function updatePath(depth, index) {
+      var newpath = this.state.path.slice();
+      while (newpath.length <= depth) {
+        newpath.push(0);
+      }
+      newpath[depth] = index;
+      this.setState({ path: newpath });
+    }
+  }, {
     key: 'prettyJSON',
     value: function prettyJSON(json, maxheight) {
       var data_str = JSON.stringify(json, function (k, v) {
@@ -75,6 +121,12 @@ var MasterDisplay = function (_Component) {
         "textAlign": "center"
       };
 
+      var startdepth = 0;
+
+      var displayPath = JSON.stringify(this.state.path);
+
+      var displayData = JSON.stringify(this.state.data, null, 2);
+
       return _react2.default.createElement(
         'div',
         null,
@@ -83,8 +135,17 @@ var MasterDisplay = function (_Component) {
           { style: headerstyle },
           'Character info'
         ),
+        _react2.default.createElement(
+          'div',
+          null,
+          displayPath
+        ),
         _react2.default.createElement('br', null),
-        _react2.default.createElement(_DataDisplay2.default, { data: this.state.data })
+        _react2.default.createElement(
+          'pre',
+          null,
+          displayData
+        )
       );
     }
   }]);

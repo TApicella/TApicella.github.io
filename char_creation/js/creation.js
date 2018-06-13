@@ -50,26 +50,39 @@ var Carousel = function (_Component) {
   }
 
   _createClass(Carousel, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var index = 0;
+      var depth = this.props.depth;
+      if (this.props.path.length > depth) {
+        index = this.props.path[depth];
+        this.props.updatePath(depth, index);
+      }
+      this.setState({ index: index });
+    }
+  }, {
     key: 'next',
     value: function next() {
-      var newindex;
-      if (this.state.index === this.props.data.length - 1) {
+      var newindex = void 0;
+      if (this.state.index === this.props.datalen - 1) {
         newindex = 0;
       } else {
         newindex = this.state.index + 1;
       }
       this.setState({ index: newindex });
+      this.props.updatePath(this.props.depth, newindex);
     }
   }, {
     key: 'prev',
     value: function prev() {
-      var newindex;
+      var newindex = void 0;
       if (this.state.index === 0) {
-        newindex = this.props.length - 1;
+        newindex = this.props.datalen - 1;
       } else {
         newindex = this.state.index - 1;
       }
       this.setState({ index: newindex });
+      this.props.updatePath(this.props.depth, newindex);
     }
   }, {
     key: 'render',
@@ -90,7 +103,11 @@ var Carousel = function (_Component) {
         "justifyContent": "center"
       };
 
-      var passdata = this.props.data[this.state.index];
+      var passdata = this.props.data;
+      //const datalength = this.props.data.length.toString();
+      var path = this.props.path;
+      var depth = this.props.depth + 1;
+      var mydata = JSON.stringify(this.props.data);
 
       return _react2.default.createElement(
         'div',
@@ -106,7 +123,7 @@ var Carousel = function (_Component) {
           ),
           _react2.default.createElement(_angleRight2.default, { onClick: this.next })
         ),
-        _react2.default.createElement(_DataDisplay2.default, { data: passdata })
+        _react2.default.createElement(_DataDisplay2.default, { data: passdata, path: path, updatePath: this.props.updatePath, depth: depth })
       );
     }
   }]);
@@ -136,6 +153,8 @@ var _DataDisplay2 = _interopRequireDefault(_DataDisplay);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -153,11 +172,55 @@ var MasterDisplay = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (MasterDisplay.__proto__ || Object.getPrototypeOf(MasterDisplay)).call(this, props));
 
-    _this.state = { data: data };
+    _this.state = {
+      data: data,
+      path: []
+    };
+    _this.updatePath = _this.updatePath.bind(_this);
+    _this.prettyJSON = _this.prettyJSON.bind(_this);
     return _this;
   }
 
   _createClass(MasterDisplay, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var getDepth = function getDepth(d) {
+        var dstring = JSON.stringify(d);
+        console.log(dstring);
+        var lbraces = 0;
+        var maxbraces = 0;
+        [].concat(_toConsumableArray(dstring)).forEach(function (c) {
+          if (c == '{') {
+            lbraces++;
+            if (lbraces > maxbraces) {
+              maxbraces = lbraces;
+            }
+          } else if (c == '}') {
+            lbraces--;
+          }
+        });
+        return maxbraces - 1; //Don't count the outermost braces
+      };
+
+      var depth = getDepth(this.state.data);
+
+      var newpath = this.state.path.slice();
+      while (newpath.length < depth) {
+        newpath.push(0);
+      }
+      this.setState({ path: newpath });
+    }
+  }, {
+    key: 'updatePath',
+    value: function updatePath(depth, index) {
+      var newpath = this.state.path.slice();
+      while (newpath.length <= depth) {
+        newpath.push(0);
+      }
+      newpath[depth] = index;
+      this.setState({ path: newpath });
+    }
+  }, {
     key: 'prettyJSON',
     value: function prettyJSON(json, maxheight) {
       var data_str = JSON.stringify(json, function (k, v) {
@@ -195,6 +258,12 @@ var MasterDisplay = function (_Component) {
         "textAlign": "center"
       };
 
+      var startdepth = 0;
+
+      var displayPath = JSON.stringify(this.state.path);
+
+      var displayData = JSON.stringify(this.state.data, null, 2);
+
       return _react2.default.createElement(
         'div',
         null,
@@ -203,8 +272,17 @@ var MasterDisplay = function (_Component) {
           { style: headerstyle },
           'Character info'
         ),
+        _react2.default.createElement(
+          'div',
+          null,
+          displayPath
+        ),
         _react2.default.createElement('br', null),
-        _react2.default.createElement(_DataDisplay2.default, { data: this.state.data })
+        _react2.default.createElement(
+          'pre',
+          null,
+          displayData
+        )
       );
     }
   }]);
@@ -257,6 +335,16 @@ var DataDisplay = function (_Component) {
   }
 
   _createClass(DataDisplay, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var index = 0;
+      var depth = this.props.depth;
+      if (this.props.path.length > depth) {
+        index = this.props.path[depth];
+        this.props.updatePath(depth, index);
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
 
@@ -274,8 +362,27 @@ var DataDisplay = function (_Component) {
         "textAlign": "center"
       };
 
+      var depth = this.props.depth;
       var sources = this.props.data;
-      var passdata = sources.data;
+      var path = this.props.path;
+
+      var index = void 0,
+          passdata = void 0,
+          datalen = void 0;
+      if (path.length > depth) {
+        index = path[depth];
+      } else {
+        index = 0;
+      }
+      if (sources.data) {
+        passdata = sources.data[index];
+        datalen = sources.data.length;
+      } else {
+        passdata = null;
+      }
+
+      var mydata = JSON.stringify(this.props.data);
+
       var label = sources.label;
       var text = sources.text;
 
@@ -283,13 +390,23 @@ var DataDisplay = function (_Component) {
         return _react2.default.createElement(
           'div',
           { className: 'display-carousel' },
+          _react2.default.createElement(
+            'div',
+            null,
+            mydata
+          ),
           _react2.default.createElement('br', null),
-          _react2.default.createElement(_Carousel2.default, { data: passdata, label: label })
+          _react2.default.createElement(_Carousel2.default, { data: passdata, datalen: datalen, label: label, depth: depth, path: path, updatePath: this.props.updatePath })
         );
       } else if (this.props.data.type == "paragraph") {
         return _react2.default.createElement(
           'div',
           { className: 'display-paragraph' },
+          _react2.default.createElement(
+            'div',
+            null,
+            mydata
+          ),
           _react2.default.createElement('br', null),
           _react2.default.createElement(
             'h2',
@@ -314,28 +431,110 @@ var DataDisplay = function (_Component) {
 exports.default = DataDisplay;
 },{"./Carousel.js":1,"react":192,"react-dom":37}],4:[function(require,module,exports){
 module.exports={
-	type: "carousel",
-	label: "Start",
+	type: "header",
+	label: "Introduction",
+	text: "a",
 	data: [
 		{
 			type: "carousel",
-			label: "carousel1",
-			data: [{
-				type: "paragraph",
-				label: "paragraph1",
-				text: "foo"
+			label: "Races of Diamorti",
+			text: "b",
+			data: [
+				{
+					type: "carousel",
+					label: "Humans",
+					text: "c",
+					data: [
+						{
+							type: "carousel",
+							label: "History",
+							data: [
+								{
+									type: "paragraph",
+									label: "human history 1",
+									data: null,
+									text: "human stuff"
 
-			}]
-		},
-		{
-			type: "carousel",
-			label: "carousel2",
-			data: [{
-				type: "paragraph",
-				label: "paragraph2",
-				text: "bar"
+								},
+								{
+									type: "paragraph",
+									label: "human history 2",
+									data: null,
+									text: "more human stuff"
 
-			}]
+								}
+							]
+						},
+						{
+							type: "carousel",
+							label: "Traits",
+							data: [
+								{
+									type: "paragraph",
+									label: "human Traits 1",
+									data: null,
+									text: "human Traits"
+
+								},
+								{
+									type: "paragraph",
+									label: "human Traits 2",
+									data: null,
+									text: "more human Traits"
+
+								}
+							]
+						}
+					]
+				},
+				{
+					type: "carousel",
+					label: "Elves",
+					text: "c",
+					data: [
+						{
+							type: "carousel",
+							label: "History",
+							data: [
+								{
+									type: "paragraph",
+									label: "Elves history 1",
+									data: null,
+									text: "Elves stuff"
+
+								},
+								{
+									type: "paragraph",
+									label: "Elves history 2",
+									data: null,
+									text: "more Elves stuff"
+
+								}
+							]
+						},
+						{
+							type: "carousel",
+							label: "Traits",
+							data: [
+								{
+									type: "paragraph",
+									label: "Elves Traits 1",
+									data: null,
+									text: "Elves Traits"
+
+								},
+								{
+									type: "paragraph",
+									label: "Elves Traits 2",
+									data: null,
+									text: "more Elves Traits"
+
+								}
+							]
+						}
+					]
+				}
+			]
 		}
 	]
 }
