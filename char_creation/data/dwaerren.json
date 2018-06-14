@@ -1,0 +1,47 @@
+{
+	type: "carousel",
+	label: "Dwaerren",
+	text: "c",
+	data: [
+		{
+			type: "carousel",
+			label: "History",
+			data: [
+				{
+					type: "paragraph",
+					label: "dwaerren history 1",
+					data: null,
+					text: "dwaerren stuff"
+
+				},
+				{
+					type: "paragraph",
+					label: "dwaerren history 2",
+					data: null,
+					text: "more dwaerren stuff"
+
+				}
+			]
+		},
+		{
+			type: "carousel",
+			label: "Traits",
+			data: [
+				{
+					type: "paragraph",
+					label: "dwaerren Traits 1",
+					data: null,
+					text: "dwaerren Traits"
+
+				},
+				{
+					type: "paragraph",
+					label: "dwaerren Traits 2",
+					data: null,
+					text: "more dwaerren Traits"
+
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,47 @@
+{
+	type: "carousel",
+	label: "Merfolks",
+	text: "c",
+	data: [
+		{
+			type: "carousel",
+			label: "History",
+			data: [
+				{
+					type: "paragraph",
+					label: "merfolk history 1",
+					data: null,
+					text: "merfolk stuff"
+
+				},
+				{
+					type: "paragraph",
+					label: "merfolk history 2",
+					data: null,
+					text: "more merfolk stuff"
+
+				}
+			]
+		},
+		{
+			type: "carousel",
+			label: "Traits",
+			data: [
+				{
+					type: "paragraph",
+					label: "merfolk Traits 1",
+					data: null,
+					text: "merfolk Traits"
+
+				},
+				{
+					type: "paragraph",
+					label: "merfolk Traits 2",
+					data: null,
+					text: "more merfolk Traits"
+
+				}
+			]
+		}
+	]
+}

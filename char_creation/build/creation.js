@@ -14,6 +14,10 @@ var _DataDisplay = require('./DataDisplay.js');
 
 var _DataDisplay2 = _interopRequireDefault(_DataDisplay);
 
+var _DataSource = require('./DataSource.js');
+
+var _DataSource2 = _interopRequireDefault(_DataSource);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -24,7 +28,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var data = require('../data/data.json');
+//= require('../data/data.json');
 var settings = require('../data/settings.json');
 
 var MasterDisplay = function (_Component) {
@@ -36,7 +40,7 @@ var MasterDisplay = function (_Component) {
     var _this = _possibleConstructorReturn(this, (MasterDisplay.__proto__ || Object.getPrototypeOf(MasterDisplay)).call(this, props));
 
     _this.state = {
-      data: data,
+      data: _DataSource2.default.fulldata(),
       path: []
     };
     _this.updatePath = _this.updatePath.bind(_this);
@@ -141,6 +145,7 @@ var MasterDisplay = function (_Component) {
           displayPath
         ),
         _react2.default.createElement('br', null),
+        _react2.default.createElement(_DataDisplay2.default, { dataobj: this.state.data, path: this.state.path, depth: startdepth, updatePath: this.updatePath }),
         _react2.default.createElement(
           'pre',
           null,

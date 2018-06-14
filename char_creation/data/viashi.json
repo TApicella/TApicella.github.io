@@ -1,0 +1,47 @@
+{
+	type: "carousel",
+	label: "Viashis",
+	text: "c",
+	data: [
+		{
+			type: "carousel",
+			label: "History",
+			data: [
+				{
+					type: "paragraph",
+					label: "viashi history 1",
+					data: null,
+					text: "viashi stuff"
+
+				},
+				{
+					type: "paragraph",
+					label: "viashi history 2",
+					data: null,
+					text: "more viashi stuff"
+
+				}
+			]
+		},
+		{
+			type: "carousel",
+			label: "Traits",
+			data: [
+				{
+					type: "paragraph",
+					label: "viashi Traits 1",
+					data: null,
+					text: "viashi Traits"
+
+				},
+				{
+					type: "paragraph",
+					label: "viashi Traits 2",
+					data: null,
+					text: "more viashi Traits"
+
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,47 @@
+{
+	type: "carousel",
+	label: "Elves",
+	text: "c",
+	data: [
+		{
+			type: "carousel",
+			label: "History",
+			data: [
+				{
+					type: "paragraph",
+					label: "Elves history 1",
+					data: null,
+					text: "Elves stuff"
+
+				},
+				{
+					type: "paragraph",
+					label: "Elves history 2",
+					data: null,
+					text: "more Elves stuff"
+
+				}
+			]
+		},
+		{
+			type: "carousel",
+			label: "Traits",
+			data: [
+				{
+					type: "paragraph",
+					label: "Elves Traits 1",
+					data: null,
+					text: "Elves Traits"
+
+				},
+				{
+					type: "paragraph",
+					label: "Elves Traits 2",
+					data: null,
+					text: "more Elves Traits"
+
+				}
+			]
+		}
+	]
+}

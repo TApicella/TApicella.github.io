@@ -43,46 +43,12 @@ var Carousel = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Carousel.__proto__ || Object.getPrototypeOf(Carousel)).call(this, props));
 
     _this.state = { index: 0 };
-    _this.next = _this.next.bind(_this);
-    _this.prev = _this.prev.bind(_this);
     return _this;
   }
 
   _createClass(Carousel, [{
     key: 'componentDidMount',
-    value: function componentDidMount() {
-      var index = 0;
-      var depth = this.props.depth;
-      if (this.props.path.length > depth) {
-        index = this.props.path[depth];
-        this.props.updatePath(depth, index);
-      }
-      this.setState({ index: index });
-    }
-  }, {
-    key: 'next',
-    value: function next() {
-      var newindex = void 0;
-      if (this.state.index === this.props.datalen - 1) {
-        newindex = 0;
-      } else {
-        newindex = this.state.index + 1;
-      }
-      this.setState({ index: newindex });
-      this.props.updatePath(this.props.depth, newindex);
-    }
-  }, {
-    key: 'prev',
-    value: function prev() {
-      var newindex = void 0;
-      if (this.state.index === 0) {
-        newindex = this.props.datalen - 1;
-      } else {
-        newindex = this.state.index - 1;
-      }
-      this.setState({ index: newindex });
-      this.props.updatePath(this.props.depth, newindex);
-    }
+    value: function componentDidMount() {}
   }, {
     key: 'render',
     value: function render() {
@@ -102,6 +68,12 @@ var Carousel = function (_Component) {
         "justifyContent": "center"
       };
 
+      var labelstyle = {
+        "minWidth": "400px",
+        "display": "flex",
+        "justifyContent": "center"
+      };
+
       var passdata = this.props.data;
       //const datalength = this.props.data.length.toString();
       var path = this.props.path;
@@ -114,15 +86,19 @@ var Carousel = function (_Component) {
         _react2.default.createElement(
           'div',
           { style: headerstyle },
-          _react2.default.createElement(_angleLeft2.default, { onClick: this.prev }),
+          _react2.default.createElement(_angleLeft2.default, { onClick: this.props.prev }),
           _react2.default.createElement(
             'div',
-            null,
-            this.props.label
+            { style: labelstyle },
+            _react2.default.createElement(
+              'div',
+              null,
+              this.props.data.label
+            )
           ),
-          _react2.default.createElement(_angleRight2.default, { onClick: this.next })
+          _react2.default.createElement(_angleRight2.default, { onClick: this.props.next })
         ),
-        _react2.default.createElement(_DataDisplay2.default, { data: passdata, path: path, updatePath: this.props.updatePath, depth: depth })
+        _react2.default.createElement(_DataDisplay2.default, { dataobj: passdata, path: path, updatePath: this.props.updatePath, depth: depth })
       );
     }
   }]);

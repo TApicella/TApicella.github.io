@@ -34,7 +34,7 @@ var DataDisplay = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (DataDisplay.__proto__ || Object.getPrototypeOf(DataDisplay)).call(this, props));
 
-    _this.state = {};
+    _this.state = { index: 0 };
     return _this;
   }
 
@@ -47,6 +47,38 @@ var DataDisplay = function (_Component) {
         index = this.props.path[depth];
         this.props.updatePath(depth, index);
       }
+      this.next = this.next.bind(this);
+      this.prev = this.prev.bind(this);
+    }
+  }, {
+    key: 'next',
+    value: function next() {
+      var newindex = 0;
+      if (this.props.dataobj.data) {
+        var datalen = this.props.dataobj.data.length;
+        if (this.state.index === datalen - 1) {
+          newindex = 0;
+        } else {
+          newindex = this.state.index + 1;
+        }
+      }
+      this.setState({ index: newindex });
+      this.props.updatePath(this.props.depth, newindex);
+    }
+  }, {
+    key: 'prev',
+    value: function prev() {
+      var newindex = 0;
+      if (this.props.dataobj.data) {
+        var datalen = this.props.dataobj.data.length;
+        if (this.state.index === 0) {
+          newindex = datalen - 1;
+        } else {
+          newindex = this.state.index - 1;
+        }
+      }
+      this.setState({ index: newindex });
+      this.props.updatePath(this.props.depth, newindex);
     }
   }, {
     key: 'render',
@@ -67,7 +99,7 @@ var DataDisplay = function (_Component) {
       };
 
       var depth = this.props.depth;
-      var sources = this.props.data;
+      var sources = this.props.dataobj;
       var path = this.props.path;
 
       var index = void 0,
@@ -83,34 +115,26 @@ var DataDisplay = function (_Component) {
         datalen = sources.data.length;
       } else {
         passdata = null;
+        datalen = 0;
       }
 
-      var mydata = JSON.stringify(this.props.data);
+      var mydata = JSON.stringify(this.props.dataobj);
 
       var label = sources.label;
       var text = sources.text;
 
-      if (this.props.data.type == "carousel") {
+      if (passdata) {
         return _react2.default.createElement(
           'div',
           { className: 'display-carousel' },
-          _react2.default.createElement(
-            'div',
-            null,
-            mydata
-          ),
           _react2.default.createElement('br', null),
-          _react2.default.createElement(_Carousel2.default, { data: passdata, datalen: datalen, label: label, depth: depth, path: path, updatePath: this.props.updatePath })
+          _react2.default.createElement(_Carousel2.default, { data: passdata, depth: depth, path: path,
+            prev: this.prev, next: this.next, updatePath: this.props.updatePath })
         );
-      } else if (this.props.data.type == "paragraph") {
+      } else {
         return _react2.default.createElement(
           'div',
           { className: 'display-paragraph' },
-          _react2.default.createElement(
-            'div',
-            null,
-            mydata
-          ),
           _react2.default.createElement('br', null),
           _react2.default.createElement(
             'h2',

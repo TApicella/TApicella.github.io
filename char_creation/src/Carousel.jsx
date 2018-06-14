@@ -12,18 +12,8 @@ class Carousel extends Component{
   }
 
   componentDidMount() {
-    let index = 0;
-    const depth = this.props.depth;
-    if(this.props.path.length>depth){
-      index = this.props.path[depth];
-      this.props.updatePath(depth, index);
-    }
-    this.setState({index: index}); 
-
   }
   
-  
-
 	render(){
     const defaultstyle = {
       "fontSize":"36px",
@@ -41,6 +31,12 @@ class Carousel extends Component{
       "justifyContent": "center"
     };
 
+    const labelstyle = {
+      "minWidth": "400px",
+      "display": "flex",
+      "justifyContent": "center"
+    };
+
     const passdata = this.props.data;
     //const datalength = this.props.data.length.toString();
     const path = this.props.path;
@@ -50,11 +46,13 @@ class Carousel extends Component{
     return (
       <div>
         <div style={headerstyle}>
-          <FaAngleLeft onClick={this.prev}></FaAngleLeft>
-          <div>{this.props.label}</div>
-          <FaAngleRight onClick={this.next}></FaAngleRight>
+          <FaAngleLeft onClick={this.props.prev}></FaAngleLeft>
+          <div style={labelstyle}>
+            <div>{this.props.data.label}</div>
+          </div>
+          <FaAngleRight onClick={this.props.next}></FaAngleRight>
         </div>
-        <DataDisplay data={passdata} path={path} updatePath={this.props.updatePath} depth={depth}/>
+        <DataDisplay dataobj={passdata} path={path} updatePath={this.props.updatePath} depth={depth}/>
       </div>
     );
   }

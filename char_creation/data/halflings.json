@@ -1,0 +1,47 @@
+{
+	type: "carousel",
+	label: "Halflings",
+	text: "c",
+	data: [
+		{
+			type: "carousel",
+			label: "History",
+			data: [
+				{
+					type: "paragraph",
+					label: "halfling history 1",
+					data: null,
+					text: "halfling stuff"
+
+				},
+				{
+					type: "paragraph",
+					label: "halfling history 2",
+					data: null,
+					text: "more halfling stuff"
+
+				}
+			]
+		},
+		{
+			type: "carousel",
+			label: "Traits",
+			data: [
+				{
+					type: "paragraph",
+					label: "halfling Traits 1",
+					data: null,
+					text: "halfling Traits"
+
+				},
+				{
+					type: "paragraph",
+					label: "halfling Traits 2",
+					data: null,
+					text: "more halfling Traits"
+
+				}
+			]
+		}
+	]
+}

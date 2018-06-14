@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import DataDisplay from './DataDisplay.js';
-const data = require('../data/data.json');
+import DataSource from './DataSource.js'; //= require('../data/data.json');
 const settings = require('../data/settings.json');
 
 
@@ -10,7 +10,7 @@ class MasterDisplay extends Component{
 	constructor(props) {
     super(props);
     this.state = {
-      data: data,
+      data: DataSource.fulldata(),
       path: []
     };
     this.updatePath = this.updatePath.bind(this);
@@ -98,8 +98,9 @@ class MasterDisplay extends Component{
         </h1>
         <div>{displayPath}</div>
         <br/>
+        <DataDisplay dataobj={this.state.data} path={this.state.path} depth={startdepth} updatePath={this.updatePath}/>
+
         <pre>{displayData}</pre>
-        <DataDisplay dataobj={this.state.data} path={this.state.path} depth={startdepth}/>
       </div>
   	);
   }

@@ -1,0 +1,47 @@
+{
+	type: "carousel",
+	label: "Minotaurs",
+	text: "c",
+	data: [
+		{
+			type: "carousel",
+			label: "History",
+			data: [
+				{
+					type: "paragraph",
+					label: "minotaur history 1",
+					data: null,
+					text: "minotaur stuff"
+
+				},
+				{
+					type: "paragraph",
+					label: "minotaur history 2",
+					data: null,
+					text: "more minotaur stuff"
+
+				}
+			]
+		},
+		{
+			type: "carousel",
+			label: "Traits",
+			data: [
+				{
+					type: "paragraph",
+					label: "minotaur Traits 1",
+					data: null,
+					text: "minotaur Traits"
+
+				},
+				{
+					type: "paragraph",
+					label: "minotaur Traits 2",
+					data: null,
+					text: "more minotaur Traits"
+
+				}
+			]
+		}
+	]
+}

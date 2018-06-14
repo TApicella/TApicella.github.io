@@ -92,16 +92,16 @@ class DataDisplay extends Component{
     const label = sources.label;
     const text = sources.text;
 
-    if(this.props.dataobj.type == "carousel"){
+    if(passdata){
       return(
         <div className="display-carousel">
           <br/>
-          <Carousel data={passdata} label={label} depth={depth} path={path} 
+          <Carousel data={passdata} depth={depth} path={path} 
                     prev={this.prev} next={this.next} updatePath={this.props.updatePath}/>
         </div>
       );
     }
-    else if(this.props.dataobj.type == "paragraph"){
+    else{
       return(
         <div className="display-paragraph">
           <br/>

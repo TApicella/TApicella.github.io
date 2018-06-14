@@ -1,0 +1,47 @@
+{
+	type: "carousel",
+	label: "Humans",
+	text: "c",
+	data: [
+		{
+			type: "carousel",
+			label: "History",
+			data: [
+				{
+					type: "paragraph",
+					label: "human history 1",
+					data: null,
+					text: "human stuff"
+
+				},
+				{
+					type: "paragraph",
+					label: "human history 2",
+					data: null,
+					text: "more human stuff"
+
+				}
+			]
+		},
+		{
+			type: "carousel",
+			label: "Traits",
+			data: [
+				{
+					type: "paragraph",
+					label: "human Traits 1",
+					data: null,
+					text: "human Traits"
+
+				},
+				{
+					type: "paragraph",
+					label: "human Traits 2",
+					data: null,
+					text: "more human Traits"
+
+				}
+			]
+		}
+	]
+}

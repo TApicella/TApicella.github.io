@@ -1,0 +1,47 @@
+{
+	type: "carousel",
+	label: "Kenkus",
+	text: "c",
+	data: [
+		{
+			type: "carousel",
+			label: "History",
+			data: [
+				{
+					type: "paragraph",
+					label: "kenku history 1",
+					data: null,
+					text: "kenku stuff"
+
+				},
+				{
+					type: "paragraph",
+					label: "kenku history 2",
+					data: null,
+					text: "more kenku stuff"
+
+				}
+			]
+		},
+		{
+			type: "carousel",
+			label: "Traits",
+			data: [
+				{
+					type: "paragraph",
+					label: "kenku Traits 1",
+					data: null,
+					text: "kenku Traits"
+
+				},
+				{
+					type: "paragraph",
+					label: "kenku Traits 2",
+					data: null,
+					text: "more kenku Traits"
+
+				}
+			]
+		}
+	]
+}

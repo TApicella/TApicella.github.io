@@ -1,4 +1,4 @@
-{
+const fulldata ={
 	type: "header",
 	label: "Introduction",
 	text: "a",
@@ -106,3 +106,5 @@
 		}
 	]
 }
+
+export default fulldata;
