@@ -14,7 +14,7 @@ var dwaerren = require('../data/dwaerren.json');
 
 var halflings = require('../data/halflings.json');
 var kenku = require('../data/kenku.json');
-var rakenku = require('../data/wildfolk.json');
+var rakenku = require('../data/rakenku.json');
 
 var minotaurs = require('../data/minotaurs.json');
 var merfolk = require('../data/merfolk.json');

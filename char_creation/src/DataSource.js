@@ -4,7 +4,7 @@ const dwaerren = require('../data/dwaerren.json');
 
 const halflings = require('../data/halflings.json');
 const kenku = require('../data/kenku.json');
-const rakenku = require('../data/rakenu.json');
+const rakenku = require('../data/rakenku.json');
 
 const minotaurs = require('../data/minotaurs.json');
 const merfolk = require('../data/merfolk.json');
