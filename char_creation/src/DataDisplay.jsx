@@ -104,9 +104,6 @@ class DataDisplay extends Component{
     else{
       return(
         <div className="display-paragraph">
-          <br/>
-          <h2>{label}</h2>
-          <div>{text}</div>
         </div>
       );
     }

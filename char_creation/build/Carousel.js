@@ -74,11 +74,65 @@ var Carousel = function (_Component) {
         "justifyContent": "center"
       };
 
+      var subheaderstyle = {
+        "fontSize": "24px",
+        "width": "100%",
+        "margin": "0 auto",
+        "display": "flex",
+        "alignItems": "center",
+        "justifyContent": "center"
+      };
+
+      var textboxstyle = {
+        "minWidth": "400px",
+        "display": "flex",
+        "justifyContent": "center"
+      };
+      var textstyle = {
+        "minWidth": "200px",
+        "width": "50%"
+      };
+
       var passdata = this.props.data;
       //const datalength = this.props.data.length.toString();
       var path = this.props.path;
       var depth = this.props.depth + 1;
       var mydata = JSON.stringify(this.props.data);
+      var text = this.props.data.text;
+      var textlist = [];
+      if (text) {
+        textlist = this.props.data.text.split('\n');
+      }
+      var textelements = [];
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = textlist[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var textline = _step.value;
+
+          textelements.push(_react2.default.createElement(
+            'div',
+            null,
+            textline
+          ));
+          textelements.push(_react2.default.createElement('br', null));
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
 
       return _react2.default.createElement(
         'div',
@@ -97,6 +151,24 @@ var Carousel = function (_Component) {
             )
           ),
           _react2.default.createElement(_angleRight2.default, { onClick: this.props.next })
+        ),
+        _react2.default.createElement(
+          'div',
+          { style: subheaderstyle },
+          _react2.default.createElement(
+            'div',
+            { style: labelstyle },
+            this.props.data.sublabel
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { style: textboxstyle },
+          _react2.default.createElement(
+            'div',
+            { style: textstyle },
+            textelements
+          )
         ),
         _react2.default.createElement(_DataDisplay2.default, { dataobj: passdata, path: path, updatePath: this.props.updatePath, depth: depth })
       );

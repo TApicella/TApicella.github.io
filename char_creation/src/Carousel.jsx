@@ -37,11 +37,40 @@ class Carousel extends Component{
       "justifyContent": "center"
     };
 
+    const subheaderstyle = {
+      "fontSize":"24px",
+      "width": "100%",
+      "margin": "0 auto",
+      "display": "flex",
+      "alignItems": "center",
+      "justifyContent": "center"
+    };
+
+    const textboxstyle = {
+      "minWidth": "400px",
+      "display": "flex",
+      "justifyContent": "center"
+    };
+    const textstyle = {
+      "minWidth": "200px",
+      "width": "50%"
+    };
+
     const passdata = this.props.data;
     //const datalength = this.props.data.length.toString();
     const path = this.props.path;
     const depth = this.props.depth+1;
     const mydata = JSON.stringify(this.props.data);
+    const text = this.props.data.text;
+    let textlist = [];
+    if(text){
+      textlist = this.props.data.text.split('\n');
+    }
+    const textelements = [];
+    for(const textline of textlist){
+        textelements.push(<div>{textline}</div>);
+        textelements.push(<br/>);
+    }
 
     return (
       <div>
@@ -51,6 +80,12 @@ class Carousel extends Component{
             <div>{this.props.data.label}</div>
           </div>
           <FaAngleRight onClick={this.props.next}></FaAngleRight>
+        </div>
+        <div style={subheaderstyle}>
+          <div style={labelstyle}>{this.props.data.sublabel}</div>
+        </div>
+        <div style={textboxstyle}>
+          <div style={textstyle}>{textelements}</div>
         </div>
         <DataDisplay dataobj={passdata} path={path} updatePath={this.props.updatePath} depth={depth}/>
       </div>

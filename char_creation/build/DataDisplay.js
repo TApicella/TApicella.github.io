@@ -132,21 +132,7 @@ var DataDisplay = function (_Component) {
             prev: this.prev, next: this.next, updatePath: this.props.updatePath })
         );
       } else {
-        return _react2.default.createElement(
-          'div',
-          { className: 'display-paragraph' },
-          _react2.default.createElement('br', null),
-          _react2.default.createElement(
-            'h2',
-            null,
-            label
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            text
-          )
-        );
+        return _react2.default.createElement('div', { className: 'display-paragraph' });
       }
     }
   }]);

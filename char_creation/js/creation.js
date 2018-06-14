@@ -75,11 +75,65 @@ var Carousel = function (_Component) {
         "justifyContent": "center"
       };
 
+      var subheaderstyle = {
+        "fontSize": "24px",
+        "width": "100%",
+        "margin": "0 auto",
+        "display": "flex",
+        "alignItems": "center",
+        "justifyContent": "center"
+      };
+
+      var textboxstyle = {
+        "minWidth": "400px",
+        "display": "flex",
+        "justifyContent": "center"
+      };
+      var textstyle = {
+        "minWidth": "200px",
+        "width": "50%"
+      };
+
       var passdata = this.props.data;
       //const datalength = this.props.data.length.toString();
       var path = this.props.path;
       var depth = this.props.depth + 1;
       var mydata = JSON.stringify(this.props.data);
+      var text = this.props.data.text;
+      var textlist = [];
+      if (text) {
+        textlist = this.props.data.text.split('\n');
+      }
+      var textelements = [];
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = textlist[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var textline = _step.value;
+
+          textelements.push(_react2.default.createElement(
+            'div',
+            null,
+            textline
+          ));
+          textelements.push(_react2.default.createElement('br', null));
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
 
       return _react2.default.createElement(
         'div',
@@ -98,6 +152,24 @@ var Carousel = function (_Component) {
             )
           ),
           _react2.default.createElement(_angleRight2.default, { onClick: this.props.next })
+        ),
+        _react2.default.createElement(
+          'div',
+          { style: subheaderstyle },
+          _react2.default.createElement(
+            'div',
+            { style: labelstyle },
+            this.props.data.sublabel
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { style: textboxstyle },
+          _react2.default.createElement(
+            'div',
+            { style: textstyle },
+            textelements
+          )
         ),
         _react2.default.createElement(_DataDisplay2.default, { dataobj: passdata, path: path, updatePath: this.props.updatePath, depth: depth })
       );
@@ -409,21 +481,7 @@ var DataDisplay = function (_Component) {
             prev: this.prev, next: this.next, updatePath: this.props.updatePath })
         );
       } else {
-        return _react2.default.createElement(
-          'div',
-          { className: 'display-paragraph' },
-          _react2.default.createElement('br', null),
-          _react2.default.createElement(
-            'h2',
-            null,
-            label
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            text
-          )
-        );
+        return _react2.default.createElement('div', { className: 'display-paragraph' });
       }
     }
   }]);
@@ -457,6 +515,9 @@ var minotaurs = require('../data/minotaurs.json');
 var merfolk = require('../data/merfolk.json');
 var viashi = require('../data/viashi.json');
 
+/// https://en.wikipedia.org/wiki/Wikipedia:Pronunciation_(simple_guide_to_markup,_American)
+/// http://www.phon.ucl.ac.uk/home/wells/ipa-unicode.htm#insert
+
 var DataSource = function () {
 	function DataSource() {
 		_classCallCheck(this, DataSource);
@@ -472,7 +533,8 @@ var DataSource = function () {
 				data: [{
 					type: "carousel",
 					label: "Races of Diamorti",
-					text: "b",
+					sublabel: "A detailed look at the many races of Diamorti",
+					text: null,
 					data: [humans, wildfolk, dwaerren, halflings, kenku, rakenku, minotaurs, merfolk, viashi]
 				}]
 			};
@@ -583,46 +645,98 @@ module.exports={
 module.exports={
 	type: "carousel",
 	label: "Humans",
-	text: "c",
+	sublabel: "",
+	text: null,
 	data: [
-		{
+	    {
 			type: "carousel",
-			label: "History",
-			data: [
-				{
-					type: "paragraph",
-					label: "human history 1",
-					data: null,
-					text: "human stuff"
-
-				},
-				{
-					type: "paragraph",
-					label: "human history 2",
-					data: null,
-					text: "more human stuff"
-
-				}
-			]
+			label: "Introduction",
+			data: null,
+			text: '"Humanity is proof that grit, adaptivity, and a drive for progress are the traits that elevate a group from merely trying to survive to being capable of actually advancing society. We are the oldest race, we are the most enlightened society, and it is vital for the future that we reach out to the other peoples of Diamorti and help elevate them to our level." - Whitestone Head Historian Isaiah Rexam\n\n'+
+                  '"We have built walls to keep others out, yet in turn we have kept ourselves locked in. We have feared nature for so long that we have become unnatural in our habits and goals. We have promoted technology yet shunned magic, and so our progress is limited to the physical world and access to resources. And we have tied our standards of success to gold rather than accomplishment, which I fear will cripple the common people’s ability to better themselves. We must learn from the rest of the world, before it is too late." - Guildmaster Jonath Oldbridge of the Archaeological Society\n\n'+
+                  '"I love being human. Everyone likes you when you\'re rich, and there’s always someone for you to fight if you\'re poor. It\'s never a dull moment." - Teshi Alair, adventurer.\n\n'
 		},
 		{
 			type: "carousel",
-			label: "Traits",
+			label: "Overview",
+			data: null,
+			text: 'Pronunciation: (h)yo\u0304o\u0304m\u0259n , hyoo-mun\n'+
+	              'Also known as: No formal alternate names, but often refer to themselves collectively by homeland, i.e. Corstazi, Whitestones, etc.\n'+
+	              'Singular: human\n'+
+	              'Primary settlements: ',
+        },
+		{
+			type: "carousel",
+			label: "History",
+			data: null,
+			text: "Most scholars agree prior to the Cataclysm, humanity was the only race of Diamorti, and it was that influx of magic that split off and rapidly evolved the other races to their current state, although a smattering of others disagree. Regardless, humans do tend towards being more adaptive than other races and have founded many of the permanent settlements on the continent. The vast majority live along the coastlines, with the two primary cities being Corstaz in the southeast and Whitestone on the southern coast, with small trade cities dotting the landscape between them.\n\n"+
+                  "There are also small settlements bordering some of the other trading nations, primarily along the Deepstone Mountains, the Keldara Desert outskirts, and the northern coastlines by the merfolk territories. Few humans have settled in the western side of the continent, but Whitestone\'s leadership has started to make plans to rectify that issue, particularly since Corstaz\'s influence has surpassed that of the older city." 
+		},
+		{
+			type: "carousel",
+			label: "Government and Society",
+			data: null,
+			text: "Humanity is organized primarily into independent city-states that maintain influence and control over local towns and farmlands, the three largest of which are Corstaz on the eastern coast, Whitestone in the south, and Sandport in the center of the continent. There are some nomadic bands of humans as well, though even they have a favored city to stop in for supplies and trading.\n\n"+
+                 "While in the past priests were the ruling class, in modern times cities are run by a secular bureaucracy. Whitestone\'s government is still heavily influenced by the priests, while in Corstaz it is the merchant guilds that wield true power."
+		},
+		{
+			type: "carousel",
+			label: "Relationship with Other Races",
 			data: [
-				{
-					type: "paragraph",
-					label: "human Traits 1",
-					data: null,
-					text: "human Traits"
-
-				},
-				{
-					type: "paragraph",
-					label: "human Traits 2",
-					data: null,
-					text: "more human Traits"
-
-				}
+                {
+                	type: "carousel",
+                	label: "Other Humans",
+                	data: null,
+                	text: "Humans mistrust each other about as much as they mistrust everyone else. While some might extol the virtues of humanity and act fearful of others, a trait most common among the citizens of Whitestone, in general humans are fully aware of their own imperfections, and are more loyal to their homeland than to humanity as a whole"
+                },
+                {
+                	type: "carousel",
+                	label: "",
+                	data: null,
+                	text: ""
+                },
+                {
+                	type: "carousel",
+                	label: "",
+                	data: null,
+                	text: ""
+                },
+                {
+                	type: "carousel",
+                	label: "",
+                	data: null,
+                	text: ""
+                },
+                {
+                	type: "carousel",
+                	label: "",
+                	data: null,
+                	text: ""
+                },
+                {
+                	type: "carousel",
+                	label: "",
+                	data: null,
+                	text: ""
+                },
+                {
+                	type: "carousel",
+                	label: "",
+                	data: null,
+                	text: ""
+                },
+                {
+                	type: "carousel",
+                	label: "",
+                	data: null,
+                	text: ""
+                },
+                {
+                	type: "carousel",
+                	label: "",
+                	data: null,
+                	text: ""
+                }
 			]
 		}
 	]

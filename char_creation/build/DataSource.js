@@ -20,6 +20,9 @@ var minotaurs = require('../data/minotaurs.json');
 var merfolk = require('../data/merfolk.json');
 var viashi = require('../data/viashi.json');
 
+/// https://en.wikipedia.org/wiki/Wikipedia:Pronunciation_(simple_guide_to_markup,_American)
+/// http://www.phon.ucl.ac.uk/home/wells/ipa-unicode.htm#insert
+
 var DataSource = function () {
 	function DataSource() {
 		_classCallCheck(this, DataSource);
@@ -35,7 +38,8 @@ var DataSource = function () {
 				data: [{
 					type: "carousel",
 					label: "Races of Diamorti",
-					text: "b",
+					sublabel: "A detailed look at the many races of Diamorti",
+					text: null,
 					data: [humans, wildfolk, dwaerren, halflings, kenku, rakenku, minotaurs, merfolk, viashi]
 				}]
 			};

@@ -10,6 +10,8 @@ const minotaurs = require('../data/minotaurs.json');
 const merfolk = require('../data/merfolk.json');
 const viashi = require('../data/viashi.json');
 
+/// https://en.wikipedia.org/wiki/Wikipedia:Pronunciation_(simple_guide_to_markup,_American)
+/// http://www.phon.ucl.ac.uk/home/wells/ipa-unicode.htm#insert
 class DataSource{
     static fulldata(){
     	return {
@@ -20,7 +22,8 @@ class DataSource{
 				{
 					type: "carousel",
 					label: "Races of Diamorti",
-					text: "b",
+					sublabel: "A detailed look at the many races of Diamorti",
+					text: null,
 					data: [
 						humans,
 						wildfolk,
