@@ -24,7 +24,7 @@ class DataDisplay extends Component{
     let newindex = 0;
     if(this.props.dataobj.data){
       const datalen = this.props.dataobj.data.length;
-      if(this.state.index===datalen-1){
+      if(this.state.index>=datalen-1){
         newindex=0;
       }
       else{
@@ -41,6 +41,9 @@ class DataDisplay extends Component{
       const datalen = this.props.dataobj.data.length;
       if(this.state.index===0){
         newindex=datalen-1;
+      }
+      else if(this.state.index>=datalen-1){
+        newindex=datalen-2; //Special case for having a path index greater than possible
       }
       else{
         newindex = this.state.index-1;
@@ -79,8 +82,11 @@ class DataDisplay extends Component{
       index = 0;
     }
     if(sources.data){
-      passdata = sources.data[index];
       datalen = sources.data.length;
+      if(index >= datalen){ //Special case for having a path index greater than possible
+        index = datalen-1;
+      }
+      passdata = sources.data[index];
     }
     else{
       passdata = null;

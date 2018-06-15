@@ -1,0 +1,20 @@
+"<b>Ability Score Increase<b>\n"+"Humans are very adaptable and versatile, and receive +1 to all ability scores.\n"+
+"Instead of the above, you may pick one of the following variants depending on where you were born:\n"+
+"<i>Variant- Corstazi Streetrat<i>\n"+"All those born and raised in the city of Corstaz say they were born on the wrong side of the streets, and they\'re only half lying. Your average nobleman in Corstaz probably breaks up more barfights than a bouncer in Whitestone.\n"+
+"<b>Ability Score Increase<b>\n"+"+1 to Strength and Charisma.\n"+
+"<b>Feat: Alert<b>\n"+"Always on the lookout for danger, you gain the following benefits:\n"+
+"* You can’t be surprised while you are conscious.\n"+
+"* You gain a +5 bonus to initiative.\n"+
+"* Other creatures don’t gain advantage on attack rolls against you as a result of being unseen by you.\n"+
+"<i>Variant- Gaardish Bloodline<i>\n"+"Despite the fall of its founding god, the devastation of its buildings, and the general madness of the Dark Ages, Whitestone remains a beacon of human achievement. Whitestone\'s schools are the finest in Diamorti, and children learn everything from history and art to fencing and bartering.\n"+
+"<b>Ability Score Increase<b>\n"+"+1 to Dexterity and Intelligence.\n"+
+"<b>Feat: Focused Mind<b>\n"+"Your education has given you increased ability to filter information. You gain the following benefits:\n"+
+"* You have a +5 bonus to your passive Investigation score.\n"+
+"* You gain proficiency in either History or Religion.\n"+
+<i>Variant- Wilderness Heritage<i>\n"+"Although most humans delight in their cities and view them as the destiny of human civilization, there are many who have no fear of nature, who were born in the plains and mountains of Diamorti and would rather life their life outside of any walls or confines.\n"+
+"<b>Ability Score Increase<b>\n"+"+1 to Constitution and Wisdom.\n"+
+"<b>Feat: Hardiness<b>\n"+"Your life outside the cities has given you a different kind of education than those who live in them. You gain the following benefits:\n"+
+"* Your hit point maximum increases by 1 per level\n"+
+"* You gain proficiency in either Survival or Medicine.\n"
+
+

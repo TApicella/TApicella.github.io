@@ -32,7 +32,8 @@ class Carousel extends Component{
     };
 
     const labelstyle = {
-      "minWidth": "400px",
+      //"minWidth": "400px",
+      "width": "50%",
       "display": "flex",
       "justifyContent": "center"
     };
@@ -56,6 +57,16 @@ class Carousel extends Component{
       "width": "50%"
     };
 
+    const bold = {
+      "fontWeight": "bold"
+    };
+
+    const italic = {
+      "fontStyle": "italic"
+    };
+
+
+
     const passdata = this.props.data;
     //const datalength = this.props.data.length.toString();
     const path = this.props.path;
@@ -67,9 +78,32 @@ class Carousel extends Component{
       textlist = this.props.data.text.split('\n');
     }
     const textelements = [];
+    let boldme = /<b>([\w: ]+)<b>/;
+    let italicme = /<i>([\w: ]+)<i>/;
     for(const textline of textlist){
-        textelements.push(<div>{textline}</div>);
-        textelements.push(<br/>);
+        let b = boldme.exec(textline);
+        let i = italicme.exec(textline);
+        if(b){
+          textelements.push(<div style={bold}>{b[1]}</div>);
+        }
+        else if(i){
+          textelements.push(<div style={italic}>{i[1]}</div>);
+          textelements.push(<br/>);
+        }
+        else{
+          textelements.push(<div>{textline}</div>);
+          textelements.push(<br/>);
+        }
+    }
+
+    let sublabel;
+    if(this.props.data.sublabel){
+      sublabel=<div><br/><div style={subheaderstyle}><div style={labelstyle}>{this.props.data.sublabel}</div></div><br/></div>;
+    }
+
+    let textbox;
+    if(textelements.length > 0){
+      textbox = <div><br/><div style={textboxstyle}><div style={textstyle}>{textelements}</div></div></div>
     }
 
     return (
@@ -81,12 +115,8 @@ class Carousel extends Component{
           </div>
           <FaAngleRight onClick={this.props.next}></FaAngleRight>
         </div>
-        <div style={subheaderstyle}>
-          <div style={labelstyle}>{this.props.data.sublabel}</div>
-        </div>
-        <div style={textboxstyle}>
-          <div style={textstyle}>{textelements}</div>
-        </div>
+        {sublabel}
+        {textbox}
         <DataDisplay dataobj={passdata} path={path} updatePath={this.props.updatePath} depth={depth}/>
       </div>
     );

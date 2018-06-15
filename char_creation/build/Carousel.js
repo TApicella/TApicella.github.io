@@ -69,7 +69,8 @@ var Carousel = function (_Component) {
       };
 
       var labelstyle = {
-        "minWidth": "400px",
+        //"minWidth": "400px",
+        "width": "50%",
         "display": "flex",
         "justifyContent": "center"
       };
@@ -93,6 +94,14 @@ var Carousel = function (_Component) {
         "width": "50%"
       };
 
+      var bold = {
+        "fontWeight": "bold"
+      };
+
+      var italic = {
+        "fontStyle": "italic"
+      };
+
       var passdata = this.props.data;
       //const datalength = this.props.data.length.toString();
       var path = this.props.path;
@@ -104,6 +113,8 @@ var Carousel = function (_Component) {
         textlist = this.props.data.text.split('\n');
       }
       var textelements = [];
+      var boldme = /<b>([\w: ]+)<b>/;
+      var italicme = /<i>([\w: ]+)<i>/;
       var _iteratorNormalCompletion = true;
       var _didIteratorError = false;
       var _iteratorError = undefined;
@@ -112,12 +123,29 @@ var Carousel = function (_Component) {
         for (var _iterator = textlist[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           var textline = _step.value;
 
-          textelements.push(_react2.default.createElement(
-            'div',
-            null,
-            textline
-          ));
-          textelements.push(_react2.default.createElement('br', null));
+          var b = boldme.exec(textline);
+          var i = italicme.exec(textline);
+          if (b) {
+            textelements.push(_react2.default.createElement(
+              'div',
+              { style: bold },
+              b[1]
+            ));
+          } else if (i) {
+            textelements.push(_react2.default.createElement(
+              'div',
+              { style: italic },
+              i[1]
+            ));
+            textelements.push(_react2.default.createElement('br', null));
+          } else {
+            textelements.push(_react2.default.createElement(
+              'div',
+              null,
+              textline
+            ));
+            textelements.push(_react2.default.createElement('br', null));
+          }
         }
       } catch (err) {
         _didIteratorError = true;
@@ -132,6 +160,43 @@ var Carousel = function (_Component) {
             throw _iteratorError;
           }
         }
+      }
+
+      var sublabel = void 0;
+      if (this.props.data.sublabel) {
+        sublabel = _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'div',
+            { style: subheaderstyle },
+            _react2.default.createElement(
+              'div',
+              { style: labelstyle },
+              this.props.data.sublabel
+            )
+          ),
+          _react2.default.createElement('br', null)
+        );
+      }
+
+      var textbox = void 0;
+      if (textelements.length > 0) {
+        textbox = _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'div',
+            { style: textboxstyle },
+            _react2.default.createElement(
+              'div',
+              { style: textstyle },
+              textelements
+            )
+          )
+        );
       }
 
       return _react2.default.createElement(
@@ -152,24 +217,8 @@ var Carousel = function (_Component) {
           ),
           _react2.default.createElement(_angleRight2.default, { onClick: this.props.next })
         ),
-        _react2.default.createElement(
-          'div',
-          { style: subheaderstyle },
-          _react2.default.createElement(
-            'div',
-            { style: labelstyle },
-            this.props.data.sublabel
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { style: textboxstyle },
-          _react2.default.createElement(
-            'div',
-            { style: textstyle },
-            textelements
-          )
-        ),
+        sublabel,
+        textbox,
         _react2.default.createElement(_DataDisplay2.default, { dataobj: passdata, path: path, updatePath: this.props.updatePath, depth: depth })
       );
     }

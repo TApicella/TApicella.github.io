@@ -56,7 +56,7 @@ var DataDisplay = function (_Component) {
       var newindex = 0;
       if (this.props.dataobj.data) {
         var datalen = this.props.dataobj.data.length;
-        if (this.state.index === datalen - 1) {
+        if (this.state.index >= datalen - 1) {
           newindex = 0;
         } else {
           newindex = this.state.index + 1;
@@ -73,6 +73,8 @@ var DataDisplay = function (_Component) {
         var datalen = this.props.dataobj.data.length;
         if (this.state.index === 0) {
           newindex = datalen - 1;
+        } else if (this.state.index >= datalen - 1) {
+          newindex = datalen - 2; //Special case for having a path index greater than possible
         } else {
           newindex = this.state.index - 1;
         }
@@ -111,8 +113,12 @@ var DataDisplay = function (_Component) {
         index = 0;
       }
       if (sources.data) {
-        passdata = sources.data[index];
         datalen = sources.data.length;
+        if (index >= datalen) {
+          //Special case for having a path index greater than possible
+          index = datalen - 1;
+        }
+        passdata = sources.data[index];
       } else {
         passdata = null;
         datalen = 0;
