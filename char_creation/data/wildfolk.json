@@ -1,47 +1,165 @@
 {
 	type: "carousel",
-	label: "Elves",
-	text: "c",
+	label: "Wildfolk",
+	sublabel: "",
+	text: null,
 	data: [
+	    {
+			type:  "carousel",
+			label: "Introduction",
+			data:  null,
+			text:  '"I must confess, my earlier writings on the Wildfolk were, bluntly, full of anger and bile. It is true that they were largely responsible for the fall of Drakkengard, and I cannot for an instant imagine living life in the woods, surrounded by magic. Yet despite their savagery, I have grown to accept our differences. I have had the opportunity to speak with many of their elders of late, and I admire much of their art and music. In time, I hope we can bring civilization to them and accept them as brothers and sisters." - Whitestone Head Historian Isaiah Rexam\n'+
+                   '"In my youth I spent a great deal of time with the Wildfolk, looking for ruins and ancient artifacts. At first, like most people, I assumed they were savages, but that could not be farther from the truth. Their culture is rich and vibrant, their magic as sophisticated as our technology, and their drive and discipline as impressive as that of the dwaerren. Over time, I forayed less into dusty ruins, choosing to remain and learn from the Wildfolk instead, and I consider that time well spent. I will concede however that few things terrify me to this day more than the raw unpredictability of a Wildfolk adolescent" - Guildmaster Jonath Oldbridge of the Archaeological Society\n'+
+                   '"May nothing grow on your grave save the seeds of your enemy" - Wildfolk insult.' 
+        },
 		{
 			type: "carousel",
+			label: "Overview",
+			data: null,
+			text: 'Pronunciation: wi\u0304ldfo\u0304lk, WIYLDfolk\n'+
+	              'Also known as: Wild Ones, elves\n'+
+	              'Singular: wildfolk, Wild One, elf, fae (archaic, inaccurate)\n'+
+	              'Primary settlements: Wildlands, the Great Swamp',
+        },
+		{
+			type:  "carousel",
 			label: "History",
+			data:  null,
+			text:  "Just as the dwaerren were created by the goddess Erthys leading them deep into the mountains, the wildfolk were born when the god Sadhef led his followers deep into the forests. Having found his Shard of godhood at the intersection of leylines, he became convinced the best way to survive the apocalypse was to embrace the raw magic rather than flee it. His intuition was correct in a way- the trees soaked the seeping magic of the earth through their roots and grew to massive heights, diffusing the energy enough to quell the surges of energy and raging tremors. Sadhef\'s followers were massively irradiated with magic, and while many went mad or died, the survivors grew strong, nimble, and deeply in tune with mana.\n"+
+                   "For many years Sadhef led his people in wars against Drakkengard\'s humans and their cold cities, but after the Prophet\'s death and the dark ages that followed, Sadhef withdrew from the physical realm to avoid interfering with mortal affairs. He encouraged the Wildfolk to end the senseless fighting with the humans, and as they recovered from the wars, both races were able to prosper and coexist more or less peacefully. The Wildfolk are still fairly impulsive and capricious, but far more cooperative with others than in the past."
+        },
+		{
+			type:  "carousel",
+			label: "Government and Society",
+			data:  null,
+			text:  "Wildfolk society is very loose in governance, but culturally Wildfolk are very reverent towards elders and those who have done great deeds. Puberty is frequently the onset of magical mutations and intense changes in youths, and leads to rage and impetuous behavior. If they survive both the mutation and the likelihood of self destructive behavior, they are considered adults and immediately get full rights within the community. There still exists a military traditions, but herbalists and artists are considered just as worthy and honorable as warriors.\n"+   
+                   "Although it\'s not uncommon for wildfolk to travel, they effectively never settle down outside the forests of the Wildlands, living in villages that stretch from the ground to the treetops, with little flags and banners sticking up over the canopy marking the territory of various clans. The clans bicker, but rarely actually war with each other. Instead, it is more common for clans to swap members: artisans move to the wealthier and more powerful clans, while warriors move to the weaker clans where they can get more recognition, which over time lets them become more powerful than their neighbors."
+        },
+		{
+			type: "carousel",
+			label: "Relationship with Other Races",
 			data: [
-				{
-					type: "paragraph",
-					label: "Elves history 1",
-					data: null,
-					text: "Elves stuff"
-
-				},
-				{
-					type: "paragraph",
-					label: "Elves history 2",
-					data: null,
-					text: "more Elves stuff"
-
-				}
+                {
+                	type: "carousel",
+                	label: "Other Humans",
+                	data: null,
+                	text: "Humans mistrust each other about as much as they mistrust everyone else. While some might extol the virtues of humanity and act fearful of others, a trait most common among the citizens of Whitestone, in general humans are fully aware of their own imperfections, and are more loyal to their homeland than to humanity as a whole"
+                },
+                {
+                	type: "carousel",
+                	label: "Wildfolk",
+                	data: null,
+                	text: "Years of Wildfolk raiding and general xenophobia have left residual negative feelings, but in modern times Wildfolk are tolerated by humanity, though they are often regarded as a bit primitive. Trade between the two peoples has thrived due to the Wildfolk access to forest herbs and meat and the humans' access to other trade goods."
+                },
+                {
+                	type: "carousel",
+                	label: "Dwaerren",
+                	data: null,
+                	text: "Humans are quite fond of the Dwaerren: they have a good work ethic, years of stability, no history of war, and most importantly they provide human cities with the vast majority of their metal and gemstones. Having a culture not centered around magic is also regarded as quite sensible and noble by many, particularly the Gaardish of Whitestone."
+                },
+                {
+                	type: "carousel",
+                	label: "Halflings",
+                	data: null,
+                	text: "Halflings are a bit too carefree for the average city inhabitant, who view them as slackers at best and vagabonds at worst, but the humans of the farmlands and small hamlets delight in living near halfling communities, or when nomadic bands stop nearby, sharing food, pipeweed, and stories with their gregarious friends."
+                },
+                {
+                	type: "carousel",
+                	label: "Viashi",
+                	data: null,
+                	text: "Few humans ever encounter the Viashi, save for the occasional visitor to a city, so they are treated with a blend of awe and fear, with many incorrectly believing they are descended from the dragons of legend. Traders have utmost respect for the Viashi due to their straightforwardness and honesty in dealings."
+                },
+                {
+                	type: "carousel",
+                	label: "Minotaurs",
+                	data: null,
+                	text: "Minotaurs venture from their mountains so rarely, and generally only travel at night when in human settlements, that many disbelieve they even exist. Most human legends about them however center around their combat prowess and many victories in battle, leading to most people feeling more respect than fear when encountering a minotaur."
+                },
+                {
+                	type: "carousel",
+                	label: "Kenku",
+                	data: null,
+                	text: "Kenku are regarded as absolute nusinces by humans. They raid too often to ignore, and move too often to eradicate. While they are not barred from human cities, people hold their pouches more tightly around them, and shopkeepers will often ignore them or deal with them begrudgingly. Most humans don\'t even know the difference between the mountain and forest kenku, and can\'t be bothered to learn"
+                },
+                {
+                	type: "carousel",
+                	label: "Rakenku",
+                	data: null,
+                	text: "Those who have not personally met or dealt with Rakenku percieve them as beautiful, fierce, and mysterious. Those who have however dread business dealings due to their stubbornness, their temper, and their impressive bluntness. That being said, the average person always knows that around rakenku, there\'s bound to be some excitement. "
+                },
+                {
+                	type: "carousel",
+                	label: "Merfolk",
+                	data: null,
+                	text: "Humans and Merfolk tend to get along extremely well. On land, merfolk blend in very well, and are famously jovial drinking companions. Traders also love dealing with merfolk due to their access to many resources from the sea and rapid transport of goods along the coastlines. "
+                }
 			]
 		},
-		{
-			type: "carousel",
-			label: "Traits",
-			data: [
-				{
-					type: "paragraph",
-					label: "Elves Traits 1",
-					data: null,
-					text: "Elves Traits"
+        {
+            type: "carousel",
+            label: "Traits",
+            data: [
+                {
+                   type: "carousel",
+                   label: "Physical",
+                   data: null,
+                   text: "<b>Age<b>\n"+"Humans generally mature by 18, and live a bit over a century, though those extremely adept in the magical arts or exposed to high amounts of magic can live far longer provided their bodies survive the early stages of magical infusion.\n"+
+                         "<b>Size<b>\n"+"Humans range in height from about five foot to a bit over six, and count as Medium size.\n"+
+                         "<b>Appearance<b>\n"+"Human appearance varies quite a bit by where they hail from. While cities are always a melting pot of civilization, humans with a lineage of multiple city-bound generations tend to be shorter and paler than those who live in the countryside. The extremely rare human of merfolk parentage tends to have a slightly greyish cast to their skin and be hairless and muscular, while rakenku throwbacks tend to be a bit more slender, with strong facial features and somewhat unpredictable skin and hair coloration.\n"+
+                         "<b>Speed<b>\n"+"Base walking speed is 30ft."
+ 
+                },
+                {
+                    type: "carousel",
+                    label: "Social",
+                    data: null,
+                    text: "<b>Alignment<b>\n"+"Humans overall have a tendency towards Lawful or Neutral alignments given that order historically has been their greatest tool in surviving the world of Diamorti, but adventurers, traders, and mages often lean Chaotic instead thanks to their greater exposure to the outside world and thus reduced fear of the unknown and inhuman. Morally, they range from Good to Evil and all the grey areas in between.\n"+ 
+                          "<b>Languages<b>\n"+"All humans speak Common and know a smattering of words from other languages depending on where they live and their occupation. For instance, dockworkers and coastal traders probably know some mersign, though not Seaspeak itself as it is most difficult to comprehend while not underwater, while traders typically know some Viashi and Stonetongue."
 
-				},
-				{
-					type: "paragraph",
-					label: "Elves Traits 2",
-					data: null,
-					text: "more Elves Traits"
+                },
+                {
+                    type: "carousel",
+                    label: "Mechanical",
+                    data: null,
+                    text: "<b>Ability Score Increase<b>\n"+"Humans are very adaptable and versatile, and receive +1 to all ability scores.\n"+
+                          "Your DM may allow for variant human traits based on your character\'s birthplace. For more information, see the next three sections.\n" 
+                },
+                {
+                    type: "carousel",
+                    label: "Variant: Corstazi Streetrat",
+                    data: null,
+                    text: "All those born and raised in the city of Corstaz say they were born in the bad part of town, and most aren\'t lying. Your average nobleman in Corstaz probably breaks up more barfights than a bouncer in Whitestone.\n"+
+                          "Instead of the regular ability score increase gained by humans, receive the following instead:\n"+   
+                          "<b>Ability Score Increase<b>\n"+"+1 to Strength and Charisma.\n"+
+                          "<b>Feat: Alert<b>\n"+"Always on the lookout for danger, you gain the following benefits:\n"+
+                          "* You can’t be surprised while you are conscious.\n"+
+                          "* You gain a +5 bonus to initiative.\n"+
+                          "* Other creatures don’t gain advantage on attack rolls against you as a result of being unseen by you.\n"
+                },
+                {
+                    type: "carousel",
+                    label: "Variant: Gaardish Bloodline",
+                    data: null,
+                    text: "Despite the fall of its founding god, the devastation of its buildings, and the general madness of the Dark Ages, Whitestone remains a beacon of human achievement. Whitestone\'s schools are the finest in Diamorti, and children learn everything from history and art to fencing and bartering.\n"+
+                          "Instead of the regular ability score increase gained by humans, receive the following instead:\n"+
+                          "<b>Ability Score Increase<b>\n"+"+1 to Dexterity and Intelligence.\n"+
+                          "<b>Feat: Focused Mind<b>\n"+"Your education has given you increased ability to filter information. You gain the following benefits:\n"+
+                          "* You have a +5 bonus to your passive Investigation score.\n"+
+                          "* You gain proficiency in either History or Religion.\n"
+                },
+                {
+                    type: "carousel",
+                    label: "Variant: Wilderness Heritage",
+                    data: null,
+                    text: "Although most humans delight in their cities and view them as the destiny of human civilization, there are many who have no fear of nature, who were born in the plains and mountains of Diamorti and would rather life their life outside of any walls or confines.\n"+
+                          "Instead of the regular ability score increase gained by humans, receive the following instead:\n"+
+                          "<b>Ability Score Increase<b>\n"+"+1 to Constitution and Wisdom.\n"+
+                          "<b>Feat: Hardiness<b>\n"+"Your life outside the cities has given you a different kind of education than those who live in them. You gain the following benefits:\n"+
+                          "* Your hit point maximum increases by 1 per level\n"+
+                          "* You gain proficiency in either Survival or Medicine.\n"
+                }
 
-				}
-			]
-		}
+            ]
+        }
 	]
 }
