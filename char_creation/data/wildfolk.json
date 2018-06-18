@@ -41,57 +41,56 @@
 			data: [
                 {
                 	type: "carousel",
-                	label: "Other Humans",
+                	label: "Humans",
                 	data: null,
-                	text: "Humans mistrust each other about as much as they mistrust everyone else. While some might extol the virtues of humanity and act fearful of others, a trait most common among the citizens of Whitestone, in general humans are fully aware of their own imperfections, and are more loyal to their homeland than to humanity as a whole"
-                },
+                	text: "When most wildfolk look at a human, they see a big bag of money. Those who do not travel often in human lands view them as being uncultured and having no value besides their trade connections, but better travelled wildfolk admire the cunning and ambition of humans. The elders are more suspicious of humans, and usually delegate all diplomacy to the next ranking members of the community."},
                 {
                 	type: "carousel",
-                	label: "Wildfolk",
+                	label: "Other Wildfolk",
                 	data: null,
-                	text: "Years of Wildfolk raiding and general xenophobia have left residual negative feelings, but in modern times Wildfolk are tolerated by humanity, though they are often regarded as a bit primitive. Trade between the two peoples has thrived due to the Wildfolk access to forest herbs and meat and the humans' access to other trade goods."
+                	text: "Wildfolk tend to be highly competitive with each other, with different villages sparring both intellectually and physically for pride and dominance. However, most open hostility is just bluster; any wildfolk would make great sacrifices to protect their kin."
                 },
                 {
                 	type: "carousel",
                 	label: "Dwaerren",
                 	data: null,
-                	text: "Humans are quite fond of the Dwaerren: they have a good work ethic, years of stability, no history of war, and most importantly they provide human cities with the vast majority of their metal and gemstones. Having a culture not centered around magic is also regarded as quite sensible and noble by many, particularly the Gaardish of Whitestone."
+                	text: "Dwaerren and Wildfolk have zero physical proximity save in the human cities, so there is no direct animosity between the two races. However, the Wildfolk have a certain amount of pity for the dwarves, viewing them as trapped in their mountains and deprived of magic, which would be the worst nightmare of an elf."
                 },
                 {
                 	type: "carousel",
                 	label: "Halflings",
                 	data: null,
-                	text: "Halflings are a bit too carefree for the average city inhabitant, who view them as slackers at best and vagabonds at worst, but the humans of the farmlands and small hamlets delight in living near halfling communities, or when nomadic bands stop nearby, sharing food, pipeweed, and stories with their gregarious friends."
+                	text: "Being one of the closest neighbors to the Wildfolk has its downsides, as the elves often bully and raid halflings out of boredom and as an outlet to demonstrate prowess in battle. This never leads to greater conflict however, and some clans of Wildfolk have even opened up social ties with local halfling communities with only a small degree of looking down on them in the process." 
                 },
                 {
                 	type: "carousel",
                 	label: "Viashi",
                 	data: null,
-                	text: "Few humans ever encounter the Viashi, save for the occasional visitor to a city, so they are treated with a blend of awe and fear, with many incorrectly believing they are descended from the dragons of legend. Traders have utmost respect for the Viashi due to their straightforwardness and honesty in dealings."
+                	text: "Many people only think of the Sandstalker tribe when they think of the Viashi. However, the Wildfolk also have to deal with the Marshdragons, who resent Wildfolk who interlope on their swamplands. Between having to deal with the harsh deserts to trade with the Sandstalkers and their passive aggressive southern neighbors, the Wildfolk generally dislike the Viashi and find them rude and difficult, an assessment that is in no small part projection on their part."
                 },
                 {
                 	type: "carousel",
                 	label: "Minotaurs",
                 	data: null,
-                	text: "Minotaurs venture from their mountains so rarely, and generally only travel at night when in human settlements, that many disbelieve they even exist. Most human legends about them however center around their combat prowess and many victories in battle, leading to most people feeling more respect than fear when encountering a minotaur."
+                	text: "Wildfolk have far more genuine respect for the minotaurs than they do for effectively all other races. Both races have had a similar transition from warlike nations to ones suddenly forced into a commerce focused world, both have an appreciation for nature and the arts, and both venerate those of great experience and glory. Wildfolk go out of their way to encourage minotaur travellers to stop in their lands and stay for a while."
                 },
                 {
                 	type: "carousel",
                 	label: "Kenku",
                 	data: null,
-                	text: "Kenku are regarded as absolute nusinces by humans. They raid too often to ignore, and move too often to eradicate. While they are not barred from human cities, people hold their pouches more tightly around them, and shopkeepers will often ignore them or deal with them begrudgingly. Most humans don\'t even know the difference between the mountain and forest kenku, and can\'t be bothered to learn"
+                	text: "As they prefer to reside in forested areas, the kenku are utterly hated by the Wildfolk, and will be attacked on sight whenever possible. Unlike most races, the kenku’s powerful magic is known to the wildfolk, which further drives their loathing as it is perceived as borderline blasphemous. Even so, individual wildfolk are usually more than happy to work with individual kenku; they are viewed as having rejected the tribalism of the rest of their race and thus have made admirable personal growth."
                 },
                 {
                 	type: "carousel",
                 	label: "Rakenku",
                 	data: null,
-                	text: "Those who have not personally met or dealt with Rakenku percieve them as beautiful, fierce, and mysterious. Those who have however dread business dealings due to their stubbornness, their temper, and their impressive bluntness. That being said, the average person always knows that around rakenku, there\'s bound to be some excitement. "
+                	text: "The relationship the Wildfolk have with the Rakenku is interesting. The two races rarely interact as the rakenku dislike forests and the wildfolk have no reason to travel to the mountains, but outside of their homelands they get along swimmingly as young wildfolk and rakenku are of a similarly impetuous nature. It is also considered a sign of battle prowess for a wildfolk warrior to win a duel against a rakenku due to their fierce reputation."
                 },
                 {
                 	type: "carousel",
                 	label: "Merfolk",
                 	data: null,
-                	text: "Humans and Merfolk tend to get along extremely well. On land, merfolk blend in very well, and are famously jovial drinking companions. Traders also love dealing with merfolk due to their access to many resources from the sea and rapid transport of goods along the coastlines. "
+                	text: "In some ways, Wildfolk view the Merfolk as their aquatic cousins, being defined by their relation to magic and having it shape their bodies so drastically. Additionally, they frequently reach out to the Shallowshore merfolk to assist them in campaigns to harass the Marshdragon Viashi, as together they can flank the lizard people easily. If they spent more time around the coastal merfolk though, the average wildfolk would find their gregariousness and social nature tiring."
                 }
 			]
 		},
@@ -103,9 +102,9 @@
                    type: "carousel",
                    label: "Physical",
                    data: null,
-                   text: "<b>Age<b>\n"+"Humans generally mature by 18, and live a bit over a century, though those extremely adept in the magical arts or exposed to high amounts of magic can live far longer provided their bodies survive the early stages of magical infusion.\n"+
-                         "<b>Size<b>\n"+"Humans range in height from about five foot to a bit over six, and count as Medium size.\n"+
-                         "<b>Appearance<b>\n"+"Human appearance varies quite a bit by where they hail from. While cities are always a melting pot of civilization, humans with a lineage of multiple city-bound generations tend to be shorter and paler than those who live in the countryside. The extremely rare human of merfolk parentage tends to have a slightly greyish cast to their skin and be hairless and muscular, while rakenku throwbacks tend to be a bit more slender, with strong facial features and somewhat unpredictable skin and hair coloration.\n"+
+                   text: "<b>Age<b>\n"+"Wildfolk mature between the ages of 25 and 35 in a phase of violent puberty, but provided they survive they can live several hundred of year depending on their level of magical attunement.\n"+
+                         "<b>Size<b>\n"+"Wildfolk are usually between 5.5 and 6.5 feet tall, and count as Medium size.\n"+
+                         "<b>Appearance<b>\n"+"Wildfolk tend to be pale, commonly with a very faint greenish cast to their skin, though elves who travel outside the forests get more of an olive complexion. Very wiry in build, Wildfolk are fond of very individualized clothing and hairstyles, often asymmetrically braiding their hair or dying it wild colors when travelling outside of the forest. Mutations often leave them with noticeable physical oddities as well.\n"+
                          "<b>Speed<b>\n"+"Base walking speed is 30ft."
  
                 },
@@ -113,51 +112,65 @@
                     type: "carousel",
                     label: "Social",
                     data: null,
-                    text: "<b>Alignment<b>\n"+"Humans overall have a tendency towards Lawful or Neutral alignments given that order historically has been their greatest tool in surviving the world of Diamorti, but adventurers, traders, and mages often lean Chaotic instead thanks to their greater exposure to the outside world and thus reduced fear of the unknown and inhuman. Morally, they range from Good to Evil and all the grey areas in between.\n"+ 
-                          "<b>Languages<b>\n"+"All humans speak Common and know a smattering of words from other languages depending on where they live and their occupation. For instance, dockworkers and coastal traders probably know some mersign, though not Seaspeak itself as it is most difficult to comprehend while not underwater, while traders typically know some Viashi and Stonetongue."
-
+                    text: "<b>Alignment<b>\n"+"Younger wildfolk are almost always Chaotic Neutral, having a passion for adventure and a fear of stagnation. As they mature, they often develop increased empathy and appreciation for balance, with a rare few even tending towards Lawfulness...or at least Lawful by comparison to most wildfolk.\n"+
+                          "<b>Languages<b>\n"+"Wildfolk speak Common in a local dialect that has unique words for many plants and animals.They also use a written script that is completely unreadable by those not familiar with it, and have a secondary language comprised of words and sign language that is used solely by the warrior class or by artists composing military epics.\n"
                 },
                 {
                     type: "carousel",
                     label: "Mechanical",
                     data: null,
-                    text: "<b>Ability Score Increase<b>\n"+"Humans are very adaptable and versatile, and receive +1 to all ability scores.\n"+
-                          "Your DM may allow for variant human traits based on your character\'s birthplace. For more information, see the next three sections.\n" 
+                    text: "<b>Ability Score Increase<b>\n"+"Wildfolk are very nimble, and receive +1 to Dexterity.\n"+
+                          "<b>Energy Channelling<b>\n"+"Due to their connection to nature, Wildfolk passively channel magical energy around them, affecting how much sleep they need based on where they are travelling. They need no sleep in forests, four hours in plainslands, eight hours in cities, mountains, and deserts, and twelve when spending time underground.\n"+
+                          "<b>Mental Acuity<b>\n"+"When above ground, Wildfolk have advantage against being magically put to sleep, charmed, or confused. \n"+
+                          "<b>Chldren of the Forest<b>\n"+"Wildfolk have proficiency in nature.\n"+ 
+                          "<b>Deft Fighters<b>\n"+"Wildfolk get +1 on attacks made with finesse weapons.\n"+
+                          "<b>Mutations<b>\n"+ "Wildfolk start to manifest srange mutations at a very early age. Pick one major mutation and one or two minor mutations from the next two sections. Other minor mutations may be allowed at the discretion of the DM."
                 },
                 {
                     type: "carousel",
-                    label: "Variant: Corstazi Streetrat",
+                    label: "Major Mutations",
                     data: null,
-                    text: "All those born and raised in the city of Corstaz say they were born in the bad part of town, and most aren\'t lying. Your average nobleman in Corstaz probably breaks up more barfights than a bouncer in Whitestone.\n"+
-                          "Instead of the regular ability score increase gained by humans, receive the following instead:\n"+   
-                          "<b>Ability Score Increase<b>\n"+"+1 to Strength and Charisma.\n"+
-                          "<b>Feat: Alert<b>\n"+"Always on the lookout for danger, you gain the following benefits:\n"+
-                          "* You can’t be surprised while you are conscious.\n"+
-                          "* You gain a +5 bonus to initiative.\n"+
-                          "* Other creatures don’t gain advantage on attack rolls against you as a result of being unseen by you.\n"
-                },
-                {
+                    text: "<b>Manacharged Mind<b>\n"+
+							"Physical manifestations: very slight patterns in the skin that shift over time, eyes appear to glow slightly, head hair grows much faster.\n"+ 
+							"Effects: +1 to Intelligence, start with one cantrip from the wizard list.\n\n"+
+							"<b>Radiant Glow<b>\n"+
+							"Physical manifestations: youthful appearance, slightly glowing skin only noticeable in very dim light but it can be muted through intense focus.\n"+
+							"Effects: +1 to Charisma, +1 HP per level, -2 to Stealth checks in darkness if Concentration is broken.\n\n"+
+							"<b>Ironroot Muscles<b>\n"+
+							"Physical manifestations: incredibly strong and dense muscles, scars on skin from occasional splitting.\n"+
+							"Effects: +1 to Strength, advantage on grapple checks.\n\n"+
+							"<b>Barkskin<b>\n"+
+							"Physical manifestations: dark, tough, skin with mottled or lined patterns.\n"+ 
+							"Effects: +1 to Constitution, advantage on Stealth checks in forests.\n\n"+
+							"<b>Harmonic Soul<b>\n"+
+							"Physical manifestations: nothing obvious, but they tend to have a faraway look in their eyes and seem to not be paying attention even when they are listening intently.\n"+
+							"Effects: +1 to Wisdom, +2 to passive checks to detect leylines or powerful nexuses of magical energy."
+				},
+				{
                     type: "carousel",
-                    label: "Variant: Gaardish Bloodline",
+                    label: "Minor Mutations",
                     data: null,
-                    text: "Despite the fall of its founding god, the devastation of its buildings, and the general madness of the Dark Ages, Whitestone remains a beacon of human achievement. Whitestone\'s schools are the finest in Diamorti, and children learn everything from history and art to fencing and bartering.\n"+
-                          "Instead of the regular ability score increase gained by humans, receive the following instead:\n"+
-                          "<b>Ability Score Increase<b>\n"+"+1 to Dexterity and Intelligence.\n"+
-                          "<b>Feat: Focused Mind<b>\n"+"Your education has given you increased ability to filter information. You gain the following benefits:\n"+
-                          "* You have a +5 bonus to your passive Investigation score.\n"+
-                          "* You gain proficiency in either History or Religion.\n"
-                },
-                {
-                    type: "carousel",
-                    label: "Variant: Wilderness Heritage",
-                    data: null,
-                    text: "Although most humans delight in their cities and view them as the destiny of human civilization, there are many who have no fear of nature, who were born in the plains and mountains of Diamorti and would rather life their life outside of any walls or confines.\n"+
-                          "Instead of the regular ability score increase gained by humans, receive the following instead:\n"+
-                          "<b>Ability Score Increase<b>\n"+"+1 to Constitution and Wisdom.\n"+
-                          "<b>Feat: Hardiness<b>\n"+"Your life outside the cities has given you a different kind of education than those who live in them. You gain the following benefits:\n"+
-                          "* Your hit point maximum increases by 1 per level\n"+
-                          "* You gain proficiency in either Survival or Medicine.\n"
-                }
+                    text: "<b>Photosynthetic Skin<b>\n"+
+						"Effects: if you spend at least six hours in direct sunlight, you don’t need to eat that day.\n"+ 
+						"<b>Webbed Digits<b>\n"+
+						"Effects: +5 to swimming speed.\n"+
+						"<b>Heterochromia<b>\n"+
+						"Effects: differently colored eyes.\n"+ 
+						"<b>Forked Tongue<b>\n"+
+						"Effects: tongue is mildly elongated and forked at the end.\n"+ 
+						"<b>Heightened Tastebuds<b>\n"+
+						"Effects: things taste more intensely, but does not grant increased ability to differentiate tastes.\n"+
+						"<b>Pointed Ears<b>\n"+
+						"Effects: ears are slightly pointed on the tops.\n"+
+						"<b>Static Field<b>\n"+
+						"Effects: dust and light objects such as small feathers cling to you.\n"+
+						"<b>Polydactyly<b>\n"+ 
+						"Effects: an extra digit on each hand and/or each foot.\n"+
+						"<b>Hypermobility<b>\n"+
+						"Effects: slightly double jointed, might be able to squeeze through tight spots more easily.\n"+ 
+						"<b>Ivymarked<b>\n"+
+						"Effects: light to medium green skin discolorations resembling swirling ivy appear on the skin. Considered a sign of good luck."
+				}
 
             ]
         }
