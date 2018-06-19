@@ -373,18 +373,8 @@ var MasterDisplay = function (_Component) {
           { style: headerstyle },
           'Character info'
         ),
-        _react2.default.createElement(
-          'div',
-          null,
-          displayPath
-        ),
         _react2.default.createElement('br', null),
-        _react2.default.createElement(_DataDisplay2.default, { dataobj: this.state.data, path: this.state.path, depth: startdepth, updatePath: this.updatePath }),
-        _react2.default.createElement(
-          'pre',
-          null,
-          displayData
-        )
+        _react2.default.createElement(_DataDisplay2.default, { dataobj: this.state.data, path: this.state.path, depth: startdepth, updatePath: this.updatePath })
       );
     }
   }]);
@@ -602,103 +592,168 @@ var DataSource = function () {
 exports.default = DataSource;
 },{"../data/dwaerren.json":5,"../data/halflings.json":6,"../data/humans.json":7,"../data/kenku.json":8,"../data/merfolk.json":9,"../data/minotaurs.json":10,"../data/rakenku.json":11,"../data/viashi.json":13,"../data/wildfolk.json":14}],5:[function(require,module,exports){
 module.exports={
-	type: "carousel",
-	label: "Humans",
-	sublabel: "",
-	text: null,
-	data: [
-	    {
-			type: "carousel",
-			label: "Introduction",
-			data: null,
-			text: '"Humanity is proof that grit, adaptivity, and a drive for progress are the traits that elevate a group from merely trying to survive to being capable of actually advancing society. We are the oldest race, we are the most enlightened society, and it is vital for the future that we reach out to the other peoples of Diamorti and help elevate them to our level." - Whitestone Head Historian Isaiah Rexam\n'+
-                  '"We have built walls to keep others out, yet in turn we have kept ourselves locked in. We have feared nature for so long that we have become unnatural in our habits and goals. We have promoted technology yet shunned magic, and so our progress is limited to the physical world and access to resources. And we have tied our standards of success to gold rather than accomplishment, which I fear will cripple the common people’s ability to better themselves. We must learn from the rest of the world, before it is too late." - Guildmaster Jonath Oldbridge of the Archaeological Society\n'+
-                  '"I love being human. Everyone likes you when you\'re rich, and there’s always someone for you to fight if you\'re poor. It\'s never a dull moment." - Teshi Alair, adventurer.\n\n'
-		},
-		{
-			type: "carousel",
-			label: "Overview",
-			data: null,
-			text: 'Pronunciation: (h)yo\u0304o\u0304m\u0259n, HYOOmun\n'+
-	              'Also known as: No formal alternate names, but humans are collectively often referred to by their homeland: the Corstazi of Corstazi, the Gaardish of Whitestone, the Plainsmen of the Grass Ocean, and the Keldians of the region around Sandport (a term that is frowned upon by the Viashi and the Minotaurs).\n'+
-	              'Singular: human\n'+
-	              'Primary settlements: Whitestone, Corstaz, Sandport',
+    type: "carousel",
+    label: "Dwaerren",
+    sublabel: "",
+    text: null,
+    data: [
+        {
+            type: "carousel",
+            label: "Introduction",
+            data: null,
+            text:  '"The Dwaerren are a fine people. Patient, hard-working, excellent craftsmen, and always looking to share in their blessings, plus they show little interest in the dubious practices of magic. I look forward to years of peace and prosperity between our peoples." - Whitestone Head Historian Isaiah Rexam\n'+
+                   '"I worry at times about our relationship with the Dwaerren, not due to any fault of their own, but rather that they represent so much that humanity strives for: the priests admire their stoicism, the nobles their structure, the merchants their acumen, and the commoner their apparent contentment. Yet we ignore that the Dwaerren are not all identical, that they experience change and growth and sloth and doubt. In addition, we refuse to grow in the ways we profess to admire in others. This type of idolization can never be healthy." - Guildmaster Jonath Oldbridge of the Archaeological Society\n'+
+                   '"My people are the rock, strong, formidable, a foundation on which the world rests. My people are the mine, hollow, cold, only respected for what it provides to the overworld. My people are the seed, hard, yet full of life, destined to grow and burst out of the underground. We are underestimated by the outside world, and the time for reckoning is at hand. The Dwaerren must grow, or we will be buried." - Argos, Dwaerren Heretic'  
         },
-		{
-			type: "carousel",
-			label: "History",
-			data: null,
-			text: "Most scholars agree prior to the Cataclysm, humanity was the only race of Diamorti, and it was that influx of magic that split off and rapidly evolved the other races to their current state, although a smattering of others disagree. Regardless, humans do tend towards being more adaptive than other races and have founded many of the permanent settlements on the continent. The vast majority live along the coastlines, with the two major predominantly human cities being Corstaz in the southeast and Whitestone on the southern coast, with small trade cities dotting the landscape between them.\n"+
-                  "There are also small settlements bordering some of the other trading nations, primarily along the Deepstone Mountains, the Keldara Desert outskirts, and the northern coastlines by the merfolk territories. Few humans have settled in the western side of the continent, but Whitestone\'s leadership has started to make plans to rectify that issue, particularly since Corstaz\'s influence has surpassed that of the older city." 
-		},
-		{
-			type: "carousel",
-			label: "Government and Society",
-			data: null,
-			text: "Humanity is organized primarily into independent city-states that maintain influence and control over local towns and farmlands, the three largest of which are Corstaz on the eastern coast, Whitestone in the south, and Sandport in the center of the continent. There are some nomadic bands of humans as well, though even they have a favored city to stop in for supplies and trading.\n\n"+
-                 "While in the past priests were the ruling class, in modern times cities are run by a secular bureaucracy. Whitestone\'s government is still heavily influenced by the priests, while in Corstaz it is the merchant guilds that wield true power."
-		},
-		{
-			type: "carousel",
-			label: "Relationship with Other Races",
-			data: [
+        {
+            type: "carousel",
+            label: "Overview",
+            data: null,
+            text: 'Pronunciation: dw\u025B\u0259ren, DWAIRen\n'+
+                  'Also known as: dwarves, Dwellers (somewhat inaccurate, technically only refers to one subrace)\n'+
+                  'Singular: Dwaerren, dwarf, dweller, Dwaer (archaic), Dewar (disliked by the dwaerren, but they are usually too polite to correct it)\n'+
+                  'Primary settlements: Darkscar Mountains',
+        },
+        {
+            type: "carousel",
+            label: "History",
+            data: null,
+            text: "During the Cataclysm, the goddess Erthys the Stonequeen led her people deep underground into what is now known as the Darkscar mountains in order to protect them from the ravages of the wild landscape, realizing that although the mountains had sprouted from the ground overnight, the magic resistant stones would be safer from future change than staying on the surface even though it was not a guarantee. Her gamble paid off however, at the cost of her own life. She knew that the lack of access to the wild magics of nature might drain her powers over time, but in addition her followers unknowingly fed on her life force instead of being sustained by natural energy. They adapted and grew stronger over time even without wild magic to innervate their bodies, and have maintained the longest lasting society in all of Diamorti.\n"+
+                  "The term Dwaerren comes from the Stonetongue adjective 'blessed by the earth', which was frequently used as 'one who is blessed by the earth', leading to the unusual pluralization and variations in their name"
+        },
+        {
+            type: "carousel",
+            label: "Government and Society",
+            data: null,
+            text: "The Dwaerren have a strict hierarchical society. It is run by a hereditary oligarchy of royals advised by three legislative bodies- one comprised of lesser nobles, one of traders, and one of the miners, warriors, and other working-class. After the nobles, the traders living within the mountain are the highest rank, followed by the clerics and miners, followed by the warriors, followed by traders living outside the mountain. However, warriors and traders have the highest opportunity to advance into the nobility through merit and glory, while the middle class of clerics and miners tend to be generations-long internal societies with their own laws and hierarchies. That being said, dwarves by nature are not particularly ambitious, seeking only to serve their family and nation. The oddballs that diverge from this quickly find themselves stationed outside the mountainhome, travelling outside to other places and serving as either liaisons or adventurers, or a little bit of both."
+        },
+        {
+            type: "carousel",
+            label: "Relationship with Other Races",
+            data: [
                 {
-                	type: "carousel",
-                	label: "Other Humans",
-                	data: null,
-                	text: "Humans mistrust each other about as much as they mistrust everyone else. While some might extol the virtues of humanity and act fearful of others, a trait most common among the citizens of Whitestone, in general humans are fully aware of their own imperfections, and are more loyal to their homeland than to humanity as a whole"
+                    type: "carousel",
+                    label: "Other Humans",
+                    data: null,
+                    text: "Humans mistrust each other about as much as they mistrust everyone else. While some might extol the virtues of humanity and act fearful of others, a trait most common among the citizens of Whitestone, in general humans are fully aware of their own imperfections, and are more loyal to their homeland than to humanity as a whole"
                 },
                 {
-                	type: "carousel",
-                	label: "Wildfolk",
-                	data: null,
-                	text: "Years of Wildfolk raiding and general xenophobia have left residual negative feelings, but in modern times Wildfolk are tolerated by humanity, though they are often regarded as a bit primitive. Trade between the two peoples has thrived due to the Wildfolk access to forest herbs and meat and the humans' access to other trade goods."
+                    type: "carousel",
+                    label: "Wildfolk",
+                    data: null,
+                    text: "Years of Wildfolk raiding and general xenophobia have left residual negative feelings, but in modern times Wildfolk are tolerated by humanity, though they are often regarded as a bit primitive. Trade between the two peoples has thrived due to the Wildfolk access to forest herbs and meat and the humans' access to other trade goods."
                 },
                 {
-                	type: "carousel",
-                	label: "Dwaerren",
-                	data: null,
-                	text: "Humans are quite fond of the Dwaerren: they have a good work ethic, years of stability, no history of war, and most importantly they provide human cities with the vast majority of their metal and gemstones. Having a culture not centered around magic is also regarded as quite sensible and noble by many, particularly the Gaardish of Whitestone."
+                    type: "carousel",
+                    label: "Dwaerren",
+                    data: null,
+                    text: "Humans are quite fond of the Dwaerren: they have a good work ethic, years of stability, no history of war, and most importantly they provide human cities with the vast majority of their metal and gemstones. Having a culture not centered around magic is also regarded as quite sensible and noble by many, particularly the Gaardish of Whitestone."
                 },
                 {
-                	type: "carousel",
-                	label: "Halflings",
-                	data: null,
-                	text: "Halflings are a bit too carefree for the average city inhabitant, who view them as slackers at best and vagabonds at worst, but the humans of the farmlands and small hamlets delight in living near halfling communities, or when nomadic bands stop nearby, sharing food, pipeweed, and stories with their gregarious friends."
+                    type: "carousel",
+                    label: "Halflings",
+                    data: null,
+                    text: "Halflings are a bit too carefree for the average city inhabitant, who view them as slackers at best and vagabonds at worst, but the humans of the farmlands and small hamlets delight in living near halfling communities, or when nomadic bands stop nearby, sharing food, pipeweed, and stories with their gregarious friends."
                 },
                 {
-                	type: "carousel",
-                	label: "Viashi",
-                	data: null,
-                	text: "Few humans ever encounter the Viashi, save for the occasional visitor to a city, so they are treated with a blend of awe and fear, with many incorrectly believing they are descended from the dragons of legend. Traders have utmost respect for the Viashi due to their straightforwardness and honesty in dealings."
+                    type: "carousel",
+                    label: "Viashi",
+                    data: null,
+                    text: "Few humans ever encounter the Viashi, save for the occasional visitor to a city, so they are treated with a blend of awe and fear, with many incorrectly believing they are descended from the dragons of legend. Traders have utmost respect for the Viashi due to their straightforwardness and honesty in dealings."
                 },
                 {
-                	type: "carousel",
-                	label: "Minotaurs",
-                	data: null,
-                	text: "Minotaurs venture from their mountains so rarely, and generally only travel at night when in human settlements, that many disbelieve they even exist. Most human legends about them however center around their combat prowess and many victories in battle, leading to most people feeling more respect than fear when encountering a minotaur."
+                    type: "carousel",
+                    label: "Minotaurs",
+                    data: null,
+                    text: "Minotaurs venture from their mountains so rarely, and generally only travel at night when in human settlements, that many disbelieve they even exist. Most human legends about them however center around their combat prowess and many victories in battle, leading to most people feeling more respect than fear when encountering a minotaur."
                 },
                 {
-                	type: "carousel",
-                	label: "Kenku",
-                	data: null,
-                	text: "Kenku are regarded as absolute nusinces by humans. They raid too often to ignore, and move too often to eradicate. While they are not barred from human cities, people hold their pouches more tightly around them, and shopkeepers will often ignore them or deal with them begrudgingly. Most humans don\'t even know the difference between the mountain and forest kenku, and can\'t be bothered to learn"
+                    type: "carousel",
+                    label: "Kenku",
+                    data: null,
+                    text: "Kenku are regarded as absolute nusinces by humans. They raid too often to ignore, and move too often to eradicate. While they are not barred from human cities, people hold their pouches more tightly around them, and shopkeepers will often ignore them or deal with them begrudgingly. Most humans don\'t even know the difference between the mountain and forest kenku, and can\'t be bothered to learn"
                 },
                 {
-                	type: "carousel",
-                	label: "Rakenku",
-                	data: null,
-                	text: "Those who have not personally met or dealt with Rakenku percieve them as beautiful, fierce, and mysterious. Those who have however dread business dealings due to their stubbornness, their temper, and their impressive bluntness. That being said, the average person always knows that around rakenku, there\'s bound to be some excitement. "
+                    type: "carousel",
+                    label: "Rakenku",
+                    data: null,
+                    text: "Those who have not personally met or dealt with Rakenku percieve them as beautiful, fierce, and mysterious. Those who have however dread business dealings due to their stubbornness, their temper, and their impressive bluntness. That being said, the average person always knows that around rakenku, there\'s bound to be some excitement. "
                 },
                 {
-                	type: "carousel",
-                	label: "Merfolk",
-                	data: null,
-                	text: "Humans and Merfolk tend to get along extremely well. On land, merfolk blend in very well, and are famously jovial drinking companions. Traders also love dealing with merfolk due to their access to many resources from the sea and rapid transport of goods along the coastlines. "
+                    type: "carousel",
+                    label: "Merfolk",
+                    data: null,
+                    text: "Humans and Merfolk tend to get along extremely well. On land, merfolk blend in very well, and are famously jovial drinking companions. Traders also love dealing with merfolk due to their access to many resources from the sea and rapid transport of goods along the coastlines. "
                 }
-			]
-		}
-	]
+            ]
+        },
+        {
+            type: "carousel",
+            label: "Traits",
+            data: [
+                {
+                   type: "carousel",
+                   label: "Physical",
+                   data: null,
+                   text: "<b>Age<b>\n"+"Humans generally mature by 18, and live a bit over a century, though those extremely adept in the magical arts or exposed to high amounts of magic can live far longer provided their bodies survive the early stages of magical infusion.\n"+
+                         "<b>Size<b>\n"+"Humans range in height from about five foot to a bit over six, and count as Medium size.\n"+
+                         "<b>Appearance<b>\n"+"Human appearance varies quite a bit by where they hail from. While cities are always a melting pot of civilization, humans with a lineage of multiple city-bound generations tend to be shorter and paler than those who live in the countryside. The extremely rare human of merfolk parentage tends to have a slightly greyish cast to their skin and be hairless and muscular, while rakenku throwbacks tend to be a bit more slender, with strong facial features and somewhat unpredictable skin and hair coloration.\n"+
+                         "<b>Speed<b>\n"+"Base walking speed is 30ft."
+ 
+                },
+                {
+                    type: "carousel",
+                    label: "Social",
+                    data: null,
+                    text: "<b>Alignment<b>\n"+"Humans overall have a tendency towards Lawful or Neutral alignments given that order historically has been their greatest tool in surviving the world of Diamorti, but adventurers, traders, and mages often lean Chaotic instead thanks to their greater exposure to the outside world and thus reduced fear of the unknown and inhuman. Morally, they range from Good to Evil and all the grey areas in between.\n"+ 
+                          "<b>Languages<b>\n"+"All humans speak Common and know a smattering of words from other languages depending on where they live and their occupation. For instance, dockworkers and coastal traders probably know some mersign, though not Seaspeak itself as it is most difficult to comprehend while not underwater, while traders typically know some Viashi and Stonetongue."
+
+                },
+                {
+                    type: "carousel",
+                    label: "Mechanical",
+                    data: null,
+                    text: "<b>Ability Score Increase<b>\n"+"Humans are very adaptable and versatile, and receive +1 to all ability scores.\n"+
+                          "Your DM may allow for variant human traits based on your character\'s birthplace. For more information, see the next three sections.\n" 
+                },
+                {
+                    type: "carousel",
+                    label: "Variant: Corstazi Streetrat",
+                    data: null,
+                    text: "All those born and raised in the city of Corstaz say they were born in the bad part of town, and most aren\'t lying. Your average nobleman in Corstaz probably breaks up more barfights than a bouncer in Whitestone.\n"+
+                          "Instead of the regular ability score increase gained by humans, receive the following instead:\n"+   
+                          "<b>Ability Score Increase<b>\n"+"+1 to Strength and Charisma.\n"+
+                          "<b>Feat: Alert<b>\n"+"Always on the lookout for danger, you gain the following benefits:\n"+
+                          "* You can’t be surprised while you are conscious.\n"+
+                          "* You gain a +5 bonus to initiative.\n"+
+                          "* Other creatures don’t gain advantage on attack rolls against you as a result of being unseen by you.\n"
+                },
+                {
+                    type: "carousel",
+                    label: "Variant: Gaardish Bloodline",
+                    data: null,
+                    text: "Despite the fall of its founding god, the devastation of its buildings, and the general madness of the Dark Ages, Whitestone remains a beacon of human achievement. Whitestone\'s schools are the finest in Diamorti, and children learn everything from history and art to fencing and bartering.\n"+
+                          "Instead of the regular ability score increase gained by humans, receive the following instead:\n"+
+                          "<b>Ability Score Increase<b>\n"+"+1 to Dexterity and Intelligence.\n"+
+                          "<b>Feat: Focused Mind<b>\n"+"Your education has given you increased ability to filter information. You gain the following benefits:\n"+
+                          "* You have a +5 bonus to your passive Investigation score.\n"+
+                          "* You gain proficiency in either History or Religion.\n"
+                },
+                {
+                    type: "carousel",
+                    label: "Variant: Wilderness Heritage",
+                    data: null,
+                    text: "Although most humans delight in their cities and view them as the destiny of human civilization, there are many who have no fear of nature, who were born in the plains and mountains of Diamorti and would rather life their life outside of any walls or confines.\n"+
+                          "Instead of the regular ability score increase gained by humans, receive the following instead:\n"+
+                          "<b>Ability Score Increase<b>\n"+"+1 to Constitution and Wisdom.\n"+
+                          "<b>Feat: Hardiness<b>\n"+"Your life outside the cities has given you a different kind of education than those who live in them. You gain the following benefits:\n"+
+                          "* Your hit point maximum increases by 1 per level\n"+
+                          "* You gain proficiency in either Survival or Medicine.\n"
+                }
+
+            ]
+        }
+    ]
 }
 },{}],6:[function(require,module,exports){
 module.exports={

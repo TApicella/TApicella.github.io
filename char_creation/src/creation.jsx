@@ -96,11 +96,9 @@ class MasterDisplay extends Component{
         <h1 style={headerstyle}>
           Character info
         </h1>
-        <div>{displayPath}</div>
         <br/>
         <DataDisplay dataobj={this.state.data} path={this.state.path} depth={startdepth} updatePath={this.updatePath}/>
 
-        <pre>{displayData}</pre>
       </div>
   	);
   }

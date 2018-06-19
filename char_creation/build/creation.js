@@ -139,18 +139,8 @@ var MasterDisplay = function (_Component) {
           { style: headerstyle },
           'Character info'
         ),
-        _react2.default.createElement(
-          'div',
-          null,
-          displayPath
-        ),
         _react2.default.createElement('br', null),
-        _react2.default.createElement(_DataDisplay2.default, { dataobj: this.state.data, path: this.state.path, depth: startdepth, updatePath: this.updatePath }),
-        _react2.default.createElement(
-          'pre',
-          null,
-          displayData
-        )
+        _react2.default.createElement(_DataDisplay2.default, { dataobj: this.state.data, path: this.state.path, depth: startdepth, updatePath: this.updatePath })
       );
     }
   }]);
